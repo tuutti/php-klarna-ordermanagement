@@ -1,0 +1,8 @@
+{
+    "invokerPackage": "Klarna\\OrderManagement",
+    "packagePath": "php-klarna-ordermanagement",
+    "packageName": "php-klarna-ordermanagement",
+    "srcBasePath": "src",
+    "composerVendorName": "php-klarna-ordermanagement",
+    "composerProjectName": "client"
+}
