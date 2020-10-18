@@ -4,7 +4,7 @@ NAME=${NAMESPACE,,}
 
 curl --compressed https://developers.klarna.com/api/specs/$NAME.json | jq > $NAME.json
 
-echo "$( jq '.security = = [{ basicAuth: [] }]' test.json )" > $NAME.json
+echo "$( jq '.security = [{ "basicAuth": [] }]' $NAME.json )" > $NAME.json
 
 # Generate the client.
 openapi-generator-cli generate -c $NAME.config.json -i $NAME.json -g php -o ../$NAME --skip-validate-spec --git-host=gitlab.com --git-repo-id=php-klarna-$NAME --git-user-id=tuutti --global-property apiTests=false
