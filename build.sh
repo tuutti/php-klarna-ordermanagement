@@ -4,6 +4,7 @@ NAME=${NAMESPACE,,}
 
 curl --compressed https://developers.klarna.com/api/specs/$NAME.json | jq > $NAME.json
 
+# Fix security headers schema.
 echo "$( jq '.security = [{ "basicAuth": [] }]' $NAME.json )" > $NAME.json
 
 # Generate the client.
@@ -20,5 +21,5 @@ for FILE in ApiException Configuration HeaderSelector ObjectSerializer
 do
   rm src/$FILE.php || true
   # Convert all Api clients to use same base classes.
-  find ../$NAME/src -type f -name "*.php" -exec sed -i 's|Klarna\\'"$NAMESPACE"'\\'"$FILE"'|Klarna\\'"$FILE"'|g' {} +
+  find src -type f -name "*.php" -exec sed -i 's|Klarna\\'"$NAMESPACE"'\\'"$FILE"'|Klarna\\'"$FILE"'|g' {} +
 done
