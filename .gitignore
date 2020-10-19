@@ -4,4 +4,3 @@ phpunit.xml.dist
 composer.lock
 vendor/
 ordermanagement.json
-openapitools.json
