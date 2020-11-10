@@ -233,8 +233,8 @@ class ShippingInfo implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'shipping_company', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['shipping_method']) && !preg_match("/(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital)/", $this->container['shipping_method'])) {
-            $invalidProperties[] = "invalid value for 'shipping_method', must be conform to the pattern /(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital)/.";
+        if (!is_null($this->container['shipping_method']) && !preg_match("/(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital|Undefined)/", $this->container['shipping_method'])) {
+            $invalidProperties[] = "invalid value for 'shipping_method', must be conform to the pattern /(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital|Undefined)/.";
         }
 
         if (!is_null($this->container['tracking_number']) && (mb_strlen($this->container['tracking_number']) > 100)) {
@@ -336,15 +336,15 @@ class ShippingInfo implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_method
      *
-     * @param string|null $shipping_method Shipping method. Allowed values matches (PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital)
+     * @param string|null $shipping_method Shipping method. Allowed values matches (PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital|Undefined)
      *
      * @return $this
      */
     public function setShippingMethod($shipping_method)
     {
 
-        if (!is_null($shipping_method) && (!preg_match("/(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital)/", $shipping_method))) {
-            throw new \InvalidArgumentException("invalid value for $shipping_method when calling ShippingInfo., must conform to the pattern /(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital)/.");
+        if (!is_null($shipping_method) && (!preg_match("/(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital|Undefined)/", $shipping_method))) {
+            throw new \InvalidArgumentException("invalid value for $shipping_method when calling ShippingInfo., must conform to the pattern /(PickUpStore|Home|BoxReg|BoxUnreg|PickUpPoint|Own|Postal|DHLPackstation|Digital|Undefined)/.");
         }
 
         $this->container['shipping_method'] = $shipping_method;
