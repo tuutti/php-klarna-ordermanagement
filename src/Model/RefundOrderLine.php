@@ -278,6 +278,10 @@ class RefundOrderLine implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        if (!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $this->container['type'])) {
+            $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.";
+        }
+
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
@@ -427,12 +431,17 @@ class RefundOrderLine implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge
+     * @param string $type Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee
      *
      * @return $this
      */
     public function setType($type)
     {
+
+        if ((!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $type))) {
+            throw new \InvalidArgumentException("invalid value for $type when calling RefundOrderLine., must conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.");
+        }
+
         $this->container['type'] = $type;
 
         return $this;
