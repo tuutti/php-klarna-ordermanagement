@@ -29,7 +29,6 @@ docs/Model/ProductIdentifiers.md
 docs/Model/Refund.md
 docs/Model/RefundNotAllowedErrorMessage.md
 docs/Model/RefundObject.md
-docs/Model/RefundOrderLine.md
 docs/Model/SelectedShippingOptionDto.md
 docs/Model/ShippingInfo.md
 docs/Model/Timeslot.md
@@ -70,7 +69,6 @@ src/Model/ProductIdentifiers.php
 src/Model/Refund.php
 src/Model/RefundNotAllowedErrorMessage.php
 src/Model/RefundObject.php
-src/Model/RefundOrderLine.php
 src/Model/SelectedShippingOptionDto.php
 src/Model/ShippingInfo.php
 src/Model/Timeslot.php
