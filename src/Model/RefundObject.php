@@ -60,7 +60,7 @@ class RefundObject implements ModelInterface, ArrayAccess
         'refunded_amount' => 'int',
         'description' => 'string',
         'reference' => 'string',
-        'order_lines' => '\Klarna\OrderManagement\Model\RefundOrderLine[]'
+        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]'
     ];
 
     /**
@@ -346,7 +346,7 @@ class RefundObject implements ModelInterface, ArrayAccess
     /**
      * Gets order_lines
      *
-     * @return \Klarna\OrderManagement\Model\RefundOrderLine[]|null
+     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
      */
     public function getOrderLines()
     {
@@ -356,7 +356,7 @@ class RefundObject implements ModelInterface, ArrayAccess
     /**
      * Sets order_lines
      *
-     * @param \Klarna\OrderManagement\Model\RefundOrderLine[]|null $order_lines Order lines for the refund shown to the customer. Optional but increases the customer experience. Maximum 1000 order lines.
+     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines Order lines for the refund shown to the customer. Optional but increases the customer experience. Maximum 1000 order lines.
      *
      * @return $this
      */

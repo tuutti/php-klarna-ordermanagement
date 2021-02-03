@@ -275,11 +275,8 @@ class OrderLine implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
         }
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if (!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge/", $this->container['type'])) {
-            $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge/.";
+        if (!is_null($this->container['type']) && !preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $this->container['type'])) {
+            $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.";
         }
 
         if ($this->container['quantity'] === null) {
@@ -421,7 +418,7 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -431,15 +428,15 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge
+     * @param string|null $type Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee
      *
      * @return $this
      */
     public function setType($type)
     {
 
-        if ((!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge/", $type))) {
-            throw new \InvalidArgumentException("invalid value for $type when calling OrderLine., must conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge/.");
+        if (!is_null($type) && (!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $type))) {
+            throw new \InvalidArgumentException("invalid value for $type when calling OrderLine., must conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.");
         }
 
         $this->container['type'] = $type;

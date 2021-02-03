@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reference** | **string** | Article number, SKU or similar. | [optional] 
-**type** | **string** | Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge | 
+**type** | **string** | Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee | [optional] 
 **quantity** | **int** | Item quantity. Non-negative. Between 0 and 100000 | 
 **quantity_unit** | **string** | Unit used to describe the quantity. Maximum 10 characters. | [optional] 
 **name** | **string** | Descriptive item name. Maximum 255 characters. | 

@@ -137,7 +137,6 @@ Class | Method | HTTP request | Description
  - [Refund](docs/Model/Refund.md)
  - [RefundNotAllowedErrorMessage](docs/Model/RefundNotAllowedErrorMessage.md)
  - [RefundObject](docs/Model/RefundObject.md)
- - [RefundOrderLine](docs/Model/RefundOrderLine.md)
  - [SelectedShippingOptionDto](docs/Model/SelectedShippingOptionDto.md)
  - [ShippingInfo](docs/Model/ShippingInfo.md)
  - [Timeslot](docs/Model/Timeslot.md)
