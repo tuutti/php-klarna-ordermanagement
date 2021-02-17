@@ -331,17 +331,11 @@ class OrderLine implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'total_discount_amount', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['tax_rate'] === null) {
-            $invalidProperties[] = "'tax_rate' can't be null";
-        }
-        if (($this->container['tax_rate'] < 0)) {
+        if (!is_null($this->container['tax_rate']) && ($this->container['tax_rate'] < 0)) {
             $invalidProperties[] = "invalid value for 'tax_rate', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['total_tax_amount'] === null) {
-            $invalidProperties[] = "'total_tax_amount' can't be null";
-        }
-        if (($this->container['total_tax_amount'] > 100000000)) {
+        if (!is_null($this->container['total_tax_amount']) && ($this->container['total_tax_amount'] > 100000000)) {
             $invalidProperties[] = "invalid value for 'total_tax_amount', must be smaller than or equal to 100000000.";
         }
 
@@ -631,7 +625,7 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Gets tax_rate
      *
-     * @return int
+     * @return int|null
      */
     public function getTaxRate()
     {
@@ -641,14 +635,14 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Sets tax_rate
      *
-     * @param int $tax_rate The tax rate in percent with two implicit decimals. Non-negative. Example: 2500 = 25%.
+     * @param int|null $tax_rate The tax rate in percent with two implicit decimals. Non-negative. Example: 2500 = 25%.
      *
      * @return $this
      */
     public function setTaxRate($tax_rate)
     {
 
-        if (($tax_rate < 0)) {
+        if (!is_null($tax_rate) && ($tax_rate < 0)) {
             throw new \InvalidArgumentException('invalid value for $tax_rate when calling OrderLine., must be bigger than or equal to 0.');
         }
 
@@ -660,7 +654,7 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Gets total_tax_amount
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalTaxAmount()
     {
@@ -670,14 +664,14 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Sets total_tax_amount
      *
-     * @param int $total_tax_amount The total tax amount in minor units. Negative if the order line type is discount. Example: 500 = $5.
+     * @param int|null $total_tax_amount The total tax amount in minor units. Negative if the order line type is discount. Example: 500 = $5.
      *
      * @return $this
      */
     public function setTotalTaxAmount($total_tax_amount)
     {
 
-        if (($total_tax_amount > 100000000)) {
+        if (!is_null($total_tax_amount) && ($total_tax_amount > 100000000)) {
             throw new \InvalidArgumentException('invalid value for $total_tax_amount when calling OrderLine., must be smaller than or equal to 100000000.');
         }
 
