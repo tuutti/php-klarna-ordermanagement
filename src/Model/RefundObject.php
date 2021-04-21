@@ -60,7 +60,8 @@ class RefundObject implements ModelInterface, ArrayAccess
         'refunded_amount' => 'int',
         'description' => 'string',
         'reference' => 'string',
-        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]'
+        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
+        'credit_invoice' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class RefundObject implements ModelInterface, ArrayAccess
         'refunded_amount' => 'int64',
         'description' => null,
         'reference' => null,
-        'order_lines' => null
+        'order_lines' => null,
+        'credit_invoice' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class RefundObject implements ModelInterface, ArrayAccess
         'refunded_amount' => 'refunded_amount',
         'description' => 'description',
         'reference' => 'reference',
-        'order_lines' => 'order_lines'
+        'order_lines' => 'order_lines',
+        'credit_invoice' => 'credit_invoice'
     ];
 
     /**
@@ -117,7 +120,8 @@ class RefundObject implements ModelInterface, ArrayAccess
         'refunded_amount' => 'setRefundedAmount',
         'description' => 'setDescription',
         'reference' => 'setReference',
-        'order_lines' => 'setOrderLines'
+        'order_lines' => 'setOrderLines',
+        'credit_invoice' => 'setCreditInvoice'
     ];
 
     /**
@@ -129,7 +133,8 @@ class RefundObject implements ModelInterface, ArrayAccess
         'refunded_amount' => 'getRefundedAmount',
         'description' => 'getDescription',
         'reference' => 'getReference',
-        'order_lines' => 'getOrderLines'
+        'order_lines' => 'getOrderLines',
+        'credit_invoice' => 'getCreditInvoice'
     ];
 
     /**
@@ -196,6 +201,7 @@ class RefundObject implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['order_lines'] = isset($data['order_lines']) ? $data['order_lines'] : null;
+        $this->container['credit_invoice'] = isset($data['credit_invoice']) ? $data['credit_invoice'] : null;
     }
 
     /**
@@ -363,6 +369,30 @@ class RefundObject implements ModelInterface, ArrayAccess
     public function setOrderLines($order_lines)
     {
         $this->container['order_lines'] = $order_lines;
+
+        return $this;
+    }
+
+    /**
+     * Gets credit_invoice
+     *
+     * @return bool|null
+     */
+    public function getCreditInvoice()
+    {
+        return $this->container['credit_invoice'];
+    }
+
+    /**
+     * Sets credit_invoice
+     *
+     * @param bool|null $credit_invoice Optional. Only applicable to B2B Orders. If the flag is set to true for an order with B2B_invoice as payment method, the customer will receive the refund as a credit invoice.
+     *
+     * @return $this
+     */
+    public function setCreditInvoice($credit_invoice)
+    {
+        $this->container['credit_invoice'] = $credit_invoice;
 
         return $this;
     }
