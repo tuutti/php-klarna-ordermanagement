@@ -4,7 +4,6 @@ env:
   MYSQL_ROOT_PASSWORD: drupal
   SIMPLETEST_DB: "mysql://drupal:drupal@mariadb:3306/drupal"
   SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
-  DRUPAL_MODULE_NAME: "commerce_klarna_payments"
   DRUPAL_CORE_VERSION: 9.1.x
   KLARNA_LIBRARY_NAME: "php-klarna-ordermanagement"
 jobs:
@@ -40,7 +39,9 @@ jobs:
           git clone --depth 1 --branch "$DRUPAL_CORE_VERSION" http://git.drupal.org/project/drupal.git/ $DRUPAL_ROOT
           cd $DRUPAL_ROOT
           composer config repositories.0 path $GITHUB_WORKSPACE
-          composer require drupal/$DRUPAL_MODULE_NAME
+          composer require drupal/commerce_klarna_payments
+          # Allow commerce_klarna_payments to accept any version of our library
+          cd modules/contrib/commerce_klarna_payments && composer require --no-update "tuutti/$KLARNA_LIBRARY_NAME:*"
           composer require tuutti/$KLARNA_LIBRARY_NAME
           composer require "drush/drush ^10.0"
           php -d sendmail_path=$(which true); vendor/bin/drush --yes -v site-install minimal --db-url="$SIMPLETEST_DB"
