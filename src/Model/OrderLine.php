@@ -282,10 +282,6 @@ class OrderLine implements ModelInterface, ArrayAccess
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
-        if (($this->container['quantity'] > 100000)) {
-            $invalidProperties[] = "invalid value for 'quantity', must be smaller than or equal to 100000.";
-        }
-
         if (($this->container['quantity'] < 0)) {
             $invalidProperties[] = "invalid value for 'quantity', must be bigger than or equal to 0.";
         }
@@ -451,16 +447,13 @@ class OrderLine implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity Item quantity. Non-negative. Between 0 and 100000
+     * @param int $quantity Item quantity. Non-negative.
      *
      * @return $this
      */
     public function setQuantity($quantity)
     {
 
-        if (($quantity > 100000)) {
-            throw new \InvalidArgumentException('invalid value for $quantity when calling OrderLine., must be smaller than or equal to 100000.');
-        }
         if (($quantity < 0)) {
             throw new \InvalidArgumentException('invalid value for $quantity when calling OrderLine., must be bigger than or equal to 0.');
         }
