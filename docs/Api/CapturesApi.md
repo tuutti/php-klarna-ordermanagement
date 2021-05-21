@@ -1,22 +1,23 @@
 # Klarna\OrderManagement\CapturesApi
 
-All URIs are relative to *https://api.klarna.com*
+All URIs are relative to https://api.klarna.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**appendShippingInfo**](CapturesApi.md#appendShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping info to a capture
-[**captureOrder**](CapturesApi.md#captureOrder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Create capture
-[**extendDueDate**](CapturesApi.md#extendDueDate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend the customer&#39;s payment due date
-[**getCapture**](CapturesApi.md#getCapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture
-[**getCaptures**](CapturesApi.md#getCaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | Get all captures for one order
-[**getOptionsForExtendDueDate**](CapturesApi.md#getOptionsForExtendDueDate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date
-[**triggerSendOut**](CapturesApi.md#triggerSendOut) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication
+[**appendShippingInfo()**](CapturesApi.md#appendShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping info to a capture
+[**captureOrder()**](CapturesApi.md#captureOrder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Create capture
+[**extendDueDate()**](CapturesApi.md#extendDueDate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend the customer&#39;s payment due date
+[**getCapture()**](CapturesApi.md#getCapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture
+[**getCaptures()**](CapturesApi.md#getCaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | Get all captures for one order
+[**getOptionsForExtendDueDate()**](CapturesApi.md#getOptionsForExtendDueDate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date
+[**triggerSendOut()**](CapturesApi.md#triggerSendOut) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication
 
 
+## `appendShippingInfo()`
 
-## appendShippingInfo
-
-> appendShippingInfo($order_id, $capture_id, $klarna_idempotency_key, $body)
+```php
+appendShippingInfo($order_id, $capture_id, $klarna_idempotency_key, $body)
+```
 
 Add shipping info to a capture
 
@@ -44,18 +45,16 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
 $order_id = 'order_id_example'; // string | Order id
 $capture_id = 'capture_id_example'; // string | Capture id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts.
-$body = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo | 
+$body = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo
 
 try {
     $apiInstance->appendShippingInfo($order_id, $capture_id, $klarna_idempotency_key, $body);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->appendShippingInfo: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -74,17 +73,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `captureOrder()`
 
-## captureOrder
-
-> captureOrder($order_id, $body, $klarna_idempotency_key)
+```php
+captureOrder($order_id, $body, $klarna_idempotency_key)
+```
 
 Create capture
 
@@ -118,11 +118,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->captureOrder: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -140,17 +138,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `extendDueDate()`
 
-## extendDueDate
-
-> extendDueDate($order_id, $capture_id, $klarna_idempotency_key, $body)
+```php
+extendDueDate($order_id, $capture_id, $klarna_idempotency_key, $body)
+```
 
 Extend the customer's payment due date
 
@@ -178,18 +177,16 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
 $order_id = 'order_id_example'; // string | Order id
 $capture_id = 'capture_id_example'; // string | Capture id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts.
-$body = new \Klarna\OrderManagement\Model\ExtendDueDateRequest(); // \Klarna\OrderManagement\Model\ExtendDueDateRequest | 
+$body = new \Klarna\OrderManagement\Model\ExtendDueDateRequest(); // \Klarna\OrderManagement\Model\ExtendDueDateRequest
 
 try {
     $apiInstance->extendDueDate($order_id, $capture_id, $klarna_idempotency_key, $body);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->extendDueDate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -208,17 +205,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCapture()`
 
-## getCapture
-
-> \Klarna\OrderManagement\Model\Capture getCapture($order_id, $capture_id)
+```php
+getCapture($order_id, $capture_id): \Klarna\OrderManagement\Model\Capture
+```
 
 Get capture
 
@@ -252,11 +250,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->getCapture: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -274,16 +270,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCaptures()`
 
-## getCaptures
-
-> \Klarna\OrderManagement\Model\Capture[] getCaptures($order_id)
+```php
+getCaptures($order_id): \Klarna\OrderManagement\Model\Capture[]
+```
 
 Get all captures for one order
 
@@ -316,11 +313,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->getCaptures: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -337,16 +332,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getOptionsForExtendDueDate()`
 
-## getOptionsForExtendDueDate
-
-> \Klarna\OrderManagement\Model\ExtendDueDateOptions getOptionsForExtendDueDate($order_id, $capture_id)
+```php
+getOptionsForExtendDueDate($order_id, $capture_id): \Klarna\OrderManagement\Model\ExtendDueDateOptions
+```
 
 Get available options for extension of the customer's payment due date
 
@@ -380,11 +376,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->getOptionsForExtendDueDate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -402,16 +396,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `triggerSendOut()`
 
-## triggerSendOut
-
-> triggerSendOut($order_id, $capture_id, $klarna_idempotency_key)
+```php
+triggerSendOut($order_id, $capture_id, $klarna_idempotency_key)
+```
 
 Trigger resend of customer communication
 
@@ -445,11 +440,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->triggerSendOut: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -468,9 +461,8 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
