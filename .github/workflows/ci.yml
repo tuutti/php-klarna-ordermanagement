@@ -43,8 +43,8 @@ jobs:
           # Allow commerce_klarna_payments to accept any version of our library
           cd modules/custom/commerce_klarna_payments && composer require --no-update "tuutti/$KLARNA_LIBRARY_NAME:*"
           cd $DRUPAL_ROOT
-          echo "$(jq --indent 4 '.repositories |= [{"type": "path", "url": "'$GITHUB_WORKSPACE'"}] + .' composer.json)" > composer.json
-          echo "$(jq --indent 4 '.repositories |= [{"type": "path", "url": "modules/custom/commerce_klarna_payments"}] + .' composer.json)" > composer.json
+          composer config repositories.5 path $GITHUB_WORKSPACE
+          composer config repositories.6 path modules/custom/commerce_klarna_payments
           composer require drupal/commerce_klarna_payments
           composer require tuutti/$KLARNA_LIBRARY_NAME
           composer require "drush/drush ^10.0"
