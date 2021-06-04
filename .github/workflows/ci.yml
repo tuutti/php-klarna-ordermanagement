@@ -43,7 +43,7 @@ jobs:
           cd modules/contrib/commerce_klarna_payments && composer require --no-update "tuutti/$KLARNA_LIBRARY_NAME:*"
           cd $DRUPAL_ROOT
           composer config repositories.0 path $GITHUB_WORKSPACE
-          composer require tuutti/$KLARNA_LIBRARY_NAME
+          composer update tuutti/$KLARNA_LIBRARY_NAME
           composer require "drush/drush ^10.0"
           php -d sendmail_path=$(which true); vendor/bin/drush --yes -v site-install minimal --db-url="$SIMPLETEST_DB"
           vendor/bin/drush en $DRUPAL_MODULE_NAME simpletest -y
