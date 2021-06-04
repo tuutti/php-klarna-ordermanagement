@@ -49,6 +49,7 @@ jobs:
           composer require tuutti/$KLARNA_LIBRARY_NAME
           composer require "drush/drush ^10.0"
           php -d sendmail_path=$(which true); vendor/bin/drush --yes -v site-install minimal --db-url="$SIMPLETEST_DB"
+          vendor/bin/drush -y en simpletest
 
       # Test library against drupal/commerce_klarna_payments module.
       - name: Run PHPUnit tests
