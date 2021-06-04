@@ -59,4 +59,4 @@ jobs:
           cd $DRUPAL_ROOT
           vendor/bin/drush runserver $SIMPLETEST_BASE_URL > /dev/null 2>&1 &
           chromedriver --port=4444 > /dev/null 2>&1 &
-          php ./core/scripts/run-tests.sh --php /usr/local/bin/php --color --verbose --url $SIMPLETEST_BASE_URL $DRUPAL_MODULE_NAME
+          php ./core/scripts/run-tests.sh --php /usr/local/bin/php --color --verbose --url $SIMPLETEST_BASE_URL commerce_klarna_payments
