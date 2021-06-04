@@ -41,6 +41,7 @@ jobs:
           composer require drupal/commerce_klarna_payments
           # Allow commerce_klarna_payments to accept any version of our library
           cd modules/contrib/commerce_klarna_payments && composer require --no-update "tuutti/$KLARNA_LIBRARY_NAME:*"
+          cd $DRUPAL_ROOT
           composer config repositories.0 path $GITHUB_WORKSPACE
           composer require tuutti/$KLARNA_LIBRARY_NAME
           composer require "drush/drush ^10.0"
