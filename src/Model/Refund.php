@@ -63,6 +63,7 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refunded_amount' => 'int',
         'refunded_at' => '\DateTime',
         'description' => 'string',
+        'reference' => 'string',
         'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
         'credit_invoice' => 'bool'
     ];
@@ -79,6 +80,7 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refunded_amount' => 'int64',
         'refunded_at' => 'date-time',
         'description' => null,
+        'reference' => null,
         'order_lines' => null,
         'credit_invoice' => null
     ];
@@ -114,6 +116,7 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refunded_amount' => 'refunded_amount',
         'refunded_at' => 'refunded_at',
         'description' => 'description',
+        'reference' => 'reference',
         'order_lines' => 'order_lines',
         'credit_invoice' => 'credit_invoice'
     ];
@@ -128,6 +131,7 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refunded_amount' => 'setRefundedAmount',
         'refunded_at' => 'setRefundedAt',
         'description' => 'setDescription',
+        'reference' => 'setReference',
         'order_lines' => 'setOrderLines',
         'credit_invoice' => 'setCreditInvoice'
     ];
@@ -142,6 +146,7 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refunded_amount' => 'getRefundedAmount',
         'refunded_at' => 'getRefundedAt',
         'description' => 'getDescription',
+        'reference' => 'getReference',
         'order_lines' => 'getOrderLines',
         'credit_invoice' => 'getCreditInvoice'
     ];
@@ -207,6 +212,7 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
         $this->container['refunded_at'] = $data['refunded_at'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['order_lines'] = $data['order_lines'] ?? null;
         $this->container['credit_invoice'] = $data['credit_invoice'] ?? null;
     }
@@ -327,6 +333,30 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference
+     *
+     * @return string|null
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string|null $reference Internal reference to the refund that is also included in the settlement files. Max length is 255 characters.
+     *
+     * @return self
+     */
+    public function setReference($reference)
+    {
+        $this->container['reference'] = $reference;
 
         return $this;
     }
