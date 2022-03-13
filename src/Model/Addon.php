@@ -59,9 +59,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'price' => 'int',
         'external_id' => 'string',
+        'price' => 'int',
+        'type' => 'string',
         'user_input' => 'string'
     ];
 
@@ -73,9 +73,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'price' => 'int64',
         'external_id' => null,
+        'price' => 'int64',
+        'type' => null,
         'user_input' => null
     ];
 
@@ -106,9 +106,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'price' => 'price',
         'external_id' => 'external_id',
+        'price' => 'price',
+        'type' => 'type',
         'user_input' => 'user_input'
     ];
 
@@ -118,9 +118,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'price' => 'setPrice',
         'external_id' => 'setExternalId',
+        'price' => 'setPrice',
+        'type' => 'setType',
         'user_input' => 'setUserInput'
     ];
 
@@ -130,9 +130,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'price' => 'getPrice',
         'external_id' => 'getExternalId',
+        'price' => 'getPrice',
+        'type' => 'getType',
         'user_input' => 'getUserInput'
     ];
 
@@ -193,9 +193,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['price'] = $data['price'] ?? null;
         $this->container['external_id'] = $data['external_id'] ?? null;
+        $this->container['price'] = $data['price'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
         $this->container['user_input'] = $data['user_input'] ?? null;
     }
 
@@ -208,9 +208,6 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         if ($this->container['price'] === null) {
             $invalidProperties[] = "'price' can't be null";
         }
@@ -218,6 +215,9 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'price', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -234,25 +234,25 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets external_id
      *
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getExternalId()
     {
-        return $this->container['type'];
+        return $this->container['external_id'];
     }
 
     /**
-     * Sets type
+     * Sets external_id
      *
-     * @param string $type The type of the add-on, e.g. sms or entry-code
+     * @param string|null $external_id The ID provided by the TMS
      *
      * @return self
      */
-    public function setType($type)
+    public function setExternalId($external_id)
     {
-        $this->container['type'] = $type;
+        $this->container['external_id'] = $external_id;
 
         return $this;
     }
@@ -287,25 +287,25 @@ class Addon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets external_id
+     * Gets type
      *
-     * @return string|null
+     * @return string
      */
-    public function getExternalId()
+    public function getType()
     {
-        return $this->container['external_id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets external_id
+     * Sets type
      *
-     * @param string|null $external_id The ID provided by the TMS
+     * @param string $type The type of the add-on, e.g. sms or entry-code
      *
      * @return self
      */
-    public function setExternalId($external_id)
+    public function setType($type)
     {
-        $this->container['external_id'] = $external_id;
+        $this->container['type'] = $type;
 
         return $this;
     }

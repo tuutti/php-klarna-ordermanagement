@@ -59,13 +59,13 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'return_shipping_company' => 'string',
+        'return_tracking_number' => 'string',
+        'return_tracking_uri' => 'string',
         'shipping_company' => 'string',
         'shipping_method' => 'string',
         'tracking_number' => 'string',
-        'tracking_uri' => 'string',
-        'return_shipping_company' => 'string',
-        'return_tracking_number' => 'string',
-        'return_tracking_uri' => 'string'
+        'tracking_uri' => 'string'
     ];
 
     /**
@@ -76,13 +76,13 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'return_shipping_company' => null,
+        'return_tracking_number' => null,
+        'return_tracking_uri' => null,
         'shipping_company' => null,
         'shipping_method' => null,
         'tracking_number' => null,
-        'tracking_uri' => null,
-        'return_shipping_company' => null,
-        'return_tracking_number' => null,
-        'return_tracking_uri' => null
+        'tracking_uri' => null
     ];
 
     /**
@@ -112,13 +112,13 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'return_shipping_company' => 'return_shipping_company',
+        'return_tracking_number' => 'return_tracking_number',
+        'return_tracking_uri' => 'return_tracking_uri',
         'shipping_company' => 'shipping_company',
         'shipping_method' => 'shipping_method',
         'tracking_number' => 'tracking_number',
-        'tracking_uri' => 'tracking_uri',
-        'return_shipping_company' => 'return_shipping_company',
-        'return_tracking_number' => 'return_tracking_number',
-        'return_tracking_uri' => 'return_tracking_uri'
+        'tracking_uri' => 'tracking_uri'
     ];
 
     /**
@@ -127,13 +127,13 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'return_shipping_company' => 'setReturnShippingCompany',
+        'return_tracking_number' => 'setReturnTrackingNumber',
+        'return_tracking_uri' => 'setReturnTrackingUri',
         'shipping_company' => 'setShippingCompany',
         'shipping_method' => 'setShippingMethod',
         'tracking_number' => 'setTrackingNumber',
-        'tracking_uri' => 'setTrackingUri',
-        'return_shipping_company' => 'setReturnShippingCompany',
-        'return_tracking_number' => 'setReturnTrackingNumber',
-        'return_tracking_uri' => 'setReturnTrackingUri'
+        'tracking_uri' => 'setTrackingUri'
     ];
 
     /**
@@ -142,13 +142,13 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'return_shipping_company' => 'getReturnShippingCompany',
+        'return_tracking_number' => 'getReturnTrackingNumber',
+        'return_tracking_uri' => 'getReturnTrackingUri',
         'shipping_company' => 'getShippingCompany',
         'shipping_method' => 'getShippingMethod',
         'tracking_number' => 'getTrackingNumber',
-        'tracking_uri' => 'getTrackingUri',
-        'return_shipping_company' => 'getReturnShippingCompany',
-        'return_tracking_number' => 'getReturnTrackingNumber',
-        'return_tracking_uri' => 'getReturnTrackingUri'
+        'tracking_uri' => 'getTrackingUri'
     ];
 
     /**
@@ -208,13 +208,13 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['return_shipping_company'] = $data['return_shipping_company'] ?? null;
+        $this->container['return_tracking_number'] = $data['return_tracking_number'] ?? null;
+        $this->container['return_tracking_uri'] = $data['return_tracking_uri'] ?? null;
         $this->container['shipping_company'] = $data['shipping_company'] ?? null;
         $this->container['shipping_method'] = $data['shipping_method'] ?? null;
         $this->container['tracking_number'] = $data['tracking_number'] ?? null;
         $this->container['tracking_uri'] = $data['tracking_uri'] ?? null;
-        $this->container['return_shipping_company'] = $data['return_shipping_company'] ?? null;
-        $this->container['return_tracking_number'] = $data['return_tracking_number'] ?? null;
-        $this->container['return_tracking_uri'] = $data['return_tracking_uri'] ?? null;
     }
 
     /**
@@ -225,6 +225,30 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['return_shipping_company']) && (mb_strlen($this->container['return_shipping_company']) > 100)) {
+            $invalidProperties[] = "invalid value for 'return_shipping_company', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['return_shipping_company']) && (mb_strlen($this->container['return_shipping_company']) < 0)) {
+            $invalidProperties[] = "invalid value for 'return_shipping_company', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['return_tracking_number']) && (mb_strlen($this->container['return_tracking_number']) > 100)) {
+            $invalidProperties[] = "invalid value for 'return_tracking_number', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['return_tracking_number']) && (mb_strlen($this->container['return_tracking_number']) < 0)) {
+            $invalidProperties[] = "invalid value for 'return_tracking_number', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['return_tracking_uri']) && (mb_strlen($this->container['return_tracking_uri']) > 1024)) {
+            $invalidProperties[] = "invalid value for 'return_tracking_uri', the character length must be smaller than or equal to 1024.";
+        }
+
+        if (!is_null($this->container['return_tracking_uri']) && (mb_strlen($this->container['return_tracking_uri']) < 0)) {
+            $invalidProperties[] = "invalid value for 'return_tracking_uri', the character length must be bigger than or equal to 0.";
+        }
 
         if (!is_null($this->container['shipping_company']) && (mb_strlen($this->container['shipping_company']) > 100)) {
             $invalidProperties[] = "invalid value for 'shipping_company', the character length must be smaller than or equal to 100.";
@@ -254,30 +278,6 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'tracking_uri', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['return_shipping_company']) && (mb_strlen($this->container['return_shipping_company']) > 100)) {
-            $invalidProperties[] = "invalid value for 'return_shipping_company', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['return_shipping_company']) && (mb_strlen($this->container['return_shipping_company']) < 0)) {
-            $invalidProperties[] = "invalid value for 'return_shipping_company', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['return_tracking_number']) && (mb_strlen($this->container['return_tracking_number']) > 100)) {
-            $invalidProperties[] = "invalid value for 'return_tracking_number', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['return_tracking_number']) && (mb_strlen($this->container['return_tracking_number']) < 0)) {
-            $invalidProperties[] = "invalid value for 'return_tracking_number', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['return_tracking_uri']) && (mb_strlen($this->container['return_tracking_uri']) > 1024)) {
-            $invalidProperties[] = "invalid value for 'return_tracking_uri', the character length must be smaller than or equal to 1024.";
-        }
-
-        if (!is_null($this->container['return_tracking_uri']) && (mb_strlen($this->container['return_tracking_uri']) < 0)) {
-            $invalidProperties[] = "invalid value for 'return_tracking_uri', the character length must be bigger than or equal to 0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -292,6 +292,99 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets return_shipping_company
+     *
+     * @return string|null
+     */
+    public function getReturnShippingCompany()
+    {
+        return $this->container['return_shipping_company'];
+    }
+
+    /**
+     * Sets return_shipping_company
+     *
+     * @param string|null $return_shipping_company Name of the shipping company for the return shipment (as specific as possible). Maximum 100 characters. Example: 'DHL US' and not only 'DHL'
+     *
+     * @return self
+     */
+    public function setReturnShippingCompany($return_shipping_company)
+    {
+        if (!is_null($return_shipping_company) && (mb_strlen($return_shipping_company) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $return_shipping_company when calling ShippingInfo., must be smaller than or equal to 100.');
+        }
+        if (!is_null($return_shipping_company) && (mb_strlen($return_shipping_company) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $return_shipping_company when calling ShippingInfo., must be bigger than or equal to 0.');
+        }
+
+        $this->container['return_shipping_company'] = $return_shipping_company;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_tracking_number
+     *
+     * @return string|null
+     */
+    public function getReturnTrackingNumber()
+    {
+        return $this->container['return_tracking_number'];
+    }
+
+    /**
+     * Sets return_tracking_number
+     *
+     * @param string|null $return_tracking_number Tracking number for the return shipment. Maximum 100 characters.
+     *
+     * @return self
+     */
+    public function setReturnTrackingNumber($return_tracking_number)
+    {
+        if (!is_null($return_tracking_number) && (mb_strlen($return_tracking_number) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $return_tracking_number when calling ShippingInfo., must be smaller than or equal to 100.');
+        }
+        if (!is_null($return_tracking_number) && (mb_strlen($return_tracking_number) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $return_tracking_number when calling ShippingInfo., must be bigger than or equal to 0.');
+        }
+
+        $this->container['return_tracking_number'] = $return_tracking_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_tracking_uri
+     *
+     * @return string|null
+     */
+    public function getReturnTrackingUri()
+    {
+        return $this->container['return_tracking_uri'];
+    }
+
+    /**
+     * Sets return_tracking_uri
+     *
+     * @param string|null $return_tracking_uri URL where the customer can track the return shipment. Maximum 1024 characters.
+     *
+     * @return self
+     */
+    public function setReturnTrackingUri($return_tracking_uri)
+    {
+        if (!is_null($return_tracking_uri) && (mb_strlen($return_tracking_uri) > 1024)) {
+            throw new \InvalidArgumentException('invalid length for $return_tracking_uri when calling ShippingInfo., must be smaller than or equal to 1024.');
+        }
+        if (!is_null($return_tracking_uri) && (mb_strlen($return_tracking_uri) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $return_tracking_uri when calling ShippingInfo., must be bigger than or equal to 0.');
+        }
+
+        $this->container['return_tracking_uri'] = $return_tracking_uri;
+
+        return $this;
+    }
 
     /**
      * Gets shipping_company
@@ -411,99 +504,6 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['tracking_uri'] = $tracking_uri;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_shipping_company
-     *
-     * @return string|null
-     */
-    public function getReturnShippingCompany()
-    {
-        return $this->container['return_shipping_company'];
-    }
-
-    /**
-     * Sets return_shipping_company
-     *
-     * @param string|null $return_shipping_company Name of the shipping company for the return shipment (as specific as possible). Maximum 100 characters. Example: 'DHL US' and not only 'DHL'
-     *
-     * @return self
-     */
-    public function setReturnShippingCompany($return_shipping_company)
-    {
-        if (!is_null($return_shipping_company) && (mb_strlen($return_shipping_company) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $return_shipping_company when calling ShippingInfo., must be smaller than or equal to 100.');
-        }
-        if (!is_null($return_shipping_company) && (mb_strlen($return_shipping_company) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $return_shipping_company when calling ShippingInfo., must be bigger than or equal to 0.');
-        }
-
-        $this->container['return_shipping_company'] = $return_shipping_company;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_tracking_number
-     *
-     * @return string|null
-     */
-    public function getReturnTrackingNumber()
-    {
-        return $this->container['return_tracking_number'];
-    }
-
-    /**
-     * Sets return_tracking_number
-     *
-     * @param string|null $return_tracking_number Tracking number for the return shipment. Maximum 100 characters.
-     *
-     * @return self
-     */
-    public function setReturnTrackingNumber($return_tracking_number)
-    {
-        if (!is_null($return_tracking_number) && (mb_strlen($return_tracking_number) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $return_tracking_number when calling ShippingInfo., must be smaller than or equal to 100.');
-        }
-        if (!is_null($return_tracking_number) && (mb_strlen($return_tracking_number) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $return_tracking_number when calling ShippingInfo., must be bigger than or equal to 0.');
-        }
-
-        $this->container['return_tracking_number'] = $return_tracking_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_tracking_uri
-     *
-     * @return string|null
-     */
-    public function getReturnTrackingUri()
-    {
-        return $this->container['return_tracking_uri'];
-    }
-
-    /**
-     * Sets return_tracking_uri
-     *
-     * @param string|null $return_tracking_uri URL where the customer can track the return shipment. Maximum 1024 characters.
-     *
-     * @return self
-     */
-    public function setReturnTrackingUri($return_tracking_uri)
-    {
-        if (!is_null($return_tracking_uri) && (mb_strlen($return_tracking_uri) > 1024)) {
-            throw new \InvalidArgumentException('invalid length for $return_tracking_uri when calling ShippingInfo., must be smaller than or equal to 1024.');
-        }
-        if (!is_null($return_tracking_uri) && (mb_strlen($return_tracking_uri) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $return_tracking_uri when calling ShippingInfo., must be bigger than or equal to 0.');
-        }
-
-        $this->container['return_tracking_uri'] = $return_tracking_uri;
 
         return $this;
     }

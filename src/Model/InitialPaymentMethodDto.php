@@ -59,9 +59,9 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
         'description' => 'string',
-        'number_of_installments' => 'int'
+        'number_of_installments' => 'int',
+        'type' => 'string'
     ];
 
     /**
@@ -72,9 +72,9 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
         'description' => null,
-        'number_of_installments' => 'int32'
+        'number_of_installments' => 'int32',
+        'type' => null
     ];
 
     /**
@@ -104,9 +104,9 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'description' => 'description',
-        'number_of_installments' => 'number_of_installments'
+        'number_of_installments' => 'number_of_installments',
+        'type' => 'type'
     ];
 
     /**
@@ -115,9 +115,9 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'description' => 'setDescription',
-        'number_of_installments' => 'setNumberOfInstallments'
+        'number_of_installments' => 'setNumberOfInstallments',
+        'type' => 'setType'
     ];
 
     /**
@@ -126,9 +126,9 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'description' => 'getDescription',
-        'number_of_installments' => 'getNumberOfInstallments'
+        'number_of_installments' => 'getNumberOfInstallments',
+        'type' => 'getType'
     ];
 
     /**
@@ -188,9 +188,9 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['number_of_installments'] = $data['number_of_installments'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -216,30 +216,6 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type The type of the initial payment method. One of INVOICE, FIXED_AMOUNT, FIXED_AMOUNT_BY_CARD (non Australia region), PAY_LATER_IN_PARTS (Australia region), ACCOUNT, DIRECT_DEBIT, DIRECT_DEBIT, CARD, BANK_TRANSFER, PAY_IN_X, PAY_IN_X, INVOICE_BUSINESS, DEFERRED_INTEREST, FIXED_SUM_CREDIT, PAY_LATER_BY_CARD, MOBILEPAY, SWISH
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets description
@@ -285,6 +261,30 @@ class InitialPaymentMethodDto implements ModelInterface, ArrayAccess, \JsonSeria
     public function setNumberOfInstallments($number_of_installments)
     {
         $this->container['number_of_installments'] = $number_of_installments;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The type of the initial payment method. One of INVOICE, FIXED_AMOUNT, FIXED_AMOUNT_BY_CARD (non Australia region), PAY_LATER_IN_PARTS (Australia region), ACCOUNT, DIRECT_DEBIT, DIRECT_DEBIT, CARD, BANK_TRANSFER, PAY_IN_X, PAY_IN_X, INVOICE_BUSINESS, DEFERRED_INTEREST, FIXED_SUM_CREDIT, PAY_LATER_BY_CARD, MOBILEPAY, SWISH
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

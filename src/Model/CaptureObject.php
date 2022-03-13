@@ -61,10 +61,10 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'captured_amount' => 'int',
         'description' => 'string',
-        'reference' => 'string',
         'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
-        'shipping_info' => '\Klarna\OrderManagement\Model\ShippingInfo[]',
-        'shipping_delay' => 'int'
+        'reference' => 'string',
+        'shipping_delay' => 'int',
+        'shipping_info' => '\Klarna\OrderManagement\Model\ShippingInfo[]'
     ];
 
     /**
@@ -77,10 +77,10 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'captured_amount' => 'int64',
         'description' => null,
-        'reference' => null,
         'order_lines' => null,
-        'shipping_info' => null,
-        'shipping_delay' => 'int64'
+        'reference' => null,
+        'shipping_delay' => 'int64',
+        'shipping_info' => null
     ];
 
     /**
@@ -112,10 +112,10 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'captured_amount' => 'captured_amount',
         'description' => 'description',
-        'reference' => 'reference',
         'order_lines' => 'order_lines',
-        'shipping_info' => 'shipping_info',
-        'shipping_delay' => 'shipping_delay'
+        'reference' => 'reference',
+        'shipping_delay' => 'shipping_delay',
+        'shipping_info' => 'shipping_info'
     ];
 
     /**
@@ -126,10 +126,10 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'captured_amount' => 'setCapturedAmount',
         'description' => 'setDescription',
-        'reference' => 'setReference',
         'order_lines' => 'setOrderLines',
-        'shipping_info' => 'setShippingInfo',
-        'shipping_delay' => 'setShippingDelay'
+        'reference' => 'setReference',
+        'shipping_delay' => 'setShippingDelay',
+        'shipping_info' => 'setShippingInfo'
     ];
 
     /**
@@ -140,10 +140,10 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'captured_amount' => 'getCapturedAmount',
         'description' => 'getDescription',
-        'reference' => 'getReference',
         'order_lines' => 'getOrderLines',
-        'shipping_info' => 'getShippingInfo',
-        'shipping_delay' => 'getShippingDelay'
+        'reference' => 'getReference',
+        'shipping_delay' => 'getShippingDelay',
+        'shipping_info' => 'getShippingInfo'
     ];
 
     /**
@@ -205,10 +205,10 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['captured_amount'] = $data['captured_amount'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
-        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['order_lines'] = $data['order_lines'] ?? null;
-        $this->container['shipping_info'] = $data['shipping_info'] ?? null;
+        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['shipping_delay'] = $data['shipping_delay'] ?? null;
+        $this->container['shipping_info'] = $data['shipping_info'] ?? null;
     }
 
     /**
@@ -239,14 +239,6 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 255)) {
-            $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 255.";
-        }
-
-        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) < 0)) {
-            $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['order_lines']) && (count($this->container['order_lines']) > 1000)) {
             $invalidProperties[] = "invalid value for 'order_lines', number of items must be less than or equal to 1000.";
         }
@@ -255,16 +247,24 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'order_lines', number of items must be greater than or equal to 0.";
         }
 
+        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 255)) {
+            $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) < 0)) {
+            $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['shipping_delay']) && ($this->container['shipping_delay'] < 0)) {
+            $invalidProperties[] = "invalid value for 'shipping_delay', must be bigger than or equal to 0.";
+        }
+
         if (!is_null($this->container['shipping_info']) && (count($this->container['shipping_info']) > 500)) {
             $invalidProperties[] = "invalid value for 'shipping_info', number of items must be less than or equal to 500.";
         }
 
         if (!is_null($this->container['shipping_info']) && (count($this->container['shipping_info']) < 0)) {
             $invalidProperties[] = "invalid value for 'shipping_info', number of items must be greater than or equal to 0.";
-        }
-
-        if (!is_null($this->container['shipping_delay']) && ($this->container['shipping_delay'] < 0)) {
-            $invalidProperties[] = "invalid value for 'shipping_delay', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -346,37 +346,6 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets reference
-     *
-     * @return string|null
-     */
-    public function getReference()
-    {
-        return $this->container['reference'];
-    }
-
-    /**
-     * Sets reference
-     *
-     * @param string|null $reference Internal reference to the capture. This will be included in the settlement files. Max length is 255 characters.
-     *
-     * @return self
-     */
-    public function setReference($reference)
-    {
-        if (!is_null($reference) && (mb_strlen($reference) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling CaptureObject., must be smaller than or equal to 255.');
-        }
-        if (!is_null($reference) && (mb_strlen($reference) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling CaptureObject., must be bigger than or equal to 0.');
-        }
-
-        $this->container['reference'] = $reference;
-
-        return $this;
-    }
-
-    /**
      * Gets order_lines
      *
      * @return \Klarna\OrderManagement\Model\OrderLine[]|null
@@ -408,32 +377,32 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets shipping_info
+     * Gets reference
      *
-     * @return \Klarna\OrderManagement\Model\ShippingInfo[]|null
+     * @return string|null
      */
-    public function getShippingInfo()
+    public function getReference()
     {
-        return $this->container['shipping_info'];
+        return $this->container['reference'];
     }
 
     /**
-     * Sets shipping_info
+     * Sets reference
      *
-     * @param \Klarna\OrderManagement\Model\ShippingInfo[]|null $shipping_info Shipping information for this capture. Maximum 500 items.
+     * @param string|null $reference Internal reference to the capture. This will be included in the settlement files. Max length is 255 characters.
      *
      * @return self
      */
-    public function setShippingInfo($shipping_info)
+    public function setReference($reference)
     {
+        if (!is_null($reference) && (mb_strlen($reference) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling CaptureObject., must be smaller than or equal to 255.');
+        }
+        if (!is_null($reference) && (mb_strlen($reference) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling CaptureObject., must be bigger than or equal to 0.');
+        }
 
-        if (!is_null($shipping_info) && (count($shipping_info) > 500)) {
-            throw new \InvalidArgumentException('invalid value for $shipping_info when calling CaptureObject., number of items must be less than or equal to 500.');
-        }
-        if (!is_null($shipping_info) && (count($shipping_info) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $shipping_info when calling CaptureObject., number of items must be greater than or equal to 0.');
-        }
-        $this->container['shipping_info'] = $shipping_info;
+        $this->container['reference'] = $reference;
 
         return $this;
     }
@@ -463,6 +432,37 @@ class CaptureObject implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['shipping_delay'] = $shipping_delay;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_info
+     *
+     * @return \Klarna\OrderManagement\Model\ShippingInfo[]|null
+     */
+    public function getShippingInfo()
+    {
+        return $this->container['shipping_info'];
+    }
+
+    /**
+     * Sets shipping_info
+     *
+     * @param \Klarna\OrderManagement\Model\ShippingInfo[]|null $shipping_info Shipping information for this capture. Maximum 500 items.
+     *
+     * @return self
+     */
+    public function setShippingInfo($shipping_info)
+    {
+
+        if (!is_null($shipping_info) && (count($shipping_info) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $shipping_info when calling CaptureObject., number of items must be less than or equal to 500.');
+        }
+        if (!is_null($shipping_info) && (count($shipping_info) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $shipping_info when calling CaptureObject., number of items must be greater than or equal to 0.');
+        }
+        $this->container['shipping_info'] = $shipping_info;
 
         return $this;
     }

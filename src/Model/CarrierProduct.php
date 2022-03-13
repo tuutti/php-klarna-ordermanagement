@@ -59,8 +59,8 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'identifier' => 'string'
+        'identifier' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -71,8 +71,8 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'identifier' => null
+        'identifier' => null,
+        'name' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'identifier' => 'identifier'
+        'identifier' => 'identifier',
+        'name' => 'name'
     ];
 
     /**
@@ -112,8 +112,8 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'identifier' => 'setIdentifier'
+        'identifier' => 'setIdentifier',
+        'name' => 'setName'
     ];
 
     /**
@@ -122,8 +122,8 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'identifier' => 'getIdentifier'
+        'identifier' => 'getIdentifier',
+        'name' => 'getName'
     ];
 
     /**
@@ -183,8 +183,8 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
         $this->container['identifier'] = $data['identifier'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
     }
 
     /**
@@ -212,30 +212,6 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of carrier product
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets identifier
      *
      * @return string|null
@@ -255,6 +231,30 @@ class CarrierProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIdentifier($identifier)
     {
         $this->container['identifier'] = $identifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of carrier product
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

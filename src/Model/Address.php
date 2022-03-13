@@ -59,17 +59,19 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'given_name' => 'string',
-        'family_name' => 'string',
-        'title' => 'string',
-        'street_address' => 'string',
-        'street_address2' => 'string',
-        'postal_code' => 'string',
+        'attention' => 'string',
         'city' => 'string',
-        'region' => 'string',
         'country' => 'string',
         'email' => 'string',
-        'phone' => 'string'
+        'family_name' => 'string',
+        'given_name' => 'string',
+        'organization_name' => 'string',
+        'phone' => 'string',
+        'postal_code' => 'string',
+        'region' => 'string',
+        'street_address' => 'string',
+        'street_address2' => 'string',
+        'title' => 'string'
     ];
 
     /**
@@ -80,17 +82,19 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'given_name' => null,
-        'family_name' => null,
-        'title' => null,
-        'street_address' => null,
-        'street_address2' => null,
-        'postal_code' => null,
+        'attention' => null,
         'city' => null,
-        'region' => null,
         'country' => null,
         'email' => null,
-        'phone' => null
+        'family_name' => null,
+        'given_name' => null,
+        'organization_name' => null,
+        'phone' => null,
+        'postal_code' => null,
+        'region' => null,
+        'street_address' => null,
+        'street_address2' => null,
+        'title' => null
     ];
 
     /**
@@ -120,17 +124,19 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'given_name' => 'given_name',
-        'family_name' => 'family_name',
-        'title' => 'title',
-        'street_address' => 'street_address',
-        'street_address2' => 'street_address2',
-        'postal_code' => 'postal_code',
+        'attention' => 'attention',
         'city' => 'city',
-        'region' => 'region',
         'country' => 'country',
         'email' => 'email',
-        'phone' => 'phone'
+        'family_name' => 'family_name',
+        'given_name' => 'given_name',
+        'organization_name' => 'organization_name',
+        'phone' => 'phone',
+        'postal_code' => 'postal_code',
+        'region' => 'region',
+        'street_address' => 'street_address',
+        'street_address2' => 'street_address2',
+        'title' => 'title'
     ];
 
     /**
@@ -139,17 +145,19 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'given_name' => 'setGivenName',
-        'family_name' => 'setFamilyName',
-        'title' => 'setTitle',
-        'street_address' => 'setStreetAddress',
-        'street_address2' => 'setStreetAddress2',
-        'postal_code' => 'setPostalCode',
+        'attention' => 'setAttention',
         'city' => 'setCity',
-        'region' => 'setRegion',
         'country' => 'setCountry',
         'email' => 'setEmail',
-        'phone' => 'setPhone'
+        'family_name' => 'setFamilyName',
+        'given_name' => 'setGivenName',
+        'organization_name' => 'setOrganizationName',
+        'phone' => 'setPhone',
+        'postal_code' => 'setPostalCode',
+        'region' => 'setRegion',
+        'street_address' => 'setStreetAddress',
+        'street_address2' => 'setStreetAddress2',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -158,17 +166,19 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'given_name' => 'getGivenName',
-        'family_name' => 'getFamilyName',
-        'title' => 'getTitle',
-        'street_address' => 'getStreetAddress',
-        'street_address2' => 'getStreetAddress2',
-        'postal_code' => 'getPostalCode',
+        'attention' => 'getAttention',
         'city' => 'getCity',
-        'region' => 'getRegion',
         'country' => 'getCountry',
         'email' => 'getEmail',
-        'phone' => 'getPhone'
+        'family_name' => 'getFamilyName',
+        'given_name' => 'getGivenName',
+        'organization_name' => 'getOrganizationName',
+        'phone' => 'getPhone',
+        'postal_code' => 'getPostalCode',
+        'region' => 'getRegion',
+        'street_address' => 'getStreetAddress',
+        'street_address2' => 'getStreetAddress2',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -228,17 +238,19 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['given_name'] = $data['given_name'] ?? null;
-        $this->container['family_name'] = $data['family_name'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['street_address'] = $data['street_address'] ?? null;
-        $this->container['street_address2'] = $data['street_address2'] ?? null;
-        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['attention'] = $data['attention'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
-        $this->container['region'] = $data['region'] ?? null;
         $this->container['country'] = $data['country'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
+        $this->container['family_name'] = $data['family_name'] ?? null;
+        $this->container['given_name'] = $data['given_name'] ?? null;
+        $this->container['organization_name'] = $data['organization_name'] ?? null;
         $this->container['phone'] = $data['phone'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['region'] = $data['region'] ?? null;
+        $this->container['street_address'] = $data['street_address'] ?? null;
+        $this->container['street_address2'] = $data['street_address2'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
     }
 
     /**
@@ -250,12 +262,28 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['given_name']) && (mb_strlen($this->container['given_name']) > 100)) {
-            $invalidProperties[] = "invalid value for 'given_name', the character length must be smaller than or equal to 100.";
+        if (!is_null($this->container['attention']) && (mb_strlen($this->container['attention']) > 255)) {
+            $invalidProperties[] = "invalid value for 'attention', the character length must be smaller than or equal to 255.";
         }
 
-        if (!is_null($this->container['given_name']) && (mb_strlen($this->container['given_name']) < 0)) {
-            $invalidProperties[] = "invalid value for 'given_name', the character length must be bigger than or equal to 0.";
+        if (!is_null($this->container['attention']) && (mb_strlen($this->container['attention']) < 0)) {
+            $invalidProperties[] = "invalid value for 'attention', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) > 200)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) < 0)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
+            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) < 0)) {
+            $invalidProperties[] = "invalid value for 'email', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['family_name']) && (mb_strlen($this->container['family_name']) > 100)) {
@@ -266,12 +294,44 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'family_name', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 20)) {
-            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 20.";
+        if (!is_null($this->container['given_name']) && (mb_strlen($this->container['given_name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'given_name', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) < 0)) {
-            $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 0.";
+        if (!is_null($this->container['given_name']) && (mb_strlen($this->container['given_name']) < 0)) {
+            $invalidProperties[] = "invalid value for 'given_name', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['organization_name']) && (mb_strlen($this->container['organization_name']) > 255)) {
+            $invalidProperties[] = "invalid value for 'organization_name', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['organization_name']) && (mb_strlen($this->container['organization_name']) < 0)) {
+            $invalidProperties[] = "invalid value for 'organization_name', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) > 100)) {
+            $invalidProperties[] = "invalid value for 'phone', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) < 0)) {
+            $invalidProperties[] = "invalid value for 'phone', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) > 10)) {
+            $invalidProperties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 10.";
+        }
+
+        if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) < 0)) {
+            $invalidProperties[] = "invalid value for 'postal_code', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['region']) && (mb_strlen($this->container['region']) > 200)) {
+            $invalidProperties[] = "invalid value for 'region', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['region']) && (mb_strlen($this->container['region']) < 0)) {
+            $invalidProperties[] = "invalid value for 'region', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['street_address']) && (mb_strlen($this->container['street_address']) > 100)) {
@@ -290,44 +350,12 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'street_address2', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) > 10)) {
-            $invalidProperties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 10.";
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 20)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) < 0)) {
-            $invalidProperties[] = "invalid value for 'postal_code', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) > 200)) {
-            $invalidProperties[] = "invalid value for 'city', the character length must be smaller than or equal to 200.";
-        }
-
-        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) < 0)) {
-            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['region']) && (mb_strlen($this->container['region']) > 200)) {
-            $invalidProperties[] = "invalid value for 'region', the character length must be smaller than or equal to 200.";
-        }
-
-        if (!is_null($this->container['region']) && (mb_strlen($this->container['region']) < 0)) {
-            $invalidProperties[] = "invalid value for 'region', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
-            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) < 0)) {
-            $invalidProperties[] = "invalid value for 'email', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) > 100)) {
-            $invalidProperties[] = "invalid value for 'phone', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) < 0)) {
-            $invalidProperties[] = "invalid value for 'phone', the character length must be bigger than or equal to 0.";
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) < 0)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -346,32 +374,118 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets given_name
+     * Gets attention
      *
      * @return string|null
      */
-    public function getGivenName()
+    public function getAttention()
     {
-        return $this->container['given_name'];
+        return $this->container['attention'];
     }
 
     /**
-     * Sets given_name
+     * Sets attention
      *
-     * @param string|null $given_name Given name. Maximum 100 characters.
+     * @param string|null $attention ‘Attn.’ - optional parameter. Maximum 255 characters.
      *
      * @return self
      */
-    public function setGivenName($given_name)
+    public function setAttention($attention)
     {
-        if (!is_null($given_name) && (mb_strlen($given_name) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $given_name when calling Address., must be smaller than or equal to 100.');
+        if (!is_null($attention) && (mb_strlen($attention) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $attention when calling Address., must be smaller than or equal to 255.');
         }
-        if (!is_null($given_name) && (mb_strlen($given_name) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $given_name when calling Address., must be bigger than or equal to 0.');
+        if (!is_null($attention) && (mb_strlen($attention) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $attention when calling Address., must be bigger than or equal to 0.');
         }
 
-        $this->container['given_name'] = $given_name;
+        $this->container['attention'] = $attention;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string|null
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string|null $city City. Maximum 200 characters.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        if (!is_null($city) && (mb_strlen($city) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Address., must be smaller than or equal to 200.');
+        }
+        if (!is_null($city) && (mb_strlen($city) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Address., must be bigger than or equal to 0.');
+        }
+
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country Country. ISO 3166 alpha-2.
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email E-mail address. Maximum 100 characters.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (!is_null($email) && (mb_strlen($email) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $email when calling Address., must be smaller than or equal to 100.');
+        }
+        if (!is_null($email) && (mb_strlen($email) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $email when calling Address., must be bigger than or equal to 0.');
+        }
+
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -408,32 +522,156 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets title
+     * Gets given_name
      *
      * @return string|null
      */
-    public function getTitle()
+    public function getGivenName()
     {
-        return $this->container['title'];
+        return $this->container['given_name'];
     }
 
     /**
-     * Sets title
+     * Sets given_name
      *
-     * @param string|null $title Title. Between 0 and 20 characters.
+     * @param string|null $given_name Given name. Maximum 100 characters.
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setGivenName($given_name)
     {
-        if (!is_null($title) && (mb_strlen($title) > 20)) {
-            throw new \InvalidArgumentException('invalid length for $title when calling Address., must be smaller than or equal to 20.');
+        if (!is_null($given_name) && (mb_strlen($given_name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $given_name when calling Address., must be smaller than or equal to 100.');
         }
-        if (!is_null($title) && (mb_strlen($title) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $title when calling Address., must be bigger than or equal to 0.');
+        if (!is_null($given_name) && (mb_strlen($given_name) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $given_name when calling Address., must be bigger than or equal to 0.');
         }
 
-        $this->container['title'] = $title;
+        $this->container['given_name'] = $given_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization_name
+     *
+     * @return string|null
+     */
+    public function getOrganizationName()
+    {
+        return $this->container['organization_name'];
+    }
+
+    /**
+     * Sets organization_name
+     *
+     * @param string|null $organization_name Organization name (if applicable). Only applicable for B2B customers. Maximum 255 characters.
+     *
+     * @return self
+     */
+    public function setOrganizationName($organization_name)
+    {
+        if (!is_null($organization_name) && (mb_strlen($organization_name) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $organization_name when calling Address., must be smaller than or equal to 255.');
+        }
+        if (!is_null($organization_name) && (mb_strlen($organization_name) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $organization_name when calling Address., must be bigger than or equal to 0.');
+        }
+
+        $this->container['organization_name'] = $organization_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string|null
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string|null $phone Phone number. Maximum 100 characters.
+     *
+     * @return self
+     */
+    public function setPhone($phone)
+    {
+        if (!is_null($phone) && (mb_strlen($phone) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $phone when calling Address., must be smaller than or equal to 100.');
+        }
+        if (!is_null($phone) && (mb_strlen($phone) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $phone when calling Address., must be bigger than or equal to 0.');
+        }
+
+        $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code Postcode. Maximum 10 characters.
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code)
+    {
+        if (!is_null($postal_code) && (mb_strlen($postal_code) > 10)) {
+            throw new \InvalidArgumentException('invalid length for $postal_code when calling Address., must be smaller than or equal to 10.');
+        }
+        if (!is_null($postal_code) && (mb_strlen($postal_code) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $postal_code when calling Address., must be bigger than or equal to 0.');
+        }
+
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string|null
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string|null $region State/Region. Required for US. Maximum 200 characters.
+     *
+     * @return self
+     */
+    public function setRegion($region)
+    {
+        if (!is_null($region) && (mb_strlen($region) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $region when calling Address., must be smaller than or equal to 200.');
+        }
+        if (!is_null($region) && (mb_strlen($region) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $region when calling Address., must be bigger than or equal to 0.');
+        }
+
+        $this->container['region'] = $region;
 
         return $this;
     }
@@ -501,180 +739,32 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets postal_code
+     * Gets title
      *
      * @return string|null
      */
-    public function getPostalCode()
+    public function getTitle()
     {
-        return $this->container['postal_code'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets postal_code
+     * Sets title
      *
-     * @param string|null $postal_code Postcode. Maximum 10 characters.
+     * @param string|null $title Title. Between 0 and 20 characters.
      *
      * @return self
      */
-    public function setPostalCode($postal_code)
+    public function setTitle($title)
     {
-        if (!is_null($postal_code) && (mb_strlen($postal_code) > 10)) {
-            throw new \InvalidArgumentException('invalid length for $postal_code when calling Address., must be smaller than or equal to 10.');
+        if (!is_null($title) && (mb_strlen($title) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling Address., must be smaller than or equal to 20.');
         }
-        if (!is_null($postal_code) && (mb_strlen($postal_code) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $postal_code when calling Address., must be bigger than or equal to 0.');
-        }
-
-        $this->container['postal_code'] = $postal_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets city
-     *
-     * @return string|null
-     */
-    public function getCity()
-    {
-        return $this->container['city'];
-    }
-
-    /**
-     * Sets city
-     *
-     * @param string|null $city City. Maximum 200 characters.
-     *
-     * @return self
-     */
-    public function setCity($city)
-    {
-        if (!is_null($city) && (mb_strlen($city) > 200)) {
-            throw new \InvalidArgumentException('invalid length for $city when calling Address., must be smaller than or equal to 200.');
-        }
-        if (!is_null($city) && (mb_strlen($city) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $city when calling Address., must be bigger than or equal to 0.');
+        if (!is_null($title) && (mb_strlen($title) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling Address., must be bigger than or equal to 0.');
         }
 
-        $this->container['city'] = $city;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string|null
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string|null $region State/Region. Required for US. Maximum 200 characters.
-     *
-     * @return self
-     */
-    public function setRegion($region)
-    {
-        if (!is_null($region) && (mb_strlen($region) > 200)) {
-            throw new \InvalidArgumentException('invalid length for $region when calling Address., must be smaller than or equal to 200.');
-        }
-        if (!is_null($region) && (mb_strlen($region) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $region when calling Address., must be bigger than or equal to 0.');
-        }
-
-        $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country Country. ISO 3166 alpha-2.
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email E-mail address. Maximum 100 characters.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (!is_null($email) && (mb_strlen($email) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $email when calling Address., must be smaller than or equal to 100.');
-        }
-        if (!is_null($email) && (mb_strlen($email) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $email when calling Address., must be bigger than or equal to 0.');
-        }
-
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone
-     *
-     * @return string|null
-     */
-    public function getPhone()
-    {
-        return $this->container['phone'];
-    }
-
-    /**
-     * Sets phone
-     *
-     * @param string|null $phone Phone number. Maximum 100 characters.
-     *
-     * @return self
-     */
-    public function setPhone($phone)
-    {
-        if (!is_null($phone) && (mb_strlen($phone) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $phone when calling Address., must be smaller than or equal to 100.');
-        }
-        if (!is_null($phone) && (mb_strlen($phone) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $phone when calling Address., must be bigger than or equal to 0.');
-        }
-
-        $this->container['phone'] = $phone;
+        $this->container['title'] = $title;
 
         return $this;
     }

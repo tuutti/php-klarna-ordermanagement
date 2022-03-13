@@ -59,9 +59,9 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'correlation_id' => 'string',
         'error_code' => 'string',
-        'error_messages' => 'string[]',
-        'correlation_id' => 'string'
+        'error_messages' => 'string[]'
     ];
 
     /**
@@ -72,9 +72,9 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'correlation_id' => null,
         'error_code' => null,
-        'error_messages' => null,
-        'correlation_id' => null
+        'error_messages' => null
     ];
 
     /**
@@ -104,9 +104,9 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'correlation_id' => 'correlation_id',
         'error_code' => 'error_code',
-        'error_messages' => 'error_messages',
-        'correlation_id' => 'correlation_id'
+        'error_messages' => 'error_messages'
     ];
 
     /**
@@ -115,9 +115,9 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'correlation_id' => 'setCorrelationId',
         'error_code' => 'setErrorCode',
-        'error_messages' => 'setErrorMessages',
-        'correlation_id' => 'setCorrelationId'
+        'error_messages' => 'setErrorMessages'
     ];
 
     /**
@@ -126,9 +126,9 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'correlation_id' => 'getCorrelationId',
         'error_code' => 'getErrorCode',
-        'error_messages' => 'getErrorMessages',
-        'correlation_id' => 'getCorrelationId'
+        'error_messages' => 'getErrorMessages'
     ];
 
     /**
@@ -188,9 +188,9 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
+        $this->container['correlation_id'] = $data['correlation_id'] ?? null;
         $this->container['error_code'] = $data['error_code'] ?? null;
         $this->container['error_messages'] = $data['error_messages'] ?? null;
-        $this->container['correlation_id'] = $data['correlation_id'] ?? null;
     }
 
     /**
@@ -216,6 +216,30 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets correlation_id
+     *
+     * @return string|null
+     */
+    public function getCorrelationId()
+    {
+        return $this->container['correlation_id'];
+    }
+
+    /**
+     * Sets correlation_id
+     *
+     * @param string|null $correlation_id Correlation id. For searching logs.
+     *
+     * @return self
+     */
+    public function setCorrelationId($correlation_id)
+    {
+        $this->container['correlation_id'] = $correlation_id;
+
+        return $this;
+    }
 
     /**
      * Gets error_code
@@ -261,30 +285,6 @@ class CancelNotAllowedErrorMessage implements ModelInterface, ArrayAccess, \Json
     public function setErrorMessages($error_messages)
     {
         $this->container['error_messages'] = $error_messages;
-
-        return $this;
-    }
-
-    /**
-     * Gets correlation_id
-     *
-     * @return string|null
-     */
-    public function getCorrelationId()
-    {
-        return $this->container['correlation_id'];
-    }
-
-    /**
-     * Sets correlation_id
-     *
-     * @param string|null $correlation_id Correlation id. For searching logs.
-     *
-     * @return self
-     */
-    public function setCorrelationId($correlation_id)
-    {
-        $this->container['correlation_id'] = $correlation_id;
 
         return $this;
     }

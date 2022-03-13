@@ -60,13 +60,13 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 'order_id_example'; // string | Order id
 $capture_id = 'capture_id_example'; // string | Capture id
+$order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts.
 $body = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo
 
 try {
-    $apiInstance->appendShippingInfo($order_id, $capture_id, $klarna_idempotency_key, $body);
+    $apiInstance->appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $body);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->appendShippingInfo: ', $e->getMessage(), PHP_EOL;
 }

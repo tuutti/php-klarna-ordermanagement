@@ -59,10 +59,10 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'refunded_amount' => 'int',
         'description' => 'string',
+        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
         'reference' => 'string',
-        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]'
+        'refunded_amount' => 'int'
     ];
 
     /**
@@ -73,10 +73,10 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'refunded_amount' => 'int64',
         'description' => null,
+        'order_lines' => null,
         'reference' => null,
-        'order_lines' => null
+        'refunded_amount' => 'int64'
     ];
 
     /**
@@ -106,10 +106,10 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'refunded_amount' => 'refunded_amount',
         'description' => 'description',
+        'order_lines' => 'order_lines',
         'reference' => 'reference',
-        'order_lines' => 'order_lines'
+        'refunded_amount' => 'refunded_amount'
     ];
 
     /**
@@ -118,10 +118,10 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'refunded_amount' => 'setRefundedAmount',
         'description' => 'setDescription',
+        'order_lines' => 'setOrderLines',
         'reference' => 'setReference',
-        'order_lines' => 'setOrderLines'
+        'refunded_amount' => 'setRefundedAmount'
     ];
 
     /**
@@ -130,10 +130,10 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'refunded_amount' => 'getRefundedAmount',
         'description' => 'getDescription',
+        'order_lines' => 'getOrderLines',
         'reference' => 'getReference',
-        'order_lines' => 'getOrderLines'
+        'refunded_amount' => 'getRefundedAmount'
     ];
 
     /**
@@ -193,10 +193,10 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
-        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['order_lines'] = $data['order_lines'] ?? null;
+        $this->container['reference'] = $data['reference'] ?? null;
+        $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
     }
 
     /**
@@ -208,23 +208,20 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['refunded_amount'] === null) {
-            $invalidProperties[] = "'refunded_amount' can't be null";
-        }
-        if (($this->container['refunded_amount'] > 100000000)) {
-            $invalidProperties[] = "invalid value for 'refunded_amount', must be smaller than or equal to 100000000.";
-        }
-
-        if (($this->container['refunded_amount'] < 0)) {
-            $invalidProperties[] = "invalid value for 'refunded_amount', must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['order_lines']) && (count($this->container['order_lines']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'order_lines', number of items must be less than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['order_lines']) && (count($this->container['order_lines']) < 0)) {
+            $invalidProperties[] = "invalid value for 'order_lines', number of items must be greater than or equal to 0.";
         }
 
         if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 255)) {
@@ -235,12 +232,15 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['order_lines']) && (count($this->container['order_lines']) > 1000)) {
-            $invalidProperties[] = "invalid value for 'order_lines', number of items must be less than or equal to 1000.";
+        if ($this->container['refunded_amount'] === null) {
+            $invalidProperties[] = "'refunded_amount' can't be null";
+        }
+        if (($this->container['refunded_amount'] > 100000000)) {
+            $invalidProperties[] = "invalid value for 'refunded_amount', must be smaller than or equal to 100000000.";
         }
 
-        if (!is_null($this->container['order_lines']) && (count($this->container['order_lines']) < 0)) {
-            $invalidProperties[] = "invalid value for 'order_lines', number of items must be greater than or equal to 0.";
+        if (($this->container['refunded_amount'] < 0)) {
+            $invalidProperties[] = "invalid value for 'refunded_amount', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -257,38 +257,6 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets refunded_amount
-     *
-     * @return int
-     */
-    public function getRefundedAmount()
-    {
-        return $this->container['refunded_amount'];
-    }
-
-    /**
-     * Sets refunded_amount
-     *
-     * @param int $refunded_amount Refunded amount in minor units.
-     *
-     * @return self
-     */
-    public function setRefundedAmount($refunded_amount)
-    {
-
-        if (($refunded_amount > 100000000)) {
-            throw new \InvalidArgumentException('invalid value for $refunded_amount when calling RefundObject., must be smaller than or equal to 100000000.');
-        }
-        if (($refunded_amount < 0)) {
-            throw new \InvalidArgumentException('invalid value for $refunded_amount when calling RefundObject., must be bigger than or equal to 0.');
-        }
-
-        $this->container['refunded_amount'] = $refunded_amount;
-
-        return $this;
-    }
 
     /**
      * Gets description
@@ -317,6 +285,37 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_lines
+     *
+     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
+     */
+    public function getOrderLines()
+    {
+        return $this->container['order_lines'];
+    }
+
+    /**
+     * Sets order_lines
+     *
+     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines Order lines for the refund shown to the customer. Optional but increases the customer experience. Maximum 1000 order lines.
+     *
+     * @return self
+     */
+    public function setOrderLines($order_lines)
+    {
+
+        if (!is_null($order_lines) && (count($order_lines) > 1000)) {
+            throw new \InvalidArgumentException('invalid value for $order_lines when calling RefundObject., number of items must be less than or equal to 1000.');
+        }
+        if (!is_null($order_lines) && (count($order_lines) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $order_lines when calling RefundObject., number of items must be greater than or equal to 0.');
+        }
+        $this->container['order_lines'] = $order_lines;
 
         return $this;
     }
@@ -353,32 +352,33 @@ class RefundObject implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets order_lines
+     * Gets refunded_amount
      *
-     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
+     * @return int
      */
-    public function getOrderLines()
+    public function getRefundedAmount()
     {
-        return $this->container['order_lines'];
+        return $this->container['refunded_amount'];
     }
 
     /**
-     * Sets order_lines
+     * Sets refunded_amount
      *
-     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines Order lines for the refund shown to the customer. Optional but increases the customer experience. Maximum 1000 order lines.
+     * @param int $refunded_amount Refunded amount in minor units.
      *
      * @return self
      */
-    public function setOrderLines($order_lines)
+    public function setRefundedAmount($refunded_amount)
     {
 
-        if (!is_null($order_lines) && (count($order_lines) > 1000)) {
-            throw new \InvalidArgumentException('invalid value for $order_lines when calling RefundObject., number of items must be less than or equal to 1000.');
+        if (($refunded_amount > 100000000)) {
+            throw new \InvalidArgumentException('invalid value for $refunded_amount when calling RefundObject., must be smaller than or equal to 100000000.');
         }
-        if (!is_null($order_lines) && (count($order_lines) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $order_lines when calling RefundObject., number of items must be greater than or equal to 0.');
+        if (($refunded_amount < 0)) {
+            throw new \InvalidArgumentException('invalid value for $refunded_amount when calling RefundObject., must be bigger than or equal to 0.');
         }
-        $this->container['order_lines'] = $order_lines;
+
+        $this->container['refunded_amount'] = $refunded_amount;
 
         return $this;
     }

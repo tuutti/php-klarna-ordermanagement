@@ -59,11 +59,11 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'start' => 'string',
-        'end' => 'string',
         'cutoff' => 'string',
-        'price' => 'int'
+        'end' => 'string',
+        'id' => 'string',
+        'price' => 'int',
+        'start' => 'string'
     ];
 
     /**
@@ -74,11 +74,11 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'start' => null,
-        'end' => null,
         'cutoff' => null,
-        'price' => 'int64'
+        'end' => null,
+        'id' => null,
+        'price' => 'int64',
+        'start' => null
     ];
 
     /**
@@ -108,11 +108,11 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'start' => 'start',
-        'end' => 'end',
         'cutoff' => 'cutoff',
-        'price' => 'price'
+        'end' => 'end',
+        'id' => 'id',
+        'price' => 'price',
+        'start' => 'start'
     ];
 
     /**
@@ -121,11 +121,11 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'start' => 'setStart',
-        'end' => 'setEnd',
         'cutoff' => 'setCutoff',
-        'price' => 'setPrice'
+        'end' => 'setEnd',
+        'id' => 'setId',
+        'price' => 'setPrice',
+        'start' => 'setStart'
     ];
 
     /**
@@ -134,11 +134,11 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'start' => 'getStart',
-        'end' => 'getEnd',
         'cutoff' => 'getCutoff',
-        'price' => 'getPrice'
+        'end' => 'getEnd',
+        'id' => 'getId',
+        'price' => 'getPrice',
+        'start' => 'getStart'
     ];
 
     /**
@@ -198,11 +198,11 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['start'] = $data['start'] ?? null;
-        $this->container['end'] = $data['end'] ?? null;
         $this->container['cutoff'] = $data['cutoff'] ?? null;
+        $this->container['end'] = $data['end'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
         $this->container['price'] = $data['price'] ?? null;
+        $this->container['start'] = $data['start'] ?? null;
     }
 
     /**
@@ -234,49 +234,25 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets cutoff
      *
      * @return string|null
      */
-    public function getId()
+    public function getCutoff()
     {
-        return $this->container['id'];
+        return $this->container['cutoff'];
     }
 
     /**
-     * Sets id
+     * Sets cutoff
      *
-     * @param string|null $id The timeslot id
+     * @param string|null $cutoff Cutoff time for delivery
      *
      * @return self
      */
-    public function setId($id)
+    public function setCutoff($cutoff)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start
-     *
-     * @return string|null
-     */
-    public function getStart()
-    {
-        return $this->container['start'];
-    }
-
-    /**
-     * Sets start
-     *
-     * @param string|null $start Start of the timeslot
-     *
-     * @return self
-     */
-    public function setStart($start)
-    {
-        $this->container['start'] = $start;
+        $this->container['cutoff'] = $cutoff;
 
         return $this;
     }
@@ -306,25 +282,25 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets cutoff
+     * Gets id
      *
      * @return string|null
      */
-    public function getCutoff()
+    public function getId()
     {
-        return $this->container['cutoff'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets cutoff
+     * Sets id
      *
-     * @param string|null $cutoff Cutoff time for delivery
+     * @param string|null $id The timeslot id
      *
      * @return self
      */
-    public function setCutoff($cutoff)
+    public function setId($id)
     {
-        $this->container['cutoff'] = $cutoff;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -354,6 +330,30 @@ class Timeslot implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     *
+     * @return string|null
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param string|null $start Start of the timeslot
+     *
+     * @return self
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
 
         return $this;
     }

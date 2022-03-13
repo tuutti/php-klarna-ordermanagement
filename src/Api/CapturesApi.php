@@ -119,8 +119,8 @@ class CapturesApi
      *
      * Add shipping info to a capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $body body (optional)
      *
@@ -128,9 +128,9 @@ class CapturesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function appendShippingInfo($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        $this->appendShippingInfoWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key, $body);
+        $this->appendShippingInfoWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key, $body);
     }
 
     /**
@@ -138,8 +138,8 @@ class CapturesApi
      *
      * Add shipping info to a capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $body (optional)
      *
@@ -147,9 +147,9 @@ class CapturesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appendShippingInfoWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function appendShippingInfoWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        $request = $this->appendShippingInfoRequest($order_id, $capture_id, $klarna_idempotency_key, $body);
+        $request = $this->appendShippingInfoRequest($capture_id, $order_id, $klarna_idempotency_key, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -209,17 +209,17 @@ class CapturesApi
      *
      * Add shipping info to a capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appendShippingInfoAsync($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function appendShippingInfoAsync($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        return $this->appendShippingInfoAsyncWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key, $body)
+        return $this->appendShippingInfoAsyncWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -232,18 +232,18 @@ class CapturesApi
      *
      * Add shipping info to a capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appendShippingInfoAsyncWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function appendShippingInfoAsyncWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
         $returnType = '';
-        $request = $this->appendShippingInfoRequest($order_id, $capture_id, $klarna_idempotency_key, $body);
+        $request = $this->appendShippingInfoRequest($capture_id, $order_id, $klarna_idempotency_key, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -271,26 +271,26 @@ class CapturesApi
     /**
      * Create request for operation 'appendShippingInfo'
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function appendShippingInfoRequest($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function appendShippingInfoRequest($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling appendShippingInfo'
-            );
-        }
         // verify the required parameter 'capture_id' is set
         if ($capture_id === null || (is_array($capture_id) && count($capture_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $capture_id when calling appendShippingInfo'
+            );
+        }
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling appendShippingInfo'
             );
         }
 
@@ -308,18 +308,18 @@ class CapturesApi
         }
 
         // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-        // path params
         if ($capture_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'capture_id' . '}',
                 ObjectSerializer::toPathValue($capture_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
         }
@@ -662,8 +662,8 @@ class CapturesApi
      *
      * Extend the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\ExtendDueDateRequest $body body (optional)
      *
@@ -671,9 +671,9 @@ class CapturesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function extendDueDate($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function extendDueDate($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        $this->extendDueDateWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key, $body);
+        $this->extendDueDateWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key, $body);
     }
 
     /**
@@ -681,8 +681,8 @@ class CapturesApi
      *
      * Extend the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\ExtendDueDateRequest $body (optional)
      *
@@ -690,9 +690,9 @@ class CapturesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function extendDueDateWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function extendDueDateWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        $request = $this->extendDueDateRequest($order_id, $capture_id, $klarna_idempotency_key, $body);
+        $request = $this->extendDueDateRequest($capture_id, $order_id, $klarna_idempotency_key, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -752,17 +752,17 @@ class CapturesApi
      *
      * Extend the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\ExtendDueDateRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function extendDueDateAsync($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function extendDueDateAsync($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        return $this->extendDueDateAsyncWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key, $body)
+        return $this->extendDueDateAsyncWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -775,18 +775,18 @@ class CapturesApi
      *
      * Extend the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\ExtendDueDateRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function extendDueDateAsyncWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function extendDueDateAsyncWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
         $returnType = '';
-        $request = $this->extendDueDateRequest($order_id, $capture_id, $klarna_idempotency_key, $body);
+        $request = $this->extendDueDateRequest($capture_id, $order_id, $klarna_idempotency_key, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -814,26 +814,26 @@ class CapturesApi
     /**
      * Create request for operation 'extendDueDate'
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      * @param  \Klarna\OrderManagement\Model\ExtendDueDateRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function extendDueDateRequest($order_id, $capture_id, $klarna_idempotency_key = null, $body = null)
+    public function extendDueDateRequest($capture_id, $order_id, $klarna_idempotency_key = null, $body = null)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling extendDueDate'
-            );
-        }
         // verify the required parameter 'capture_id' is set
         if ($capture_id === null || (is_array($capture_id) && count($capture_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $capture_id when calling extendDueDate'
+            );
+        }
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling extendDueDate'
             );
         }
 
@@ -851,18 +851,18 @@ class CapturesApi
         }
 
         // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-        // path params
         if ($capture_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'capture_id' . '}',
                 ObjectSerializer::toPathValue($capture_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
         }
@@ -940,16 +940,16 @@ class CapturesApi
      *
      * Get capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \Klarna\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Klarna\OrderManagement\Model\Capture|\Klarna\OrderManagement\Model\NoSuchOrderErrorMessage
      */
-    public function getCapture($order_id, $capture_id)
+    public function getCapture($capture_id, $order_id)
     {
-        list($response) = $this->getCaptureWithHttpInfo($order_id, $capture_id);
+        list($response) = $this->getCaptureWithHttpInfo($capture_id, $order_id);
         return $response;
     }
 
@@ -958,16 +958,16 @@ class CapturesApi
      *
      * Get capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \Klarna\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Klarna\OrderManagement\Model\Capture|\Klarna\OrderManagement\Model\NoSuchOrderErrorMessage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCaptureWithHttpInfo($order_id, $capture_id)
+    public function getCaptureWithHttpInfo($capture_id, $order_id)
     {
-        $request = $this->getCaptureRequest($order_id, $capture_id);
+        $request = $this->getCaptureRequest($capture_id, $order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1065,15 +1065,15 @@ class CapturesApi
      *
      * Get capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCaptureAsync($order_id, $capture_id)
+    public function getCaptureAsync($capture_id, $order_id)
     {
-        return $this->getCaptureAsyncWithHttpInfo($order_id, $capture_id)
+        return $this->getCaptureAsyncWithHttpInfo($capture_id, $order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1086,16 +1086,16 @@ class CapturesApi
      *
      * Get capture
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCaptureAsyncWithHttpInfo($order_id, $capture_id)
+    public function getCaptureAsyncWithHttpInfo($capture_id, $order_id)
     {
         $returnType = '\Klarna\OrderManagement\Model\Capture';
-        $request = $this->getCaptureRequest($order_id, $capture_id);
+        $request = $this->getCaptureRequest($capture_id, $order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1133,24 +1133,24 @@ class CapturesApi
     /**
      * Create request for operation 'getCapture'
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCaptureRequest($order_id, $capture_id)
+    public function getCaptureRequest($capture_id, $order_id)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling getCapture'
-            );
-        }
         // verify the required parameter 'capture_id' is set
         if ($capture_id === null || (is_array($capture_id) && count($capture_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $capture_id when calling getCapture'
+            );
+        }
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling getCapture'
             );
         }
 
@@ -1164,18 +1164,18 @@ class CapturesApi
 
 
         // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-        // path params
         if ($capture_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'capture_id' . '}',
                 ObjectSerializer::toPathValue($capture_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
         }
@@ -1535,16 +1535,16 @@ class CapturesApi
      *
      * Get available options for extension of the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \Klarna\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Klarna\OrderManagement\Model\ExtendDueDateOptions|\Klarna\OrderManagement\Model\ErrorMessageDto
      */
-    public function getOptionsForExtendDueDate($order_id, $capture_id)
+    public function getOptionsForExtendDueDate($capture_id, $order_id)
     {
-        list($response) = $this->getOptionsForExtendDueDateWithHttpInfo($order_id, $capture_id);
+        list($response) = $this->getOptionsForExtendDueDateWithHttpInfo($capture_id, $order_id);
         return $response;
     }
 
@@ -1553,16 +1553,16 @@ class CapturesApi
      *
      * Get available options for extension of the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \Klarna\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Klarna\OrderManagement\Model\ExtendDueDateOptions|\Klarna\OrderManagement\Model\ErrorMessageDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOptionsForExtendDueDateWithHttpInfo($order_id, $capture_id)
+    public function getOptionsForExtendDueDateWithHttpInfo($capture_id, $order_id)
     {
-        $request = $this->getOptionsForExtendDueDateRequest($order_id, $capture_id);
+        $request = $this->getOptionsForExtendDueDateRequest($capture_id, $order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1660,15 +1660,15 @@ class CapturesApi
      *
      * Get available options for extension of the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOptionsForExtendDueDateAsync($order_id, $capture_id)
+    public function getOptionsForExtendDueDateAsync($capture_id, $order_id)
     {
-        return $this->getOptionsForExtendDueDateAsyncWithHttpInfo($order_id, $capture_id)
+        return $this->getOptionsForExtendDueDateAsyncWithHttpInfo($capture_id, $order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1681,16 +1681,16 @@ class CapturesApi
      *
      * Get available options for extension of the customer&#39;s payment due date
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOptionsForExtendDueDateAsyncWithHttpInfo($order_id, $capture_id)
+    public function getOptionsForExtendDueDateAsyncWithHttpInfo($capture_id, $order_id)
     {
         $returnType = '\Klarna\OrderManagement\Model\ExtendDueDateOptions';
-        $request = $this->getOptionsForExtendDueDateRequest($order_id, $capture_id);
+        $request = $this->getOptionsForExtendDueDateRequest($capture_id, $order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1728,24 +1728,24 @@ class CapturesApi
     /**
      * Create request for operation 'getOptionsForExtendDueDate'
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOptionsForExtendDueDateRequest($order_id, $capture_id)
+    public function getOptionsForExtendDueDateRequest($capture_id, $order_id)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling getOptionsForExtendDueDate'
-            );
-        }
         // verify the required parameter 'capture_id' is set
         if ($capture_id === null || (is_array($capture_id) && count($capture_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $capture_id when calling getOptionsForExtendDueDate'
+            );
+        }
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling getOptionsForExtendDueDate'
             );
         }
 
@@ -1759,18 +1759,18 @@ class CapturesApi
 
 
         // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-        // path params
         if ($capture_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'capture_id' . '}',
                 ObjectSerializer::toPathValue($capture_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
         }
@@ -1842,17 +1842,17 @@ class CapturesApi
      *
      * Trigger resend of customer communication
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      *
      * @throws \Klarna\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function triggerSendOut($order_id, $capture_id, $klarna_idempotency_key = null)
+    public function triggerSendOut($capture_id, $order_id, $klarna_idempotency_key = null)
     {
-        $this->triggerSendOutWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key);
+        $this->triggerSendOutWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key);
     }
 
     /**
@@ -1860,17 +1860,17 @@ class CapturesApi
      *
      * Trigger resend of customer communication
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      *
      * @throws \Klarna\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function triggerSendOutWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key = null)
+    public function triggerSendOutWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key = null)
     {
-        $request = $this->triggerSendOutRequest($order_id, $capture_id, $klarna_idempotency_key);
+        $request = $this->triggerSendOutRequest($capture_id, $order_id, $klarna_idempotency_key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1930,16 +1930,16 @@ class CapturesApi
      *
      * Trigger resend of customer communication
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function triggerSendOutAsync($order_id, $capture_id, $klarna_idempotency_key = null)
+    public function triggerSendOutAsync($capture_id, $order_id, $klarna_idempotency_key = null)
     {
-        return $this->triggerSendOutAsyncWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key)
+        return $this->triggerSendOutAsyncWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1952,17 +1952,17 @@ class CapturesApi
      *
      * Trigger resend of customer communication
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function triggerSendOutAsyncWithHttpInfo($order_id, $capture_id, $klarna_idempotency_key = null)
+    public function triggerSendOutAsyncWithHttpInfo($capture_id, $order_id, $klarna_idempotency_key = null)
     {
         $returnType = '';
-        $request = $this->triggerSendOutRequest($order_id, $capture_id, $klarna_idempotency_key);
+        $request = $this->triggerSendOutRequest($capture_id, $order_id, $klarna_idempotency_key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1990,25 +1990,25 @@ class CapturesApi
     /**
      * Create request for operation 'triggerSendOut'
      *
-     * @param  string $order_id Order id (required)
      * @param  string $capture_id Capture id (required)
+     * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function triggerSendOutRequest($order_id, $capture_id, $klarna_idempotency_key = null)
+    public function triggerSendOutRequest($capture_id, $order_id, $klarna_idempotency_key = null)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling triggerSendOut'
-            );
-        }
         // verify the required parameter 'capture_id' is set
         if ($capture_id === null || (is_array($capture_id) && count($capture_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $capture_id when calling triggerSendOut'
+            );
+        }
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling triggerSendOut'
             );
         }
 
@@ -2026,18 +2026,18 @@ class CapturesApi
         }
 
         // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-        // path params
         if ($capture_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'capture_id' . '}',
                 ObjectSerializer::toPathValue($capture_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
         }
