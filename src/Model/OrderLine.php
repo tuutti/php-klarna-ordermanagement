@@ -59,20 +59,20 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reference' => 'string',
-        'type' => 'string',
+        'image_url' => 'string',
+        'merchant_data' => 'string',
+        'name' => 'string',
+        'product_identifiers' => '\Klarna\OrderManagement\Model\ProductIdentifiers',
+        'product_url' => 'string',
         'quantity' => 'int',
         'quantity_unit' => 'string',
-        'name' => 'string',
-        'total_amount' => 'int',
-        'unit_price' => 'int',
-        'total_discount_amount' => 'int',
+        'reference' => 'string',
         'tax_rate' => 'int',
+        'total_amount' => 'int',
+        'total_discount_amount' => 'int',
         'total_tax_amount' => 'int',
-        'merchant_data' => 'string',
-        'product_url' => 'string',
-        'image_url' => 'string',
-        'product_identifiers' => '\Klarna\OrderManagement\Model\ProductIdentifiers'
+        'type' => 'string',
+        'unit_price' => 'int'
     ];
 
     /**
@@ -83,20 +83,20 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'reference' => null,
-        'type' => null,
+        'image_url' => null,
+        'merchant_data' => null,
+        'name' => null,
+        'product_identifiers' => null,
+        'product_url' => null,
         'quantity' => 'int64',
         'quantity_unit' => null,
-        'name' => null,
-        'total_amount' => 'int64',
-        'unit_price' => 'int64',
-        'total_discount_amount' => 'int64',
+        'reference' => null,
         'tax_rate' => 'int32',
+        'total_amount' => 'int64',
+        'total_discount_amount' => 'int64',
         'total_tax_amount' => 'int64',
-        'merchant_data' => null,
-        'product_url' => null,
-        'image_url' => null,
-        'product_identifiers' => null
+        'type' => null,
+        'unit_price' => 'int64'
     ];
 
     /**
@@ -126,20 +126,20 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'reference' => 'reference',
-        'type' => 'type',
+        'image_url' => 'image_url',
+        'merchant_data' => 'merchant_data',
+        'name' => 'name',
+        'product_identifiers' => 'product_identifiers',
+        'product_url' => 'product_url',
         'quantity' => 'quantity',
         'quantity_unit' => 'quantity_unit',
-        'name' => 'name',
-        'total_amount' => 'total_amount',
-        'unit_price' => 'unit_price',
-        'total_discount_amount' => 'total_discount_amount',
+        'reference' => 'reference',
         'tax_rate' => 'tax_rate',
+        'total_amount' => 'total_amount',
+        'total_discount_amount' => 'total_discount_amount',
         'total_tax_amount' => 'total_tax_amount',
-        'merchant_data' => 'merchant_data',
-        'product_url' => 'product_url',
-        'image_url' => 'image_url',
-        'product_identifiers' => 'product_identifiers'
+        'type' => 'type',
+        'unit_price' => 'unit_price'
     ];
 
     /**
@@ -148,20 +148,20 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'reference' => 'setReference',
-        'type' => 'setType',
+        'image_url' => 'setImageUrl',
+        'merchant_data' => 'setMerchantData',
+        'name' => 'setName',
+        'product_identifiers' => 'setProductIdentifiers',
+        'product_url' => 'setProductUrl',
         'quantity' => 'setQuantity',
         'quantity_unit' => 'setQuantityUnit',
-        'name' => 'setName',
-        'total_amount' => 'setTotalAmount',
-        'unit_price' => 'setUnitPrice',
-        'total_discount_amount' => 'setTotalDiscountAmount',
+        'reference' => 'setReference',
         'tax_rate' => 'setTaxRate',
+        'total_amount' => 'setTotalAmount',
+        'total_discount_amount' => 'setTotalDiscountAmount',
         'total_tax_amount' => 'setTotalTaxAmount',
-        'merchant_data' => 'setMerchantData',
-        'product_url' => 'setProductUrl',
-        'image_url' => 'setImageUrl',
-        'product_identifiers' => 'setProductIdentifiers'
+        'type' => 'setType',
+        'unit_price' => 'setUnitPrice'
     ];
 
     /**
@@ -170,20 +170,20 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'reference' => 'getReference',
-        'type' => 'getType',
+        'image_url' => 'getImageUrl',
+        'merchant_data' => 'getMerchantData',
+        'name' => 'getName',
+        'product_identifiers' => 'getProductIdentifiers',
+        'product_url' => 'getProductUrl',
         'quantity' => 'getQuantity',
         'quantity_unit' => 'getQuantityUnit',
-        'name' => 'getName',
-        'total_amount' => 'getTotalAmount',
-        'unit_price' => 'getUnitPrice',
-        'total_discount_amount' => 'getTotalDiscountAmount',
+        'reference' => 'getReference',
         'tax_rate' => 'getTaxRate',
+        'total_amount' => 'getTotalAmount',
+        'total_discount_amount' => 'getTotalDiscountAmount',
         'total_tax_amount' => 'getTotalTaxAmount',
-        'merchant_data' => 'getMerchantData',
-        'product_url' => 'getProductUrl',
-        'image_url' => 'getImageUrl',
-        'product_identifiers' => 'getProductIdentifiers'
+        'type' => 'getType',
+        'unit_price' => 'getUnitPrice'
     ];
 
     /**
@@ -243,20 +243,20 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['reference'] = $data['reference'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['image_url'] = $data['image_url'] ?? null;
+        $this->container['merchant_data'] = $data['merchant_data'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['product_identifiers'] = $data['product_identifiers'] ?? null;
+        $this->container['product_url'] = $data['product_url'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
         $this->container['quantity_unit'] = $data['quantity_unit'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['total_amount'] = $data['total_amount'] ?? null;
-        $this->container['unit_price'] = $data['unit_price'] ?? null;
-        $this->container['total_discount_amount'] = $data['total_discount_amount'] ?? null;
+        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['tax_rate'] = $data['tax_rate'] ?? null;
+        $this->container['total_amount'] = $data['total_amount'] ?? null;
+        $this->container['total_discount_amount'] = $data['total_discount_amount'] ?? null;
         $this->container['total_tax_amount'] = $data['total_tax_amount'] ?? null;
-        $this->container['merchant_data'] = $data['merchant_data'] ?? null;
-        $this->container['product_url'] = $data['product_url'] ?? null;
-        $this->container['image_url'] = $data['image_url'] ?? null;
-        $this->container['product_identifiers'] = $data['product_identifiers'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['unit_price'] = $data['unit_price'] ?? null;
     }
 
     /**
@@ -268,16 +268,39 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 255)) {
-            $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 255.";
+        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) > 1024)) {
+            $invalidProperties[] = "invalid value for 'image_url', the character length must be smaller than or equal to 1024.";
         }
 
-        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) < 0)) {
-            $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
+        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) < 0)) {
+            $invalidProperties[] = "invalid value for 'image_url', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['type']) && !preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $this->container['type'])) {
-            $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.";
+        if (!is_null($this->container['merchant_data']) && (mb_strlen($this->container['merchant_data']) > 1024)) {
+            $invalidProperties[] = "invalid value for 'merchant_data', the character length must be smaller than or equal to 1024.";
+        }
+
+        if (!is_null($this->container['merchant_data']) && (mb_strlen($this->container['merchant_data']) < 0)) {
+            $invalidProperties[] = "invalid value for 'merchant_data', the character length must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 255)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
+        }
+
+        if ((mb_strlen($this->container['name']) < 0)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['product_url']) && (mb_strlen($this->container['product_url']) > 1024)) {
+            $invalidProperties[] = "invalid value for 'product_url', the character length must be smaller than or equal to 1024.";
+        }
+
+        if (!is_null($this->container['product_url']) && (mb_strlen($this->container['product_url']) < 0)) {
+            $invalidProperties[] = "invalid value for 'product_url', the character length must be bigger than or equal to 0.";
         }
 
         if ($this->container['quantity'] === null) {
@@ -295,15 +318,16 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'quantity_unit', the character length must be bigger than or equal to 0.";
         }
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
+        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 255)) {
+            $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 255.";
         }
 
-        if ((mb_strlen($this->container['name']) < 0)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 0.";
+        if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) < 0)) {
+            $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['tax_rate']) && ($this->container['tax_rate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'tax_rate', must be bigger than or equal to 0.";
         }
 
         if ($this->container['total_amount'] === null) {
@@ -311,13 +335,6 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['total_amount'] > 100000000)) {
             $invalidProperties[] = "invalid value for 'total_amount', must be smaller than or equal to 100000000.";
-        }
-
-        if ($this->container['unit_price'] === null) {
-            $invalidProperties[] = "'unit_price' can't be null";
-        }
-        if (($this->container['unit_price'] > 100000000)) {
-            $invalidProperties[] = "invalid value for 'unit_price', must be smaller than or equal to 100000000.";
         }
 
         if (!is_null($this->container['total_discount_amount']) && ($this->container['total_discount_amount'] > 100000000)) {
@@ -328,36 +345,19 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'total_discount_amount', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['tax_rate']) && ($this->container['tax_rate'] < 0)) {
-            $invalidProperties[] = "invalid value for 'tax_rate', must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['total_tax_amount']) && ($this->container['total_tax_amount'] > 100000000)) {
             $invalidProperties[] = "invalid value for 'total_tax_amount', must be smaller than or equal to 100000000.";
         }
 
-        if (!is_null($this->container['merchant_data']) && (mb_strlen($this->container['merchant_data']) > 1024)) {
-            $invalidProperties[] = "invalid value for 'merchant_data', the character length must be smaller than or equal to 1024.";
+        if (!is_null($this->container['type']) && !preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $this->container['type'])) {
+            $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.";
         }
 
-        if (!is_null($this->container['merchant_data']) && (mb_strlen($this->container['merchant_data']) < 0)) {
-            $invalidProperties[] = "invalid value for 'merchant_data', the character length must be bigger than or equal to 0.";
+        if ($this->container['unit_price'] === null) {
+            $invalidProperties[] = "'unit_price' can't be null";
         }
-
-        if (!is_null($this->container['product_url']) && (mb_strlen($this->container['product_url']) > 1024)) {
-            $invalidProperties[] = "invalid value for 'product_url', the character length must be smaller than or equal to 1024.";
-        }
-
-        if (!is_null($this->container['product_url']) && (mb_strlen($this->container['product_url']) < 0)) {
-            $invalidProperties[] = "invalid value for 'product_url', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) > 1024)) {
-            $invalidProperties[] = "invalid value for 'image_url', the character length must be smaller than or equal to 1024.";
-        }
-
-        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) < 0)) {
-            $invalidProperties[] = "invalid value for 'image_url', the character length must be bigger than or equal to 0.";
+        if (($this->container['unit_price'] > 100000000)) {
+            $invalidProperties[] = "invalid value for 'unit_price', must be smaller than or equal to 100000000.";
         }
 
         return $invalidProperties;
@@ -376,61 +376,149 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets reference
+     * Gets image_url
      *
      * @return string|null
      */
-    public function getReference()
+    public function getImageUrl()
     {
-        return $this->container['reference'];
+        return $this->container['image_url'];
     }
 
     /**
-     * Sets reference
+     * Sets image_url
      *
-     * @param string|null $reference Article number, SKU or similar.
+     * @param string|null $image_url URL to an image that can be embedded in communications between Klarna and the customer. Maximum 1024 characters.
      *
      * @return self
      */
-    public function setReference($reference)
+    public function setImageUrl($image_url)
     {
-        if (!is_null($reference) && (mb_strlen($reference) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling OrderLine., must be smaller than or equal to 255.');
+        if (!is_null($image_url) && (mb_strlen($image_url) > 1024)) {
+            throw new \InvalidArgumentException('invalid length for $image_url when calling OrderLine., must be smaller than or equal to 1024.');
         }
-        if (!is_null($reference) && (mb_strlen($reference) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling OrderLine., must be bigger than or equal to 0.');
+        if (!is_null($image_url) && (mb_strlen($image_url) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $image_url when calling OrderLine., must be bigger than or equal to 0.');
         }
 
-        $this->container['reference'] = $reference;
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets merchant_data
      *
      * @return string|null
      */
-    public function getType()
+    public function getMerchantData()
     {
-        return $this->container['type'];
+        return $this->container['merchant_data'];
     }
 
     /**
-     * Sets type
+     * Sets merchant_data
      *
-     * @param string|null $type Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee
+     * @param string|null $merchant_data Data about the order line. Set at creation or update and returned when fetching the order through the API. Maximum 1024 characters.
      *
      * @return self
      */
-    public function setType($type)
+    public function setMerchantData($merchant_data)
     {
-
-        if (!is_null($type) && (!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $type))) {
-            throw new \InvalidArgumentException("invalid value for $type when calling OrderLine., must conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.");
+        if (!is_null($merchant_data) && (mb_strlen($merchant_data) > 1024)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_data when calling OrderLine., must be smaller than or equal to 1024.');
+        }
+        if (!is_null($merchant_data) && (mb_strlen($merchant_data) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_data when calling OrderLine., must be bigger than or equal to 0.');
         }
 
-        $this->container['type'] = $type;
+        $this->container['merchant_data'] = $merchant_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Descriptive item name. Maximum 255 characters.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if ((mb_strlen($name) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling OrderLine., must be smaller than or equal to 255.');
+        }
+        if ((mb_strlen($name) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling OrderLine., must be bigger than or equal to 0.');
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_identifiers
+     *
+     * @return \Klarna\OrderManagement\Model\ProductIdentifiers|null
+     */
+    public function getProductIdentifiers()
+    {
+        return $this->container['product_identifiers'];
+    }
+
+    /**
+     * Sets product_identifiers
+     *
+     * @param \Klarna\OrderManagement\Model\ProductIdentifiers|null $product_identifiers product_identifiers
+     *
+     * @return self
+     */
+    public function setProductIdentifiers($product_identifiers)
+    {
+        $this->container['product_identifiers'] = $product_identifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_url
+     *
+     * @return string|null
+     */
+    public function getProductUrl()
+    {
+        return $this->container['product_url'];
+    }
+
+    /**
+     * Sets product_url
+     *
+     * @param string|null $product_url URL to the product that can be used in communications between Klarna and the customer. Maximum 1024 characters.
+     *
+     * @return self
+     */
+    public function setProductUrl($product_url)
+    {
+        if (!is_null($product_url) && (mb_strlen($product_url) > 1024)) {
+            throw new \InvalidArgumentException('invalid length for $product_url when calling OrderLine., must be smaller than or equal to 1024.');
+        }
+        if (!is_null($product_url) && (mb_strlen($product_url) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $product_url when calling OrderLine., must be bigger than or equal to 0.');
+        }
+
+        $this->container['product_url'] = $product_url;
 
         return $this;
     }
@@ -496,32 +584,61 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets reference
      *
-     * @return string
+     * @return string|null
      */
-    public function getName()
+    public function getReference()
     {
-        return $this->container['name'];
+        return $this->container['reference'];
     }
 
     /**
-     * Sets name
+     * Sets reference
      *
-     * @param string $name Descriptive item name. Maximum 255 characters.
+     * @param string|null $reference Article number, SKU or similar identifier on the product variant level.
      *
      * @return self
      */
-    public function setName($name)
+    public function setReference($reference)
     {
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling OrderLine., must be smaller than or equal to 255.');
+        if (!is_null($reference) && (mb_strlen($reference) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling OrderLine., must be smaller than or equal to 255.');
         }
-        if ((mb_strlen($name) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling OrderLine., must be bigger than or equal to 0.');
+        if (!is_null($reference) && (mb_strlen($reference) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling OrderLine., must be bigger than or equal to 0.');
         }
 
-        $this->container['name'] = $name;
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_rate
+     *
+     * @return int|null
+     */
+    public function getTaxRate()
+    {
+        return $this->container['tax_rate'];
+    }
+
+    /**
+     * Sets tax_rate
+     *
+     * @param int|null $tax_rate The tax rate in percent with two implicit decimals. Non-negative. Example: 2500 = 25%.
+     *
+     * @return self
+     */
+    public function setTaxRate($tax_rate)
+    {
+
+        if (!is_null($tax_rate) && ($tax_rate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $tax_rate when calling OrderLine., must be bigger than or equal to 0.');
+        }
+
+        $this->container['tax_rate'] = $tax_rate;
 
         return $this;
     }
@@ -551,35 +668,6 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['total_amount'] = $total_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets unit_price
-     *
-     * @return int
-     */
-    public function getUnitPrice()
-    {
-        return $this->container['unit_price'];
-    }
-
-    /**
-     * Sets unit_price
-     *
-     * @param int $unit_price Unit price including tax without applying discounts in minor units.
-     *
-     * @return self
-     */
-    public function setUnitPrice($unit_price)
-    {
-
-        if (($unit_price > 100000000)) {
-            throw new \InvalidArgumentException('invalid value for $unit_price when calling OrderLine., must be smaller than or equal to 100000000.');
-        }
-
-        $this->container['unit_price'] = $unit_price;
 
         return $this;
     }
@@ -617,35 +705,6 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tax_rate
-     *
-     * @return int|null
-     */
-    public function getTaxRate()
-    {
-        return $this->container['tax_rate'];
-    }
-
-    /**
-     * Sets tax_rate
-     *
-     * @param int|null $tax_rate The tax rate in percent with two implicit decimals. Non-negative. Example: 2500 = 25%.
-     *
-     * @return self
-     */
-    public function setTaxRate($tax_rate)
-    {
-
-        if (!is_null($tax_rate) && ($tax_rate < 0)) {
-            throw new \InvalidArgumentException('invalid value for $tax_rate when calling OrderLine., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tax_rate'] = $tax_rate;
-
-        return $this;
-    }
-
-    /**
      * Gets total_tax_amount
      *
      * @return int|null
@@ -675,118 +734,59 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets merchant_data
+     * Gets type
      *
      * @return string|null
      */
-    public function getMerchantData()
+    public function getType()
     {
-        return $this->container['merchant_data'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets merchant_data
+     * Sets type
      *
-     * @param string|null $merchant_data Data about the order line. Set at creation or update and returned when fetching the order through the API. Maximum 1024 characters.
+     * @param string|null $type Order line type. Matches: physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee
      *
      * @return self
      */
-    public function setMerchantData($merchant_data)
+    public function setType($type)
     {
-        if (!is_null($merchant_data) && (mb_strlen($merchant_data) > 1024)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_data when calling OrderLine., must be smaller than or equal to 1024.');
-        }
-        if (!is_null($merchant_data) && (mb_strlen($merchant_data) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_data when calling OrderLine., must be bigger than or equal to 0.');
+
+        if (!is_null($type) && (!preg_match("/physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/", $type))) {
+            throw new \InvalidArgumentException("invalid value for $type when calling OrderLine., must conform to the pattern /physical|discount|shipping_fee|sales_tax|store_credit|gift_card|digital|surcharge|return_fee/.");
         }
 
-        $this->container['merchant_data'] = $merchant_data;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets product_url
+     * Gets unit_price
      *
-     * @return string|null
+     * @return int
      */
-    public function getProductUrl()
+    public function getUnitPrice()
     {
-        return $this->container['product_url'];
+        return $this->container['unit_price'];
     }
 
     /**
-     * Sets product_url
+     * Sets unit_price
      *
-     * @param string|null $product_url URL to the product that can be used in communications between Klarna and the customer. Maximum 1024 characters.
+     * @param int $unit_price Unit price including tax without applying discounts in minor units.
      *
      * @return self
      */
-    public function setProductUrl($product_url)
+    public function setUnitPrice($unit_price)
     {
-        if (!is_null($product_url) && (mb_strlen($product_url) > 1024)) {
-            throw new \InvalidArgumentException('invalid length for $product_url when calling OrderLine., must be smaller than or equal to 1024.');
-        }
-        if (!is_null($product_url) && (mb_strlen($product_url) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $product_url when calling OrderLine., must be bigger than or equal to 0.');
+
+        if (($unit_price > 100000000)) {
+            throw new \InvalidArgumentException('invalid value for $unit_price when calling OrderLine., must be smaller than or equal to 100000000.');
         }
 
-        $this->container['product_url'] = $product_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_url
-     *
-     * @return string|null
-     */
-    public function getImageUrl()
-    {
-        return $this->container['image_url'];
-    }
-
-    /**
-     * Sets image_url
-     *
-     * @param string|null $image_url URL to an image that can be embedded in communications between Klarna and the customer. Maximum 1024 characters.
-     *
-     * @return self
-     */
-    public function setImageUrl($image_url)
-    {
-        if (!is_null($image_url) && (mb_strlen($image_url) > 1024)) {
-            throw new \InvalidArgumentException('invalid length for $image_url when calling OrderLine., must be smaller than or equal to 1024.');
-        }
-        if (!is_null($image_url) && (mb_strlen($image_url) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $image_url when calling OrderLine., must be bigger than or equal to 0.');
-        }
-
-        $this->container['image_url'] = $image_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_identifiers
-     *
-     * @return \Klarna\OrderManagement\Model\ProductIdentifiers|null
-     */
-    public function getProductIdentifiers()
-    {
-        return $this->container['product_identifiers'];
-    }
-
-    /**
-     * Sets product_identifiers
-     *
-     * @param \Klarna\OrderManagement\Model\ProductIdentifiers|null $product_identifiers product_identifiers
-     *
-     * @return self
-     */
-    public function setProductIdentifiers($product_identifiers)
-    {
-        $this->container['product_identifiers'] = $product_identifiers;
+        $this->container['unit_price'] = $unit_price;
 
         return $this;
     }

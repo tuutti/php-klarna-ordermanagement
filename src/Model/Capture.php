@@ -59,15 +59,15 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'billing_address' => '\Klarna\OrderManagement\Model\Address',
         'capture_id' => 'string',
-        'reference' => 'string',
-        'klarna_reference' => 'string',
         'captured_amount' => 'int',
         'captured_at' => '\DateTime',
         'description' => 'string',
+        'klarna_reference' => 'string',
         'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
+        'reference' => 'string',
         'refunded_amount' => 'int',
-        'billing_address' => '\Klarna\OrderManagement\Model\Address',
         'shipping_address' => '\Klarna\OrderManagement\Model\Address',
         'shipping_info' => '\Klarna\OrderManagement\Model\ShippingInfo[]'
     ];
@@ -80,15 +80,15 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'billing_address' => null,
         'capture_id' => null,
-        'reference' => null,
-        'klarna_reference' => null,
         'captured_amount' => 'int64',
         'captured_at' => 'date-time',
         'description' => null,
+        'klarna_reference' => null,
         'order_lines' => null,
+        'reference' => null,
         'refunded_amount' => 'int64',
-        'billing_address' => null,
         'shipping_address' => null,
         'shipping_info' => null
     ];
@@ -120,15 +120,15 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'billing_address' => 'billing_address',
         'capture_id' => 'capture_id',
-        'reference' => 'reference',
-        'klarna_reference' => 'klarna_reference',
         'captured_amount' => 'captured_amount',
         'captured_at' => 'captured_at',
         'description' => 'description',
+        'klarna_reference' => 'klarna_reference',
         'order_lines' => 'order_lines',
+        'reference' => 'reference',
         'refunded_amount' => 'refunded_amount',
-        'billing_address' => 'billing_address',
         'shipping_address' => 'shipping_address',
         'shipping_info' => 'shipping_info'
     ];
@@ -139,15 +139,15 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'billing_address' => 'setBillingAddress',
         'capture_id' => 'setCaptureId',
-        'reference' => 'setReference',
-        'klarna_reference' => 'setKlarnaReference',
         'captured_amount' => 'setCapturedAmount',
         'captured_at' => 'setCapturedAt',
         'description' => 'setDescription',
+        'klarna_reference' => 'setKlarnaReference',
         'order_lines' => 'setOrderLines',
+        'reference' => 'setReference',
         'refunded_amount' => 'setRefundedAmount',
-        'billing_address' => 'setBillingAddress',
         'shipping_address' => 'setShippingAddress',
         'shipping_info' => 'setShippingInfo'
     ];
@@ -158,15 +158,15 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'billing_address' => 'getBillingAddress',
         'capture_id' => 'getCaptureId',
-        'reference' => 'getReference',
-        'klarna_reference' => 'getKlarnaReference',
         'captured_amount' => 'getCapturedAmount',
         'captured_at' => 'getCapturedAt',
         'description' => 'getDescription',
+        'klarna_reference' => 'getKlarnaReference',
         'order_lines' => 'getOrderLines',
+        'reference' => 'getReference',
         'refunded_amount' => 'getRefundedAmount',
-        'billing_address' => 'getBillingAddress',
         'shipping_address' => 'getShippingAddress',
         'shipping_info' => 'getShippingInfo'
     ];
@@ -228,15 +228,15 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['billing_address'] = $data['billing_address'] ?? null;
         $this->container['capture_id'] = $data['capture_id'] ?? null;
-        $this->container['reference'] = $data['reference'] ?? null;
-        $this->container['klarna_reference'] = $data['klarna_reference'] ?? null;
         $this->container['captured_amount'] = $data['captured_amount'] ?? null;
         $this->container['captured_at'] = $data['captured_at'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['klarna_reference'] = $data['klarna_reference'] ?? null;
         $this->container['order_lines'] = $data['order_lines'] ?? null;
+        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
-        $this->container['billing_address'] = $data['billing_address'] ?? null;
         $this->container['shipping_address'] = $data['shipping_address'] ?? null;
         $this->container['shipping_info'] = $data['shipping_info'] ?? null;
     }
@@ -250,16 +250,16 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['captured_amount']) && ($this->container['captured_amount'] < 1)) {
+            $invalidProperties[] = "invalid value for 'captured_amount', must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 255)) {
             $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) < 0)) {
             $invalidProperties[] = "invalid value for 'reference', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['captured_amount']) && ($this->container['captured_amount'] < 1)) {
-            $invalidProperties[] = "invalid value for 'captured_amount', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -276,6 +276,30 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets billing_address
+     *
+     * @return \Klarna\OrderManagement\Model\Address|null
+     */
+    public function getBillingAddress()
+    {
+        return $this->container['billing_address'];
+    }
+
+    /**
+     * Sets billing_address
+     *
+     * @param \Klarna\OrderManagement\Model\Address|null $billing_address billing_address
+     *
+     * @return self
+     */
+    public function setBillingAddress($billing_address)
+    {
+        $this->container['billing_address'] = $billing_address;
+
+        return $this;
+    }
 
     /**
      * Gets capture_id
@@ -297,61 +321,6 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCaptureId($capture_id)
     {
         $this->container['capture_id'] = $capture_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference
-     *
-     * @return string|null
-     */
-    public function getReference()
-    {
-        return $this->container['reference'];
-    }
-
-    /**
-     * Sets reference
-     *
-     * @param string|null $reference Internal reference to the capture which will be included in the settlement files. Max length is 255 characters.
-     *
-     * @return self
-     */
-    public function setReference($reference)
-    {
-        if (!is_null($reference) && (mb_strlen($reference) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling Capture., must be smaller than or equal to 255.');
-        }
-        if (!is_null($reference) && (mb_strlen($reference) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling Capture., must be bigger than or equal to 0.');
-        }
-
-        $this->container['reference'] = $reference;
-
-        return $this;
-    }
-
-    /**
-     * Gets klarna_reference
-     *
-     * @return string|null
-     */
-    public function getKlarnaReference()
-    {
-        return $this->container['klarna_reference'];
-    }
-
-    /**
-     * Sets klarna_reference
-     *
-     * @param string|null $klarna_reference Customer friendly reference id, used as a reference when communicating with the customer.
-     *
-     * @return self
-     */
-    public function setKlarnaReference($klarna_reference)
-    {
-        $this->container['klarna_reference'] = $klarna_reference;
 
         return $this;
     }
@@ -434,6 +403,30 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets klarna_reference
+     *
+     * @return string|null
+     */
+    public function getKlarnaReference()
+    {
+        return $this->container['klarna_reference'];
+    }
+
+    /**
+     * Sets klarna_reference
+     *
+     * @param string|null $klarna_reference Customer friendly reference id, used as a reference when communicating with the customer.
+     *
+     * @return self
+     */
+    public function setKlarnaReference($klarna_reference)
+    {
+        $this->container['klarna_reference'] = $klarna_reference;
+
+        return $this;
+    }
+
+    /**
      * Gets order_lines
      *
      * @return \Klarna\OrderManagement\Model\OrderLine[]|null
@@ -458,6 +451,37 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets reference
+     *
+     * @return string|null
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string|null $reference Internal reference to the capture which will be included in the settlement files. Max length is 255 characters.
+     *
+     * @return self
+     */
+    public function setReference($reference)
+    {
+        if (!is_null($reference) && (mb_strlen($reference) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling Capture., must be smaller than or equal to 255.');
+        }
+        if (!is_null($reference) && (mb_strlen($reference) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling Capture., must be bigger than or equal to 0.');
+        }
+
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+    /**
      * Gets refunded_amount
      *
      * @return int|null
@@ -477,30 +501,6 @@ class Capture implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRefundedAmount($refunded_amount)
     {
         $this->container['refunded_amount'] = $refunded_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets billing_address
-     *
-     * @return \Klarna\OrderManagement\Model\Address|null
-     */
-    public function getBillingAddress()
-    {
-        return $this->container['billing_address'];
-    }
-
-    /**
-     * Sets billing_address
-     *
-     * @param \Klarna\OrderManagement\Model\Address|null $billing_address billing_address
-     *
-     * @return self
-     */
-    public function setBillingAddress($billing_address)
-    {
-        $this->container['billing_address'] = $billing_address;
 
         return $this;
     }

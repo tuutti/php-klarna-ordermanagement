@@ -59,10 +59,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'brand' => 'string',
         'category_path' => 'string',
+        'color' => 'string',
         'global_trade_item_number' => 'string',
         'manufacturer_part_number' => 'string',
-        'brand' => 'string'
+        'size' => 'string'
     ];
 
     /**
@@ -73,10 +75,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'brand' => null,
         'category_path' => null,
+        'color' => null,
         'global_trade_item_number' => null,
         'manufacturer_part_number' => null,
-        'brand' => null
+        'size' => null
     ];
 
     /**
@@ -106,10 +110,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'brand' => 'brand',
         'category_path' => 'category_path',
+        'color' => 'color',
         'global_trade_item_number' => 'global_trade_item_number',
         'manufacturer_part_number' => 'manufacturer_part_number',
-        'brand' => 'brand'
+        'size' => 'size'
     ];
 
     /**
@@ -118,10 +124,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'brand' => 'setBrand',
         'category_path' => 'setCategoryPath',
+        'color' => 'setColor',
         'global_trade_item_number' => 'setGlobalTradeItemNumber',
         'manufacturer_part_number' => 'setManufacturerPartNumber',
-        'brand' => 'setBrand'
+        'size' => 'setSize'
     ];
 
     /**
@@ -130,10 +138,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'brand' => 'getBrand',
         'category_path' => 'getCategoryPath',
+        'color' => 'getColor',
         'global_trade_item_number' => 'getGlobalTradeItemNumber',
         'manufacturer_part_number' => 'getManufacturerPartNumber',
-        'brand' => 'getBrand'
+        'size' => 'getSize'
     ];
 
     /**
@@ -193,10 +203,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
+        $this->container['brand'] = $data['brand'] ?? null;
         $this->container['category_path'] = $data['category_path'] ?? null;
+        $this->container['color'] = $data['color'] ?? null;
         $this->container['global_trade_item_number'] = $data['global_trade_item_number'] ?? null;
         $this->container['manufacturer_part_number'] = $data['manufacturer_part_number'] ?? null;
-        $this->container['brand'] = $data['brand'] ?? null;
+        $this->container['size'] = $data['size'] ?? null;
     }
 
     /**
@@ -208,12 +220,28 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['brand']) && (mb_strlen($this->container['brand']) > 70)) {
+            $invalidProperties[] = "invalid value for 'brand', the character length must be smaller than or equal to 70.";
+        }
+
+        if (!is_null($this->container['brand']) && (mb_strlen($this->container['brand']) < 0)) {
+            $invalidProperties[] = "invalid value for 'brand', the character length must be bigger than or equal to 0.";
+        }
+
         if (!is_null($this->container['category_path']) && (mb_strlen($this->container['category_path']) > 750)) {
             $invalidProperties[] = "invalid value for 'category_path', the character length must be smaller than or equal to 750.";
         }
 
         if (!is_null($this->container['category_path']) && (mb_strlen($this->container['category_path']) < 0)) {
             $invalidProperties[] = "invalid value for 'category_path', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) > 64)) {
+            $invalidProperties[] = "invalid value for 'color', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) < 0)) {
+            $invalidProperties[] = "invalid value for 'color', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['global_trade_item_number']) && (mb_strlen($this->container['global_trade_item_number']) > 50)) {
@@ -232,12 +260,12 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'manufacturer_part_number', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['brand']) && (mb_strlen($this->container['brand']) > 70)) {
-            $invalidProperties[] = "invalid value for 'brand', the character length must be smaller than or equal to 70.";
+        if (!is_null($this->container['size']) && (mb_strlen($this->container['size']) > 64)) {
+            $invalidProperties[] = "invalid value for 'size', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['brand']) && (mb_strlen($this->container['brand']) < 0)) {
-            $invalidProperties[] = "invalid value for 'brand', the character length must be bigger than or equal to 0.";
+        if (!is_null($this->container['size']) && (mb_strlen($this->container['size']) < 0)) {
+            $invalidProperties[] = "invalid value for 'size', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -254,6 +282,37 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets brand
+     *
+     * @return string|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param string|null $brand The product's brand name as generally recognized by consumers. If no brand is available for a product, do not supply any value. Maximum 70 characters. Example: Intel
+     *
+     * @return self
+     */
+    public function setBrand($brand)
+    {
+        if (!is_null($brand) && (mb_strlen($brand) > 70)) {
+            throw new \InvalidArgumentException('invalid length for $brand when calling ProductIdentifiers., must be smaller than or equal to 70.');
+        }
+        if (!is_null($brand) && (mb_strlen($brand) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $brand when calling ProductIdentifiers., must be bigger than or equal to 0.');
+        }
+
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
 
     /**
      * Gets category_path
@@ -282,6 +341,37 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['category_path'] = $category_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets color
+     *
+     * @return string|null
+     */
+    public function getColor()
+    {
+        return $this->container['color'];
+    }
+
+    /**
+     * Sets color
+     *
+     * @param string|null $color Color to be shown to the end customer (max 64 characters). Example: Denim blue
+     *
+     * @return self
+     */
+    public function setColor($color)
+    {
+        if (!is_null($color) && (mb_strlen($color) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $color when calling ProductIdentifiers., must be smaller than or equal to 64.');
+        }
+        if (!is_null($color) && (mb_strlen($color) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $color when calling ProductIdentifiers., must be bigger than or equal to 0.');
+        }
+
+        $this->container['color'] = $color;
 
         return $this;
     }
@@ -349,32 +439,32 @@ class ProductIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets brand
+     * Gets size
      *
      * @return string|null
      */
-    public function getBrand()
+    public function getSize()
     {
-        return $this->container['brand'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets brand
+     * Sets size
      *
-     * @param string|null $brand The product's brand name as generally recognized by consumers. If no brand is available for a product, do not supply any value. Maximum 70 characters. Example: Intel
+     * @param string|null $size Size to be shown to the end customer (max 64 characters). Example: 4
      *
      * @return self
      */
-    public function setBrand($brand)
+    public function setSize($size)
     {
-        if (!is_null($brand) && (mb_strlen($brand) > 70)) {
-            throw new \InvalidArgumentException('invalid length for $brand when calling ProductIdentifiers., must be smaller than or equal to 70.');
+        if (!is_null($size) && (mb_strlen($size) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $size when calling ProductIdentifiers., must be smaller than or equal to 64.');
         }
-        if (!is_null($brand) && (mb_strlen($brand) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $brand when calling ProductIdentifiers., must be bigger than or equal to 0.');
+        if (!is_null($size) && (mb_strlen($size) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $size when calling ProductIdentifiers., must be bigger than or equal to 0.');
         }
 
-        $this->container['brand'] = $brand;
+        $this->container['size'] = $size;
 
         return $this;
     }

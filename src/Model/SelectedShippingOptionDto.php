@@ -59,20 +59,20 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'tms_reference' => 'string',
         'carrier' => 'string',
-        'type' => 'string',
+        'carrier_product' => '\Klarna\OrderManagement\Model\CarrierProduct',
+        'class' => 'string',
+        'id' => 'string',
+        'location' => '\Klarna\OrderManagement\Model\Location',
         'method' => 'string',
+        'name' => 'string',
         'price' => 'int',
+        'selected_addons' => '\Klarna\OrderManagement\Model\Addon[]',
         'tax_amount' => 'int',
         'tax_rate' => 'int',
-        'location' => '\Klarna\OrderManagement\Model\Location',
         'timeslot' => '\Klarna\OrderManagement\Model\Timeslot',
-        'carrier_product' => '\Klarna\OrderManagement\Model\CarrierProduct',
-        'selected_addons' => '\Klarna\OrderManagement\Model\Addon[]',
-        'class' => 'string'
+        'tms_reference' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -83,20 +83,20 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'tms_reference' => null,
         'carrier' => null,
-        'type' => null,
+        'carrier_product' => null,
+        'class' => null,
+        'id' => null,
+        'location' => null,
         'method' => null,
+        'name' => null,
         'price' => 'int64',
+        'selected_addons' => null,
         'tax_amount' => 'int64',
         'tax_rate' => 'int64',
-        'location' => null,
         'timeslot' => null,
-        'carrier_product' => null,
-        'selected_addons' => null,
-        'class' => null
+        'tms_reference' => null,
+        'type' => null
     ];
 
     /**
@@ -126,20 +126,20 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'tms_reference' => 'tms_reference',
         'carrier' => 'carrier',
-        'type' => 'type',
+        'carrier_product' => 'carrier_product',
+        'class' => 'class',
+        'id' => 'id',
+        'location' => 'location',
         'method' => 'method',
+        'name' => 'name',
         'price' => 'price',
+        'selected_addons' => 'selected_addons',
         'tax_amount' => 'tax_amount',
         'tax_rate' => 'tax_rate',
-        'location' => 'location',
         'timeslot' => 'timeslot',
-        'carrier_product' => 'carrier_product',
-        'selected_addons' => 'selected_addons',
-        'class' => 'class'
+        'tms_reference' => 'tms_reference',
+        'type' => 'type'
     ];
 
     /**
@@ -148,20 +148,20 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'tms_reference' => 'setTmsReference',
         'carrier' => 'setCarrier',
-        'type' => 'setType',
+        'carrier_product' => 'setCarrierProduct',
+        'class' => 'setClass',
+        'id' => 'setId',
+        'location' => 'setLocation',
         'method' => 'setMethod',
+        'name' => 'setName',
         'price' => 'setPrice',
+        'selected_addons' => 'setSelectedAddons',
         'tax_amount' => 'setTaxAmount',
         'tax_rate' => 'setTaxRate',
-        'location' => 'setLocation',
         'timeslot' => 'setTimeslot',
-        'carrier_product' => 'setCarrierProduct',
-        'selected_addons' => 'setSelectedAddons',
-        'class' => 'setClass'
+        'tms_reference' => 'setTmsReference',
+        'type' => 'setType'
     ];
 
     /**
@@ -170,20 +170,20 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'tms_reference' => 'getTmsReference',
         'carrier' => 'getCarrier',
-        'type' => 'getType',
+        'carrier_product' => 'getCarrierProduct',
+        'class' => 'getClass',
+        'id' => 'getId',
+        'location' => 'getLocation',
         'method' => 'getMethod',
+        'name' => 'getName',
         'price' => 'getPrice',
+        'selected_addons' => 'getSelectedAddons',
         'tax_amount' => 'getTaxAmount',
         'tax_rate' => 'getTaxRate',
-        'location' => 'getLocation',
         'timeslot' => 'getTimeslot',
-        'carrier_product' => 'getCarrierProduct',
-        'selected_addons' => 'getSelectedAddons',
-        'class' => 'getClass'
+        'tms_reference' => 'getTmsReference',
+        'type' => 'getType'
     ];
 
     /**
@@ -243,20 +243,20 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['tms_reference'] = $data['tms_reference'] ?? null;
         $this->container['carrier'] = $data['carrier'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['carrier_product'] = $data['carrier_product'] ?? null;
+        $this->container['class'] = $data['class'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['location'] = $data['location'] ?? null;
         $this->container['method'] = $data['method'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['price'] = $data['price'] ?? null;
+        $this->container['selected_addons'] = $data['selected_addons'] ?? null;
         $this->container['tax_amount'] = $data['tax_amount'] ?? null;
         $this->container['tax_rate'] = $data['tax_rate'] ?? null;
-        $this->container['location'] = $data['location'] ?? null;
         $this->container['timeslot'] = $data['timeslot'] ?? null;
-        $this->container['carrier_product'] = $data['carrier_product'] ?? null;
-        $this->container['selected_addons'] = $data['selected_addons'] ?? null;
-        $this->container['class'] = $data['class'] ?? null;
+        $this->container['tms_reference'] = $data['tms_reference'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -296,78 +296,6 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id The id of the selected shipping option as provided by the TMS
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name The display name of the selected shipping option
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tms_reference
-     *
-     * @return string|null
-     */
-    public function getTmsReference()
-    {
-        return $this->container['tms_reference'];
-    }
-
-    /**
-     * Sets tms_reference
-     *
-     * @param string|null $tms_reference The shipment_id provided by the TMS
-     *
-     * @return self
-     */
-    public function setTmsReference($tms_reference)
-    {
-        $this->container['tms_reference'] = $tms_reference;
-
-        return $this;
-    }
-
-    /**
      * Gets carrier
      *
      * @return string|null
@@ -392,25 +320,97 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets type
+     * Gets carrier_product
      *
-     * @return string|null
+     * @return \Klarna\OrderManagement\Model\CarrierProduct|null
      */
-    public function getType()
+    public function getCarrierProduct()
     {
-        return $this->container['type'];
+        return $this->container['carrier_product'];
     }
 
     /**
-     * Sets type
+     * Sets carrier_product
      *
-     * @param string|null $type The type of the selected shipping option
+     * @param \Klarna\OrderManagement\Model\CarrierProduct|null $carrier_product carrier_product
      *
      * @return self
      */
-    public function setType($type)
+    public function setCarrierProduct($carrier_product)
     {
-        $this->container['type'] = $type;
+        $this->container['carrier_product'] = $carrier_product;
+
+        return $this;
+    }
+
+    /**
+     * Gets class
+     *
+     * @return string|null
+     */
+    public function getClass()
+    {
+        return $this->container['class'];
+    }
+
+    /**
+     * Sets class
+     *
+     * @param string|null $class The class of the selected shipping option
+     *
+     * @return self
+     */
+    public function setClass($class)
+    {
+        $this->container['class'] = $class;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The id of the selected shipping option as provided by the TMS
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return \Klarna\OrderManagement\Model\Location|null
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param \Klarna\OrderManagement\Model\Location|null $location location
+     *
+     * @return self
+     */
+    public function setLocation($location)
+    {
+        $this->container['location'] = $location;
 
         return $this;
     }
@@ -440,6 +440,30 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name The display name of the selected shipping option
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets price
      *
      * @return int|null
@@ -464,6 +488,30 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets selected_addons
+     *
+     * @return \Klarna\OrderManagement\Model\Addon[]|null
+     */
+    public function getSelectedAddons()
+    {
+        return $this->container['selected_addons'];
+    }
+
+    /**
+     * Sets selected_addons
+     *
+     * @param \Klarna\OrderManagement\Model\Addon[]|null $selected_addons Array consisting of add-ons selected by the consumer, may be empty
+     *
+     * @return self
+     */
+    public function setSelectedAddons($selected_addons)
+    {
+        $this->container['selected_addons'] = $selected_addons;
 
         return $this;
     }
@@ -527,30 +575,6 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets location
-     *
-     * @return \Klarna\OrderManagement\Model\Location|null
-     */
-    public function getLocation()
-    {
-        return $this->container['location'];
-    }
-
-    /**
-     * Sets location
-     *
-     * @param \Klarna\OrderManagement\Model\Location|null $location location
-     *
-     * @return self
-     */
-    public function setLocation($location)
-    {
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
      * Gets timeslot
      *
      * @return \Klarna\OrderManagement\Model\Timeslot|null
@@ -575,73 +599,49 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets carrier_product
-     *
-     * @return \Klarna\OrderManagement\Model\CarrierProduct|null
-     */
-    public function getCarrierProduct()
-    {
-        return $this->container['carrier_product'];
-    }
-
-    /**
-     * Sets carrier_product
-     *
-     * @param \Klarna\OrderManagement\Model\CarrierProduct|null $carrier_product carrier_product
-     *
-     * @return self
-     */
-    public function setCarrierProduct($carrier_product)
-    {
-        $this->container['carrier_product'] = $carrier_product;
-
-        return $this;
-    }
-
-    /**
-     * Gets selected_addons
-     *
-     * @return \Klarna\OrderManagement\Model\Addon[]|null
-     */
-    public function getSelectedAddons()
-    {
-        return $this->container['selected_addons'];
-    }
-
-    /**
-     * Sets selected_addons
-     *
-     * @param \Klarna\OrderManagement\Model\Addon[]|null $selected_addons Array consisting of add-ons selected by the consumer, may be empty
-     *
-     * @return self
-     */
-    public function setSelectedAddons($selected_addons)
-    {
-        $this->container['selected_addons'] = $selected_addons;
-
-        return $this;
-    }
-
-    /**
-     * Gets class
+     * Gets tms_reference
      *
      * @return string|null
      */
-    public function getClass()
+    public function getTmsReference()
     {
-        return $this->container['class'];
+        return $this->container['tms_reference'];
     }
 
     /**
-     * Sets class
+     * Sets tms_reference
      *
-     * @param string|null $class The class of the selected shipping option
+     * @param string|null $tms_reference The shipment_id provided by the TMS
      *
      * @return self
      */
-    public function setClass($class)
+    public function setTmsReference($tms_reference)
     {
-        $this->container['class'] = $class;
+        $this->container['tms_reference'] = $tms_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The type of the selected shipping option
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

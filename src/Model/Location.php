@@ -59,10 +59,10 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'address' => '\Klarna\OrderManagement\Model\Address',
         'id' => 'string',
         'name' => 'string',
-        'price' => 'int',
-        'address' => '\Klarna\OrderManagement\Model\Address'
+        'price' => 'int'
     ];
 
     /**
@@ -73,10 +73,10 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'address' => null,
         'id' => null,
         'name' => null,
-        'price' => 'int64',
-        'address' => null
+        'price' => 'int64'
     ];
 
     /**
@@ -106,10 +106,10 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'address' => 'address',
         'id' => 'id',
         'name' => 'name',
-        'price' => 'price',
-        'address' => 'address'
+        'price' => 'price'
     ];
 
     /**
@@ -118,10 +118,10 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'address' => 'setAddress',
         'id' => 'setId',
         'name' => 'setName',
-        'price' => 'setPrice',
-        'address' => 'setAddress'
+        'price' => 'setPrice'
     ];
 
     /**
@@ -130,10 +130,10 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'address' => 'getAddress',
         'id' => 'getId',
         'name' => 'getName',
-        'price' => 'getPrice',
-        'address' => 'getAddress'
+        'price' => 'getPrice'
     ];
 
     /**
@@ -193,10 +193,10 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['address'] = $data['address'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['price'] = $data['price'] ?? null;
-        $this->container['address'] = $data['address'] ?? null;
     }
 
     /**
@@ -226,6 +226,30 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets address
+     *
+     * @return \Klarna\OrderManagement\Model\Address|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \Klarna\OrderManagement\Model\Address|null $address address
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -300,30 +324,6 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return \Klarna\OrderManagement\Model\Address|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param \Klarna\OrderManagement\Model\Address|null $address address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
 
         return $this;
     }

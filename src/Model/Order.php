@@ -59,31 +59,31 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_id' => 'string',
-        'status' => 'string',
-        'fraud_status' => 'string',
-        'order_amount' => 'int',
-        'original_order_amount' => 'int',
+        'billing_address' => '\Klarna\OrderManagement\Model\Address',
         'captured_amount' => 'int',
-        'refunded_amount' => 'int',
-        'remaining_authorized_amount' => 'int',
-        'purchase_currency' => 'string',
+        'captures' => '\Klarna\OrderManagement\Model\Capture[]',
+        'created_at' => '\DateTime',
+        'customer' => '\Klarna\OrderManagement\Model\Customer',
+        'expires_at' => '\DateTime',
+        'fraud_status' => 'string',
+        'initial_payment_method' => '\Klarna\OrderManagement\Model\InitialPaymentMethodDto',
+        'klarna_reference' => 'string',
         'locale' => 'string',
-        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
+        'merchant_data' => 'string',
         'merchant_reference1' => 'string',
         'merchant_reference2' => 'string',
-        'klarna_reference' => 'string',
-        'customer' => '\Klarna\OrderManagement\Model\Customer',
-        'billing_address' => '\Klarna\OrderManagement\Model\Address',
-        'shipping_address' => '\Klarna\OrderManagement\Model\Address',
-        'created_at' => '\DateTime',
+        'order_amount' => 'int',
+        'order_id' => 'string',
+        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
+        'original_order_amount' => 'int',
         'purchase_country' => 'string',
-        'expires_at' => '\DateTime',
-        'captures' => '\Klarna\OrderManagement\Model\Capture[]',
+        'purchase_currency' => 'string',
+        'refunded_amount' => 'int',
         'refunds' => '\Klarna\OrderManagement\Model\Refund[]',
-        'merchant_data' => 'string',
-        'initial_payment_method' => '\Klarna\OrderManagement\Model\InitialPaymentMethodDto',
-        'selected_shipping_option' => '\Klarna\OrderManagement\Model\SelectedShippingOptionDto'
+        'remaining_authorized_amount' => 'int',
+        'selected_shipping_option' => '\Klarna\OrderManagement\Model\SelectedShippingOptionDto',
+        'shipping_address' => '\Klarna\OrderManagement\Model\Address',
+        'status' => 'string'
     ];
 
     /**
@@ -94,31 +94,31 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'order_id' => null,
-        'status' => null,
-        'fraud_status' => null,
-        'order_amount' => 'int64',
-        'original_order_amount' => 'int64',
+        'billing_address' => null,
         'captured_amount' => 'int64',
-        'refunded_amount' => 'int64',
-        'remaining_authorized_amount' => 'int64',
-        'purchase_currency' => null,
+        'captures' => null,
+        'created_at' => 'date-time',
+        'customer' => null,
+        'expires_at' => 'date-time',
+        'fraud_status' => null,
+        'initial_payment_method' => null,
+        'klarna_reference' => null,
         'locale' => null,
-        'order_lines' => null,
+        'merchant_data' => null,
         'merchant_reference1' => null,
         'merchant_reference2' => null,
-        'klarna_reference' => null,
-        'customer' => null,
-        'billing_address' => null,
-        'shipping_address' => null,
-        'created_at' => 'date-time',
+        'order_amount' => 'int64',
+        'order_id' => null,
+        'order_lines' => null,
+        'original_order_amount' => 'int64',
         'purchase_country' => null,
-        'expires_at' => 'date-time',
-        'captures' => null,
+        'purchase_currency' => null,
+        'refunded_amount' => 'int64',
         'refunds' => null,
-        'merchant_data' => null,
-        'initial_payment_method' => null,
-        'selected_shipping_option' => null
+        'remaining_authorized_amount' => 'int64',
+        'selected_shipping_option' => null,
+        'shipping_address' => null,
+        'status' => null
     ];
 
     /**
@@ -148,31 +148,31 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_id' => 'order_id',
-        'status' => 'status',
-        'fraud_status' => 'fraud_status',
-        'order_amount' => 'order_amount',
-        'original_order_amount' => 'original_order_amount',
+        'billing_address' => 'billing_address',
         'captured_amount' => 'captured_amount',
-        'refunded_amount' => 'refunded_amount',
-        'remaining_authorized_amount' => 'remaining_authorized_amount',
-        'purchase_currency' => 'purchase_currency',
+        'captures' => 'captures',
+        'created_at' => 'created_at',
+        'customer' => 'customer',
+        'expires_at' => 'expires_at',
+        'fraud_status' => 'fraud_status',
+        'initial_payment_method' => 'initial_payment_method',
+        'klarna_reference' => 'klarna_reference',
         'locale' => 'locale',
-        'order_lines' => 'order_lines',
+        'merchant_data' => 'merchant_data',
         'merchant_reference1' => 'merchant_reference1',
         'merchant_reference2' => 'merchant_reference2',
-        'klarna_reference' => 'klarna_reference',
-        'customer' => 'customer',
-        'billing_address' => 'billing_address',
-        'shipping_address' => 'shipping_address',
-        'created_at' => 'created_at',
+        'order_amount' => 'order_amount',
+        'order_id' => 'order_id',
+        'order_lines' => 'order_lines',
+        'original_order_amount' => 'original_order_amount',
         'purchase_country' => 'purchase_country',
-        'expires_at' => 'expires_at',
-        'captures' => 'captures',
+        'purchase_currency' => 'purchase_currency',
+        'refunded_amount' => 'refunded_amount',
         'refunds' => 'refunds',
-        'merchant_data' => 'merchant_data',
-        'initial_payment_method' => 'initial_payment_method',
-        'selected_shipping_option' => 'selected_shipping_option'
+        'remaining_authorized_amount' => 'remaining_authorized_amount',
+        'selected_shipping_option' => 'selected_shipping_option',
+        'shipping_address' => 'shipping_address',
+        'status' => 'status'
     ];
 
     /**
@@ -181,31 +181,31 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'order_id' => 'setOrderId',
-        'status' => 'setStatus',
-        'fraud_status' => 'setFraudStatus',
-        'order_amount' => 'setOrderAmount',
-        'original_order_amount' => 'setOriginalOrderAmount',
+        'billing_address' => 'setBillingAddress',
         'captured_amount' => 'setCapturedAmount',
-        'refunded_amount' => 'setRefundedAmount',
-        'remaining_authorized_amount' => 'setRemainingAuthorizedAmount',
-        'purchase_currency' => 'setPurchaseCurrency',
+        'captures' => 'setCaptures',
+        'created_at' => 'setCreatedAt',
+        'customer' => 'setCustomer',
+        'expires_at' => 'setExpiresAt',
+        'fraud_status' => 'setFraudStatus',
+        'initial_payment_method' => 'setInitialPaymentMethod',
+        'klarna_reference' => 'setKlarnaReference',
         'locale' => 'setLocale',
-        'order_lines' => 'setOrderLines',
+        'merchant_data' => 'setMerchantData',
         'merchant_reference1' => 'setMerchantReference1',
         'merchant_reference2' => 'setMerchantReference2',
-        'klarna_reference' => 'setKlarnaReference',
-        'customer' => 'setCustomer',
-        'billing_address' => 'setBillingAddress',
-        'shipping_address' => 'setShippingAddress',
-        'created_at' => 'setCreatedAt',
+        'order_amount' => 'setOrderAmount',
+        'order_id' => 'setOrderId',
+        'order_lines' => 'setOrderLines',
+        'original_order_amount' => 'setOriginalOrderAmount',
         'purchase_country' => 'setPurchaseCountry',
-        'expires_at' => 'setExpiresAt',
-        'captures' => 'setCaptures',
+        'purchase_currency' => 'setPurchaseCurrency',
+        'refunded_amount' => 'setRefundedAmount',
         'refunds' => 'setRefunds',
-        'merchant_data' => 'setMerchantData',
-        'initial_payment_method' => 'setInitialPaymentMethod',
-        'selected_shipping_option' => 'setSelectedShippingOption'
+        'remaining_authorized_amount' => 'setRemainingAuthorizedAmount',
+        'selected_shipping_option' => 'setSelectedShippingOption',
+        'shipping_address' => 'setShippingAddress',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -214,31 +214,31 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'order_id' => 'getOrderId',
-        'status' => 'getStatus',
-        'fraud_status' => 'getFraudStatus',
-        'order_amount' => 'getOrderAmount',
-        'original_order_amount' => 'getOriginalOrderAmount',
+        'billing_address' => 'getBillingAddress',
         'captured_amount' => 'getCapturedAmount',
-        'refunded_amount' => 'getRefundedAmount',
-        'remaining_authorized_amount' => 'getRemainingAuthorizedAmount',
-        'purchase_currency' => 'getPurchaseCurrency',
+        'captures' => 'getCaptures',
+        'created_at' => 'getCreatedAt',
+        'customer' => 'getCustomer',
+        'expires_at' => 'getExpiresAt',
+        'fraud_status' => 'getFraudStatus',
+        'initial_payment_method' => 'getInitialPaymentMethod',
+        'klarna_reference' => 'getKlarnaReference',
         'locale' => 'getLocale',
-        'order_lines' => 'getOrderLines',
+        'merchant_data' => 'getMerchantData',
         'merchant_reference1' => 'getMerchantReference1',
         'merchant_reference2' => 'getMerchantReference2',
-        'klarna_reference' => 'getKlarnaReference',
-        'customer' => 'getCustomer',
-        'billing_address' => 'getBillingAddress',
-        'shipping_address' => 'getShippingAddress',
-        'created_at' => 'getCreatedAt',
+        'order_amount' => 'getOrderAmount',
+        'order_id' => 'getOrderId',
+        'order_lines' => 'getOrderLines',
+        'original_order_amount' => 'getOriginalOrderAmount',
         'purchase_country' => 'getPurchaseCountry',
-        'expires_at' => 'getExpiresAt',
-        'captures' => 'getCaptures',
+        'purchase_currency' => 'getPurchaseCurrency',
+        'refunded_amount' => 'getRefundedAmount',
         'refunds' => 'getRefunds',
-        'merchant_data' => 'getMerchantData',
-        'initial_payment_method' => 'getInitialPaymentMethod',
-        'selected_shipping_option' => 'getSelectedShippingOption'
+        'remaining_authorized_amount' => 'getRemainingAuthorizedAmount',
+        'selected_shipping_option' => 'getSelectedShippingOption',
+        'shipping_address' => 'getShippingAddress',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -321,31 +321,31 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['order_id'] = $data['order_id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['fraud_status'] = $data['fraud_status'] ?? null;
-        $this->container['order_amount'] = $data['order_amount'] ?? null;
-        $this->container['original_order_amount'] = $data['original_order_amount'] ?? null;
+        $this->container['billing_address'] = $data['billing_address'] ?? null;
         $this->container['captured_amount'] = $data['captured_amount'] ?? null;
-        $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
-        $this->container['remaining_authorized_amount'] = $data['remaining_authorized_amount'] ?? null;
-        $this->container['purchase_currency'] = $data['purchase_currency'] ?? null;
+        $this->container['captures'] = $data['captures'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['customer'] = $data['customer'] ?? null;
+        $this->container['expires_at'] = $data['expires_at'] ?? null;
+        $this->container['fraud_status'] = $data['fraud_status'] ?? null;
+        $this->container['initial_payment_method'] = $data['initial_payment_method'] ?? null;
+        $this->container['klarna_reference'] = $data['klarna_reference'] ?? null;
         $this->container['locale'] = $data['locale'] ?? null;
-        $this->container['order_lines'] = $data['order_lines'] ?? null;
+        $this->container['merchant_data'] = $data['merchant_data'] ?? null;
         $this->container['merchant_reference1'] = $data['merchant_reference1'] ?? null;
         $this->container['merchant_reference2'] = $data['merchant_reference2'] ?? null;
-        $this->container['klarna_reference'] = $data['klarna_reference'] ?? null;
-        $this->container['customer'] = $data['customer'] ?? null;
-        $this->container['billing_address'] = $data['billing_address'] ?? null;
-        $this->container['shipping_address'] = $data['shipping_address'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['order_amount'] = $data['order_amount'] ?? null;
+        $this->container['order_id'] = $data['order_id'] ?? null;
+        $this->container['order_lines'] = $data['order_lines'] ?? null;
+        $this->container['original_order_amount'] = $data['original_order_amount'] ?? null;
         $this->container['purchase_country'] = $data['purchase_country'] ?? null;
-        $this->container['expires_at'] = $data['expires_at'] ?? null;
-        $this->container['captures'] = $data['captures'] ?? null;
+        $this->container['purchase_currency'] = $data['purchase_currency'] ?? null;
+        $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
         $this->container['refunds'] = $data['refunds'] ?? null;
-        $this->container['merchant_data'] = $data['merchant_data'] ?? null;
-        $this->container['initial_payment_method'] = $data['initial_payment_method'] ?? null;
+        $this->container['remaining_authorized_amount'] = $data['remaining_authorized_amount'] ?? null;
         $this->container['selected_shipping_option'] = $data['selected_shipping_option'] ?? null;
+        $this->container['shipping_address'] = $data['shipping_address'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
     }
 
     /**
@@ -382,131 +382,25 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets order_id
+     * Gets billing_address
      *
-     * @return string|null
+     * @return \Klarna\OrderManagement\Model\Address|null
      */
-    public function getOrderId()
+    public function getBillingAddress()
     {
-        return $this->container['order_id'];
+        return $this->container['billing_address'];
     }
 
     /**
-     * Sets order_id
+     * Sets billing_address
      *
-     * @param string|null $order_id The unique order ID. Cannot be longer than 255 characters.
+     * @param \Klarna\OrderManagement\Model\Address|null $billing_address billing_address
      *
      * @return self
      */
-    public function setOrderId($order_id)
+    public function setBillingAddress($billing_address)
     {
-        $this->container['order_id'] = $order_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status The order status.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets fraud_status
-     *
-     * @return string|null
-     */
-    public function getFraudStatus()
-    {
-        return $this->container['fraud_status'];
-    }
-
-    /**
-     * Sets fraud_status
-     *
-     * @param string|null $fraud_status Fraud status for the order. Either ACCEPTED, PENDING or REJECTED.
-     *
-     * @return self
-     */
-    public function setFraudStatus($fraud_status)
-    {
-        $this->container['fraud_status'] = $fraud_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_amount
-     *
-     * @return int|null
-     */
-    public function getOrderAmount()
-    {
-        return $this->container['order_amount'];
-    }
-
-    /**
-     * Sets order_amount
-     *
-     * @param int|null $order_amount The order amount in minor units. That is the smallest currency unit available such as cent or penny.
-     *
-     * @return self
-     */
-    public function setOrderAmount($order_amount)
-    {
-        $this->container['order_amount'] = $order_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets original_order_amount
-     *
-     * @return int|null
-     */
-    public function getOriginalOrderAmount()
-    {
-        return $this->container['original_order_amount'];
-    }
-
-    /**
-     * Sets original_order_amount
-     *
-     * @param int|null $original_order_amount The original order amount. In minor units.
-     *
-     * @return self
-     */
-    public function setOriginalOrderAmount($original_order_amount)
-    {
-        $this->container['original_order_amount'] = $original_order_amount;
+        $this->container['billing_address'] = $billing_address;
 
         return $this;
     }
@@ -536,73 +430,169 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets refunded_amount
+     * Gets captures
      *
-     * @return int|null
+     * @return \Klarna\OrderManagement\Model\Capture[]|null
      */
-    public function getRefundedAmount()
+    public function getCaptures()
     {
-        return $this->container['refunded_amount'];
+        return $this->container['captures'];
     }
 
     /**
-     * Sets refunded_amount
+     * Sets captures
      *
-     * @param int|null $refunded_amount The total amount of refunded for this order. In minor units.
+     * @param \Klarna\OrderManagement\Model\Capture[]|null $captures List of captures for this order.
      *
      * @return self
      */
-    public function setRefundedAmount($refunded_amount)
+    public function setCaptures($captures)
     {
-        $this->container['refunded_amount'] = $refunded_amount;
+        $this->container['captures'] = $captures;
 
         return $this;
     }
 
     /**
-     * Gets remaining_authorized_amount
+     * Gets created_at
      *
-     * @return int|null
+     * @return \DateTime|null
      */
-    public function getRemainingAuthorizedAmount()
+    public function getCreatedAt()
     {
-        return $this->container['remaining_authorized_amount'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets remaining_authorized_amount
+     * Sets created_at
      *
-     * @param int|null $remaining_authorized_amount The remaining authorized amount for this order. To increase the `remaining_authorized_amount` the `order_amount` needs to be increased.
+     * @param \DateTime|null $created_at The time for the purchase. Formatted according to ISO 8601.
      *
      * @return self
      */
-    public function setRemainingAuthorizedAmount($remaining_authorized_amount)
+    public function setCreatedAt($created_at)
     {
-        $this->container['remaining_authorized_amount'] = $remaining_authorized_amount;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets purchase_currency
+     * Gets customer
+     *
+     * @return \Klarna\OrderManagement\Model\Customer|null
+     */
+    public function getCustomer()
+    {
+        return $this->container['customer'];
+    }
+
+    /**
+     * Sets customer
+     *
+     * @param \Klarna\OrderManagement\Model\Customer|null $customer customer
+     *
+     * @return self
+     */
+    public function setCustomer($customer)
+    {
+        $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_at
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param \DateTime|null $expires_at Order expiration time. The order can only be captured until this time. Formatted according to ISO 8601.
+     *
+     * @return self
+     */
+    public function setExpiresAt($expires_at)
+    {
+        $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets fraud_status
      *
      * @return string|null
      */
-    public function getPurchaseCurrency()
+    public function getFraudStatus()
     {
-        return $this->container['purchase_currency'];
+        return $this->container['fraud_status'];
     }
 
     /**
-     * Sets purchase_currency
+     * Sets fraud_status
      *
-     * @param string|null $purchase_currency The currency for this order. Specified in ISO 4217 format.
+     * @param string|null $fraud_status Fraud status for the order. Either ACCEPTED, PENDING or REJECTED.
      *
      * @return self
      */
-    public function setPurchaseCurrency($purchase_currency)
+    public function setFraudStatus($fraud_status)
     {
-        $this->container['purchase_currency'] = $purchase_currency;
+        $this->container['fraud_status'] = $fraud_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets initial_payment_method
+     *
+     * @return \Klarna\OrderManagement\Model\InitialPaymentMethodDto|null
+     */
+    public function getInitialPaymentMethod()
+    {
+        return $this->container['initial_payment_method'];
+    }
+
+    /**
+     * Sets initial_payment_method
+     *
+     * @param \Klarna\OrderManagement\Model\InitialPaymentMethodDto|null $initial_payment_method initial_payment_method
+     *
+     * @return self
+     */
+    public function setInitialPaymentMethod($initial_payment_method)
+    {
+        $this->container['initial_payment_method'] = $initial_payment_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets klarna_reference
+     *
+     * @return string|null
+     */
+    public function getKlarnaReference()
+    {
+        return $this->container['klarna_reference'];
+    }
+
+    /**
+     * Sets klarna_reference
+     *
+     * @param string|null $klarna_reference A Klarna generated reference that is shorter than the Klarna Order Id and is used as a customer friendly reference. It is most often used as a reference when Klarna is communicating with the customer with regard to payment statuses.
+     *
+     * @return self
+     */
+    public function setKlarnaReference($klarna_reference)
+    {
+        $this->container['klarna_reference'] = $klarna_reference;
 
         return $this;
     }
@@ -632,25 +622,25 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets order_lines
+     * Gets merchant_data
      *
-     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
+     * @return string|null
      */
-    public function getOrderLines()
+    public function getMerchantData()
     {
-        return $this->container['order_lines'];
+        return $this->container['merchant_data'];
     }
 
     /**
-     * Sets order_lines
+     * Sets merchant_data
      *
-     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines An array of order_line objects. Each line represents one item in the cart.
+     * @param string|null $merchant_data Text field for storing data about the order. Set at order creation.
      *
      * @return self
      */
-    public function setOrderLines($order_lines)
+    public function setMerchantData($merchant_data)
     {
-        $this->container['order_lines'] = $order_lines;
+        $this->container['merchant_data'] = $merchant_data;
 
         return $this;
     }
@@ -704,121 +694,97 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets klarna_reference
+     * Gets order_amount
+     *
+     * @return int|null
+     */
+    public function getOrderAmount()
+    {
+        return $this->container['order_amount'];
+    }
+
+    /**
+     * Sets order_amount
+     *
+     * @param int|null $order_amount The order amount in minor units. That is the smallest currency unit available such as cent or penny.
+     *
+     * @return self
+     */
+    public function setOrderAmount($order_amount)
+    {
+        $this->container['order_amount'] = $order_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
      *
      * @return string|null
      */
-    public function getKlarnaReference()
+    public function getOrderId()
     {
-        return $this->container['klarna_reference'];
+        return $this->container['order_id'];
     }
 
     /**
-     * Sets klarna_reference
+     * Sets order_id
      *
-     * @param string|null $klarna_reference A Klarna generated reference that is shorter than the Klarna Order Id and is used as a customer friendly reference. It is most often used as a reference when Klarna is communicating with the customer with regard to payment statuses.
+     * @param string|null $order_id The unique order ID. Cannot be longer than 255 characters.
      *
      * @return self
      */
-    public function setKlarnaReference($klarna_reference)
+    public function setOrderId($order_id)
     {
-        $this->container['klarna_reference'] = $klarna_reference;
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
 
     /**
-     * Gets customer
+     * Gets order_lines
      *
-     * @return \Klarna\OrderManagement\Model\Customer|null
+     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
      */
-    public function getCustomer()
+    public function getOrderLines()
     {
-        return $this->container['customer'];
+        return $this->container['order_lines'];
     }
 
     /**
-     * Sets customer
+     * Sets order_lines
      *
-     * @param \Klarna\OrderManagement\Model\Customer|null $customer customer
+     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines An array of order_line objects. Each line represents one item in the cart.
      *
      * @return self
      */
-    public function setCustomer($customer)
+    public function setOrderLines($order_lines)
     {
-        $this->container['customer'] = $customer;
+        $this->container['order_lines'] = $order_lines;
 
         return $this;
     }
 
     /**
-     * Gets billing_address
+     * Gets original_order_amount
      *
-     * @return \Klarna\OrderManagement\Model\Address|null
+     * @return int|null
      */
-    public function getBillingAddress()
+    public function getOriginalOrderAmount()
     {
-        return $this->container['billing_address'];
+        return $this->container['original_order_amount'];
     }
 
     /**
-     * Sets billing_address
+     * Sets original_order_amount
      *
-     * @param \Klarna\OrderManagement\Model\Address|null $billing_address billing_address
+     * @param int|null $original_order_amount The original order amount. In minor units.
      *
      * @return self
      */
-    public function setBillingAddress($billing_address)
+    public function setOriginalOrderAmount($original_order_amount)
     {
-        $this->container['billing_address'] = $billing_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_address
-     *
-     * @return \Klarna\OrderManagement\Model\Address|null
-     */
-    public function getShippingAddress()
-    {
-        return $this->container['shipping_address'];
-    }
-
-    /**
-     * Sets shipping_address
-     *
-     * @param \Klarna\OrderManagement\Model\Address|null $shipping_address shipping_address
-     *
-     * @return self
-     */
-    public function setShippingAddress($shipping_address)
-    {
-        $this->container['shipping_address'] = $shipping_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at The time for the purchase. Formatted according to ISO 8601.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
+        $this->container['original_order_amount'] = $original_order_amount;
 
         return $this;
     }
@@ -848,49 +814,49 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets expires_at
+     * Gets purchase_currency
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getExpiresAt()
+    public function getPurchaseCurrency()
     {
-        return $this->container['expires_at'];
+        return $this->container['purchase_currency'];
     }
 
     /**
-     * Sets expires_at
+     * Sets purchase_currency
      *
-     * @param \DateTime|null $expires_at Order expiration time. The order can only be captured until this time. Formatted according to ISO 8601.
+     * @param string|null $purchase_currency The currency for this order. Specified in ISO 4217 format.
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setPurchaseCurrency($purchase_currency)
     {
-        $this->container['expires_at'] = $expires_at;
+        $this->container['purchase_currency'] = $purchase_currency;
 
         return $this;
     }
 
     /**
-     * Gets captures
+     * Gets refunded_amount
      *
-     * @return \Klarna\OrderManagement\Model\Capture[]|null
+     * @return int|null
      */
-    public function getCaptures()
+    public function getRefundedAmount()
     {
-        return $this->container['captures'];
+        return $this->container['refunded_amount'];
     }
 
     /**
-     * Sets captures
+     * Sets refunded_amount
      *
-     * @param \Klarna\OrderManagement\Model\Capture[]|null $captures List of captures for this order.
+     * @param int|null $refunded_amount The total amount of refunded for this order. In minor units.
      *
      * @return self
      */
-    public function setCaptures($captures)
+    public function setRefundedAmount($refunded_amount)
     {
-        $this->container['captures'] = $captures;
+        $this->container['refunded_amount'] = $refunded_amount;
 
         return $this;
     }
@@ -920,49 +886,25 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets merchant_data
+     * Gets remaining_authorized_amount
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getMerchantData()
+    public function getRemainingAuthorizedAmount()
     {
-        return $this->container['merchant_data'];
+        return $this->container['remaining_authorized_amount'];
     }
 
     /**
-     * Sets merchant_data
+     * Sets remaining_authorized_amount
      *
-     * @param string|null $merchant_data Text field for storing data about the order. Set at order creation.
+     * @param int|null $remaining_authorized_amount The remaining authorized amount for this order. To increase the `remaining_authorized_amount` the `order_amount` needs to be increased.
      *
      * @return self
      */
-    public function setMerchantData($merchant_data)
+    public function setRemainingAuthorizedAmount($remaining_authorized_amount)
     {
-        $this->container['merchant_data'] = $merchant_data;
-
-        return $this;
-    }
-
-    /**
-     * Gets initial_payment_method
-     *
-     * @return \Klarna\OrderManagement\Model\InitialPaymentMethodDto|null
-     */
-    public function getInitialPaymentMethod()
-    {
-        return $this->container['initial_payment_method'];
-    }
-
-    /**
-     * Sets initial_payment_method
-     *
-     * @param \Klarna\OrderManagement\Model\InitialPaymentMethodDto|null $initial_payment_method initial_payment_method
-     *
-     * @return self
-     */
-    public function setInitialPaymentMethod($initial_payment_method)
-    {
-        $this->container['initial_payment_method'] = $initial_payment_method;
+        $this->container['remaining_authorized_amount'] = $remaining_authorized_amount;
 
         return $this;
     }
@@ -987,6 +929,64 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSelectedShippingOption($selected_shipping_option)
     {
         $this->container['selected_shipping_option'] = $selected_shipping_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_address
+     *
+     * @return \Klarna\OrderManagement\Model\Address|null
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    /**
+     * Sets shipping_address
+     *
+     * @param \Klarna\OrderManagement\Model\Address|null $shipping_address shipping_address
+     *
+     * @return self
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status The order status.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

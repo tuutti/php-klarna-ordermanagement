@@ -59,13 +59,13 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'credit_invoice' => 'bool',
+        'description' => 'string',
+        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
+        'reference' => 'string',
         'refund_id' => 'string',
         'refunded_amount' => 'int',
-        'refunded_at' => '\DateTime',
-        'description' => 'string',
-        'reference' => 'string',
-        'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]',
-        'credit_invoice' => 'bool'
+        'refunded_at' => '\DateTime'
     ];
 
     /**
@@ -76,13 +76,13 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'credit_invoice' => null,
+        'description' => null,
+        'order_lines' => null,
+        'reference' => null,
         'refund_id' => null,
         'refunded_amount' => 'int64',
-        'refunded_at' => 'date-time',
-        'description' => null,
-        'reference' => null,
-        'order_lines' => null,
-        'credit_invoice' => null
+        'refunded_at' => 'date-time'
     ];
 
     /**
@@ -112,13 +112,13 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'credit_invoice' => 'credit_invoice',
+        'description' => 'description',
+        'order_lines' => 'order_lines',
+        'reference' => 'reference',
         'refund_id' => 'refund_id',
         'refunded_amount' => 'refunded_amount',
-        'refunded_at' => 'refunded_at',
-        'description' => 'description',
-        'reference' => 'reference',
-        'order_lines' => 'order_lines',
-        'credit_invoice' => 'credit_invoice'
+        'refunded_at' => 'refunded_at'
     ];
 
     /**
@@ -127,13 +127,13 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'credit_invoice' => 'setCreditInvoice',
+        'description' => 'setDescription',
+        'order_lines' => 'setOrderLines',
+        'reference' => 'setReference',
         'refund_id' => 'setRefundId',
         'refunded_amount' => 'setRefundedAmount',
-        'refunded_at' => 'setRefundedAt',
-        'description' => 'setDescription',
-        'reference' => 'setReference',
-        'order_lines' => 'setOrderLines',
-        'credit_invoice' => 'setCreditInvoice'
+        'refunded_at' => 'setRefundedAt'
     ];
 
     /**
@@ -142,13 +142,13 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'credit_invoice' => 'getCreditInvoice',
+        'description' => 'getDescription',
+        'order_lines' => 'getOrderLines',
+        'reference' => 'getReference',
         'refund_id' => 'getRefundId',
         'refunded_amount' => 'getRefundedAmount',
-        'refunded_at' => 'getRefundedAt',
-        'description' => 'getDescription',
-        'reference' => 'getReference',
-        'order_lines' => 'getOrderLines',
-        'credit_invoice' => 'getCreditInvoice'
+        'refunded_at' => 'getRefundedAt'
     ];
 
     /**
@@ -208,13 +208,13 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['credit_invoice'] = $data['credit_invoice'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['order_lines'] = $data['order_lines'] ?? null;
+        $this->container['reference'] = $data['reference'] ?? null;
         $this->container['refund_id'] = $data['refund_id'] ?? null;
         $this->container['refunded_amount'] = $data['refunded_amount'] ?? null;
         $this->container['refunded_at'] = $data['refunded_at'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['reference'] = $data['reference'] ?? null;
-        $this->container['order_lines'] = $data['order_lines'] ?? null;
-        $this->container['credit_invoice'] = $data['credit_invoice'] ?? null;
     }
 
     /**
@@ -240,6 +240,102 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets credit_invoice
+     *
+     * @return bool|null
+     */
+    public function getCreditInvoice()
+    {
+        return $this->container['credit_invoice'];
+    }
+
+    /**
+     * Sets credit_invoice
+     *
+     * @param bool|null $credit_invoice Only relevant for B2B Orders. If the flag is set to true for an order with B2B_invoice as payment method, the customer will receive the refund as a credit invoice.
+     *
+     * @return self
+     */
+    public function setCreditInvoice($credit_invoice)
+    {
+        $this->container['credit_invoice'] = $credit_invoice;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Description of the refund shown to the customer. Max length is 255 characters.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_lines
+     *
+     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
+     */
+    public function getOrderLines()
+    {
+        return $this->container['order_lines'];
+    }
+
+    /**
+     * Sets order_lines
+     *
+     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines Order lines for the refund shown to the customer. Optional but increases the customer experience. Maximum 1000 order lines.
+     *
+     * @return self
+     */
+    public function setOrderLines($order_lines)
+    {
+        $this->container['order_lines'] = $order_lines;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference
+     *
+     * @return string|null
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string|null $reference Internal reference to the refund that is also included in the settlement files. Max length is 255 characters.
+     *
+     * @return self
+     */
+    public function setReference($reference)
+    {
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
 
     /**
      * Gets refund_id
@@ -309,102 +405,6 @@ class Refund implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRefundedAt($refunded_at)
     {
         $this->container['refunded_at'] = $refunded_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Description of the refund shown to the customer. Max length is 255 characters.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference
-     *
-     * @return string|null
-     */
-    public function getReference()
-    {
-        return $this->container['reference'];
-    }
-
-    /**
-     * Sets reference
-     *
-     * @param string|null $reference Internal reference to the refund that is also included in the settlement files. Max length is 255 characters.
-     *
-     * @return self
-     */
-    public function setReference($reference)
-    {
-        $this->container['reference'] = $reference;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_lines
-     *
-     * @return \Klarna\OrderManagement\Model\OrderLine[]|null
-     */
-    public function getOrderLines()
-    {
-        return $this->container['order_lines'];
-    }
-
-    /**
-     * Sets order_lines
-     *
-     * @param \Klarna\OrderManagement\Model\OrderLine[]|null $order_lines Order lines for the refund shown to the customer. Optional but increases the customer experience. Maximum 1000 order lines.
-     *
-     * @return self
-     */
-    public function setOrderLines($order_lines)
-    {
-        $this->container['order_lines'] = $order_lines;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_invoice
-     *
-     * @return bool|null
-     */
-    public function getCreditInvoice()
-    {
-        return $this->container['credit_invoice'];
-    }
-
-    /**
-     * Sets credit_invoice
-     *
-     * @param bool|null $credit_invoice Only relevant for B2B Orders. If the flag is set to true for an order with B2B_invoice as payment method, the customer will receive the refund as a credit invoice.
-     *
-     * @return self
-     */
-    public function setCreditInvoice($credit_invoice)
-    {
-        $this->container['credit_invoice'] = $credit_invoice;
 
         return $this;
     }

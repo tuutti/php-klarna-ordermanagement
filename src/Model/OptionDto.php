@@ -59,8 +59,8 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'number_of_days' => 'int',
-        'amount' => 'int'
+        'amount' => 'int',
+        'number_of_days' => 'int'
     ];
 
     /**
@@ -71,8 +71,8 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'number_of_days' => 'int32',
-        'amount' => 'int64'
+        'amount' => 'int64',
+        'number_of_days' => 'int32'
     ];
 
     /**
@@ -102,8 +102,8 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'number_of_days' => 'number_of_days',
-        'amount' => 'amount'
+        'amount' => 'amount',
+        'number_of_days' => 'number_of_days'
     ];
 
     /**
@@ -112,8 +112,8 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'number_of_days' => 'setNumberOfDays',
-        'amount' => 'setAmount'
+        'amount' => 'setAmount',
+        'number_of_days' => 'setNumberOfDays'
     ];
 
     /**
@@ -122,8 +122,8 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'number_of_days' => 'getNumberOfDays',
-        'amount' => 'getAmount'
+        'amount' => 'getAmount',
+        'number_of_days' => 'getNumberOfDays'
     ];
 
     /**
@@ -183,8 +183,8 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['number_of_days'] = $data['number_of_days'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
+        $this->container['number_of_days'] = $data['number_of_days'] ?? null;
     }
 
     /**
@@ -212,30 +212,6 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets number_of_days
-     *
-     * @return int|null
-     */
-    public function getNumberOfDays()
-    {
-        return $this->container['number_of_days'];
-    }
-
-    /**
-     * Sets number_of_days
-     *
-     * @param int|null $number_of_days How many days to extend the due date with
-     *
-     * @return self
-     */
-    public function setNumberOfDays($number_of_days)
-    {
-        $this->container['number_of_days'] = $number_of_days;
-
-        return $this;
-    }
-
-    /**
      * Gets amount
      *
      * @return int|null
@@ -255,6 +231,30 @@ class OptionDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets number_of_days
+     *
+     * @return int|null
+     */
+    public function getNumberOfDays()
+    {
+        return $this->container['number_of_days'];
+    }
+
+    /**
+     * Sets number_of_days
+     *
+     * @param int|null $number_of_days How many days to extend the due date with
+     *
+     * @return self
+     */
+    public function setNumberOfDays($number_of_days)
+    {
+        $this->container['number_of_days'] = $number_of_days;
 
         return $this;
     }

@@ -59,8 +59,8 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'shipping_address' => '\Klarna\OrderManagement\Model\Address',
-        'billing_address' => '\Klarna\OrderManagement\Model\Address'
+        'billing_address' => '\Klarna\OrderManagement\Model\Address',
+        'shipping_address' => '\Klarna\OrderManagement\Model\Address'
     ];
 
     /**
@@ -71,8 +71,8 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'shipping_address' => null,
-        'billing_address' => null
+        'billing_address' => null,
+        'shipping_address' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'shipping_address' => 'shipping_address',
-        'billing_address' => 'billing_address'
+        'billing_address' => 'billing_address',
+        'shipping_address' => 'shipping_address'
     ];
 
     /**
@@ -112,8 +112,8 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'shipping_address' => 'setShippingAddress',
-        'billing_address' => 'setBillingAddress'
+        'billing_address' => 'setBillingAddress',
+        'shipping_address' => 'setShippingAddress'
     ];
 
     /**
@@ -122,8 +122,8 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'shipping_address' => 'getShippingAddress',
-        'billing_address' => 'getBillingAddress'
+        'billing_address' => 'getBillingAddress',
+        'shipping_address' => 'getShippingAddress'
     ];
 
     /**
@@ -183,8 +183,8 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['shipping_address'] = $data['shipping_address'] ?? null;
         $this->container['billing_address'] = $data['billing_address'] ?? null;
+        $this->container['shipping_address'] = $data['shipping_address'] ?? null;
     }
 
     /**
@@ -212,30 +212,6 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets shipping_address
-     *
-     * @return \Klarna\OrderManagement\Model\Address|null
-     */
-    public function getShippingAddress()
-    {
-        return $this->container['shipping_address'];
-    }
-
-    /**
-     * Sets shipping_address
-     *
-     * @param \Klarna\OrderManagement\Model\Address|null $shipping_address shipping_address
-     *
-     * @return self
-     */
-    public function setShippingAddress($shipping_address)
-    {
-        $this->container['shipping_address'] = $shipping_address;
-
-        return $this;
-    }
-
-    /**
      * Gets billing_address
      *
      * @return \Klarna\OrderManagement\Model\Address|null
@@ -255,6 +231,30 @@ class UpdateConsumer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBillingAddress($billing_address)
     {
         $this->container['billing_address'] = $billing_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_address
+     *
+     * @return \Klarna\OrderManagement\Model\Address|null
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    /**
+     * Sets shipping_address
+     *
+     * @param \Klarna\OrderManagement\Model\Address|null $shipping_address shipping_address
+     *
+     * @return self
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
 
         return $this;
     }

@@ -59,8 +59,8 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_amount' => 'int',
         'description' => 'string',
+        'order_amount' => 'int',
         'order_lines' => '\Klarna\OrderManagement\Model\OrderLine[]'
     ];
 
@@ -72,8 +72,8 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'order_amount' => 'int64',
         'description' => null,
+        'order_amount' => 'int64',
         'order_lines' => null
     ];
 
@@ -104,8 +104,8 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_amount' => 'order_amount',
         'description' => 'description',
+        'order_amount' => 'order_amount',
         'order_lines' => 'order_lines'
     ];
 
@@ -115,8 +115,8 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'order_amount' => 'setOrderAmount',
         'description' => 'setDescription',
+        'order_amount' => 'setOrderAmount',
         'order_lines' => 'setOrderLines'
     ];
 
@@ -126,8 +126,8 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'order_amount' => 'getOrderAmount',
         'description' => 'getDescription',
+        'order_amount' => 'getOrderAmount',
         'order_lines' => 'getOrderLines'
     ];
 
@@ -188,8 +188,8 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['order_amount'] = $data['order_amount'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['order_amount'] = $data['order_amount'] ?? null;
         $this->container['order_lines'] = $data['order_lines'] ?? null;
     }
 
@@ -202,6 +202,14 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
+        }
+
         if ($this->container['order_amount'] === null) {
             $invalidProperties[] = "'order_amount' can't be null";
         }
@@ -211,14 +219,6 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if (($this->container['order_amount'] < 0)) {
             $invalidProperties[] = "invalid value for 'order_amount', must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
-        }
-
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['order_lines']) && (count($this->container['order_lines']) > 1000)) {
@@ -243,6 +243,37 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Description of the change.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (!is_null($description) && (mb_strlen($description) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling UpdateAuthorization., must be smaller than or equal to 255.');
+        }
+        if (!is_null($description) && (mb_strlen($description) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling UpdateAuthorization., must be bigger than or equal to 0.');
+        }
+
+        $this->container['description'] = $description;
+
+        return $this;
+    }
 
     /**
      * Gets order_amount
@@ -272,37 +303,6 @@ class UpdateAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['order_amount'] = $order_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Description of the change.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (!is_null($description) && (mb_strlen($description) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling UpdateAuthorization., must be smaller than or equal to 255.');
-        }
-        if (!is_null($description) && (mb_strlen($description) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling UpdateAuthorization., must be bigger than or equal to 0.');
-        }
-
-        $this->container['description'] = $description;
 
         return $this;
     }
