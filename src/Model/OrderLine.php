@@ -67,6 +67,7 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'int',
         'quantity_unit' => 'string',
         'reference' => 'string',
+        'subscription' => '\Klarna\OrderManagement\Model\Subscription',
         'tax_rate' => 'int',
         'total_amount' => 'int',
         'total_discount_amount' => 'int',
@@ -91,6 +92,7 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'int64',
         'quantity_unit' => null,
         'reference' => null,
+        'subscription' => null,
         'tax_rate' => 'int32',
         'total_amount' => 'int64',
         'total_discount_amount' => 'int64',
@@ -134,6 +136,7 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'quantity',
         'quantity_unit' => 'quantity_unit',
         'reference' => 'reference',
+        'subscription' => 'subscription',
         'tax_rate' => 'tax_rate',
         'total_amount' => 'total_amount',
         'total_discount_amount' => 'total_discount_amount',
@@ -156,6 +159,7 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'setQuantity',
         'quantity_unit' => 'setQuantityUnit',
         'reference' => 'setReference',
+        'subscription' => 'setSubscription',
         'tax_rate' => 'setTaxRate',
         'total_amount' => 'setTotalAmount',
         'total_discount_amount' => 'setTotalDiscountAmount',
@@ -178,6 +182,7 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'getQuantity',
         'quantity_unit' => 'getQuantityUnit',
         'reference' => 'getReference',
+        'subscription' => 'getSubscription',
         'tax_rate' => 'getTaxRate',
         'total_amount' => 'getTotalAmount',
         'total_discount_amount' => 'getTotalDiscountAmount',
@@ -251,6 +256,7 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['quantity'] = $data['quantity'] ?? null;
         $this->container['quantity_unit'] = $data['quantity_unit'] ?? null;
         $this->container['reference'] = $data['reference'] ?? null;
+        $this->container['subscription'] = $data['subscription'] ?? null;
         $this->container['tax_rate'] = $data['tax_rate'] ?? null;
         $this->container['total_amount'] = $data['total_amount'] ?? null;
         $this->container['total_discount_amount'] = $data['total_discount_amount'] ?? null;
@@ -610,6 +616,30 @@ class OrderLine implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription
+     *
+     * @return \Klarna\OrderManagement\Model\Subscription|null
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     *
+     * @param \Klarna\OrderManagement\Model\Subscription|null $subscription subscription
+     *
+     * @return self
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
 
         return $this;
     }

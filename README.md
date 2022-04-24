@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
 - [RefundObject](docs/Model/RefundObject.md)
 - [SelectedShippingOptionDto](docs/Model/SelectedShippingOptionDto.md)
 - [ShippingInfo](docs/Model/ShippingInfo.md)
+- [Subscription](docs/Model/Subscription.md)
 - [Timeslot](docs/Model/Timeslot.md)
 - [UpdateAuthorization](docs/Model/UpdateAuthorization.md)
 - [UpdateConsumer](docs/Model/UpdateConsumer.md)
