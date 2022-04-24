@@ -31,6 +31,7 @@ docs/Model/RefundNotAllowedErrorMessage.md
 docs/Model/RefundObject.md
 docs/Model/SelectedShippingOptionDto.md
 docs/Model/ShippingInfo.md
+docs/Model/Subscription.md
 docs/Model/Timeslot.md
 docs/Model/UpdateAuthorization.md
 docs/Model/UpdateConsumer.md
@@ -71,6 +72,7 @@ src/Model/RefundNotAllowedErrorMessage.php
 src/Model/RefundObject.php
 src/Model/SelectedShippingOptionDto.php
 src/Model/ShippingInfo.php
+src/Model/Subscription.php
 src/Model/Timeslot.php
 src/Model/UpdateAuthorization.php
 src/Model/UpdateConsumer.php

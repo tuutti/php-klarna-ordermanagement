@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **quantity** | **int** | Item quantity. Non-negative. |
 **quantity_unit** | **string** | Unit used to describe the quantity. Maximum 10 characters. | [optional]
 **reference** | **string** | Article number, SKU or similar identifier on the product variant level. | [optional]
+**subscription** | [**\Klarna\OrderManagement\Model\Subscription**](Subscription.md) |  | [optional]
 **tax_rate** | **int** | The tax rate in percent with two implicit decimals. Non-negative. Example: 2500 &#x3D; 25%. | [optional]
 **total_amount** | **int** | Total amount including tax and discounts (&#x60;quantity * unit_price - total_discount_amount&#x60;). |
 **total_discount_amount** | **int** | The discount amount in minor units. Includes tax. Example: 1200 &#x3D; $12. Max value: 100000000 | [optional]
