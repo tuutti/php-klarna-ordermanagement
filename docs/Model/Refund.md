@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **reference** | **string** | Internal reference to the refund that is also included in the settlement files. Max length is 255 characters. | [optional]
 **refund_id** | **string** | The refund id. Generated when the refund is created. | [optional]
 **refunded_amount** | **int** | Refunded amount in minor units. | [optional]
-**refunded_at** | [**\DateTime**](\DateTime.md) | The time of the refund. ISO 8601. | [optional]
+**refunded_at** | **\DateTime** | The time of the refund. ISO 8601. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
