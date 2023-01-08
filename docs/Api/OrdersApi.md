@@ -22,7 +22,7 @@ acknowledgeOrder($order_id, $klarna_idempotency_key)
 
 Acknowledge order
 
-Acknowledge order
+Acknowledge order. Read more on [Acknowledging orders](https://docs.klarna.com/order-management/pre-delivery/acknowledge-kco-order/)
 
 ### Example
 
@@ -85,7 +85,7 @@ cancelOrder($order_id, $klarna_idempotency_key)
 
 Cancel order
 
-Cancel order
+Cancel order.Read more on [Cancelling an order](https://docs.klarna.com/order-management/pre-delivery/cancel-order/)
 
 ### Example
 
@@ -148,7 +148,7 @@ extendAuthorizationTime($order_id, $klarna_idempotency_key)
 
 Extend authorization time
 
-Extend authorization time
+Extend authorization time. Read more on [Extending order authorization time](https://docs.klarna.com/order-management/pre-delivery/extend-order-authorization-time/)
 
 ### Example
 
@@ -211,7 +211,7 @@ getOrder($order_id, $klarna_integrator): \Klarna\OrderManagement\Model\Order
 
 Get order
 
-An order that has the given order id.
+An order that has the given order id. Read more on [Retrieving order details](https://docs.klarna.com/order-management/pre-delivery/order-details/)
 
 ### Example
 
@@ -275,7 +275,7 @@ releaseRemainingAuthorization($order_id, $klarna_idempotency_key)
 
 Release remaining authorization
 
-Release remaining authorization
+Release remaining authorization. Read more on [Releasing remaining authorization](https://docs.klarna.com/order-management/post-delivery/release-remaining-authorization/)
 
 ### Example
 
@@ -338,7 +338,7 @@ updateAuthorization($order_id, $klarna_idempotency_key, $body)
 
 Set new order amount and order lines
 
-Set new order amount and order lines
+Set new order amount and order lines. Read more on [Updating orders](https://docs.klarna.com/order-management/pre-delivery/update-order-amount/)
 
 ### Example
 
@@ -403,7 +403,7 @@ updateConsumerDetails($order_id, $klarna_idempotency_key, $body)
 
 Update customer addresses
 
-Update customer addresses
+Update customer addresses. Read more on [Updating customer addresses](https://docs.klarna.com/order-management/pre-delivery/update-customer-address/)
 
 ### Example
 
@@ -468,7 +468,7 @@ updateMerchantReferences($order_id, $klarna_idempotency_key, $body)
 
 Update merchant references
 
-Update merchant references
+Update merchant references. Read more on [Updating merchant references](https://docs.klarna.com/order-management/pre-delivery/update-merchant-references/)
 
 ### Example
 
