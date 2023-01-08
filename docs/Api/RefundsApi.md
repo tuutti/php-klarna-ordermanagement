@@ -16,7 +16,7 @@ get($order_id, $refund_id): \Klarna\OrderManagement\Model\Refund
 
 Get refund
 
-Get refund
+Get refund.
 
 ### Example
 
@@ -80,7 +80,7 @@ refundOrder($order_id, $klarna_idempotency_key, $body)
 
 Create a refund
 
-Create a refund
+Create a refund. Read more on [Refunds](https://docs.klarna.com/order-management/post-delivery/refund/)
 
 ### Example
 

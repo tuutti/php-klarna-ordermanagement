@@ -21,7 +21,7 @@ appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $body)
 
 Add shipping info to a capture
 
-Add shipping info to a capture
+Add shipping info to a capture. Read more on [Adding shipping info](https://docs.klarna.com/order-management/post-delivery/add-capture-shipping-details/)
 
 ### Example
 
@@ -88,7 +88,7 @@ captureOrder($order_id, $body, $klarna_idempotency_key)
 
 Create capture
 
-Create capture
+Create capture. Read more on [Capturing an order](https://docs.klarna.com/order-management/delivery/full-capture/)
 
 ### Example
 
@@ -153,7 +153,7 @@ extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $body)
 
 Extend the customer's payment due date
 
-Extend the customer's payment due date
+Extend the customer's payment due date. Read more on [Extending customer due dates](https://docs.klarna.com/order-management/post-delivery/extend-customer-due-date/)
 
 ### Example
 
@@ -220,7 +220,7 @@ getCapture($capture_id, $order_id): \Klarna\OrderManagement\Model\Capture
 
 Get capture
 
-Get capture
+Get capture. Read more on [Retrieving capture details](https://docs.klarna.com/order-management/post-delivery/capture-details/)
 
 ### Example
 
@@ -410,7 +410,7 @@ triggerSendOut($capture_id, $order_id, $klarna_idempotency_key)
 
 Trigger resend of customer communication
 
-Trigger resend of customer communication
+Trigger resend of customer communication. Read more on [Resending customer communication](https://docs.klarna.com/order-management/post-delivery/trigger-customer-send-out/)
 
 ### Example
 
