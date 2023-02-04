@@ -1,11 +1,11 @@
 # Klarna\OrderManagement\RefundsApi
 
-All URIs are relative to https://api.klarna.com.
+All URIs are relative to https://api.klarna.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get()**](RefundsApi.md#get) | **GET** /ordermanagement/v1/orders/{order_id}/refunds/{refund_id} | Get refund
-[**refundOrder()**](RefundsApi.md#refundOrder) | **POST** /ordermanagement/v1/orders/{order_id}/refunds | Create a refund
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**get()**](RefundsApi.md#get) | **GET** /ordermanagement/v1/orders/{order_id}/refunds/{refund_id} | Get refund |
+| [**refundOrder()**](RefundsApi.md#refundOrder) | **POST** /ordermanagement/v1/orders/{order_id}/refunds | Create a refund |
 
 
 ## `get()`
@@ -50,10 +50,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **refund_id** | **string**| Refund id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **refund_id** | **string**| Refund id | |
 
 ### Return type
 
@@ -114,11 +114,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
- **body** | [**\Klarna\OrderManagement\Model\RefundObject**](../Model/RefundObject.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **body** | [**\Klarna\OrderManagement\Model\RefundObject**](../Model/RefundObject.md)|  | [optional] |
 
 ### Return type
 

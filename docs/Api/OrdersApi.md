@@ -1,17 +1,17 @@
 # Klarna\OrderManagement\OrdersApi
 
-All URIs are relative to https://api.klarna.com.
+All URIs are relative to https://api.klarna.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**acknowledgeOrder()**](OrdersApi.md#acknowledgeOrder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge order
-[**cancelOrder()**](OrdersApi.md#cancelOrder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel order
-[**extendAuthorizationTime()**](OrdersApi.md#extendAuthorizationTime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend authorization time
-[**getOrder()**](OrdersApi.md#getOrder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order
-[**releaseRemainingAuthorization()**](OrdersApi.md#releaseRemainingAuthorization) | **POST** /ordermanagement/v1/orders/{order_id}/release-remaining-authorization | Release remaining authorization
-[**updateAuthorization()**](OrdersApi.md#updateAuthorization) | **PATCH** /ordermanagement/v1/orders/{order_id}/authorization | Set new order amount and order lines
-[**updateConsumerDetails()**](OrdersApi.md#updateConsumerDetails) | **PATCH** /ordermanagement/v1/orders/{order_id}/customer-details | Update customer addresses
-[**updateMerchantReferences()**](OrdersApi.md#updateMerchantReferences) | **PATCH** /ordermanagement/v1/orders/{order_id}/merchant-references | Update merchant references
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**acknowledgeOrder()**](OrdersApi.md#acknowledgeOrder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge order |
+| [**cancelOrder()**](OrdersApi.md#cancelOrder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel order |
+| [**extendAuthorizationTime()**](OrdersApi.md#extendAuthorizationTime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend authorization time |
+| [**getOrder()**](OrdersApi.md#getOrder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order |
+| [**releaseRemainingAuthorization()**](OrdersApi.md#releaseRemainingAuthorization) | **POST** /ordermanagement/v1/orders/{order_id}/release-remaining-authorization | Release remaining authorization |
+| [**updateAuthorization()**](OrdersApi.md#updateAuthorization) | **PATCH** /ordermanagement/v1/orders/{order_id}/authorization | Set new order amount and order lines |
+| [**updateConsumerDetails()**](OrdersApi.md#updateConsumerDetails) | **PATCH** /ordermanagement/v1/orders/{order_id}/customer-details | Update customer addresses |
+| [**updateMerchantReferences()**](OrdersApi.md#updateMerchantReferences) | **PATCH** /ordermanagement/v1/orders/{order_id}/merchant-references | Update merchant references |
 
 
 ## `acknowledgeOrder()`
@@ -55,10 +55,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
 
@@ -118,10 +118,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
 
@@ -181,10 +181,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
 
@@ -245,10 +245,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_integrator** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_integrator** | **string**|  | [optional] |
 
 ### Return type
 
@@ -308,10 +308,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
 
@@ -372,11 +372,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
- **body** | [**\Klarna\OrderManagement\Model\UpdateAuthorization**](../Model/UpdateAuthorization.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **body** | [**\Klarna\OrderManagement\Model\UpdateAuthorization**](../Model/UpdateAuthorization.md)|  | [optional] |
 
 ### Return type
 
@@ -437,11 +437,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
- **body** | [**\Klarna\OrderManagement\Model\UpdateConsumer**](../Model/UpdateConsumer.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **body** | [**\Klarna\OrderManagement\Model\UpdateConsumer**](../Model/UpdateConsumer.md)|  | [optional] |
 
 ### Return type
 
@@ -502,11 +502,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
- **body** | [**\Klarna\OrderManagement\Model\UpdateMerchantReferences**](../Model/UpdateMerchantReferences.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **body** | [**\Klarna\OrderManagement\Model\UpdateMerchantReferences**](../Model/UpdateMerchantReferences.md)|  | [optional] |
 
 ### Return type
 
