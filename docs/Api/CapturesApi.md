@@ -1,16 +1,16 @@
 # Klarna\OrderManagement\CapturesApi
 
-All URIs are relative to https://api.klarna.com.
+All URIs are relative to https://api.klarna.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**appendShippingInfo()**](CapturesApi.md#appendShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping info to a capture
-[**captureOrder()**](CapturesApi.md#captureOrder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Create capture
-[**extendDueDate()**](CapturesApi.md#extendDueDate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend the customer&#39;s payment due date
-[**getCapture()**](CapturesApi.md#getCapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture
-[**getCaptures()**](CapturesApi.md#getCaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | Get all captures for one order
-[**getOptionsForExtendDueDate()**](CapturesApi.md#getOptionsForExtendDueDate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date
-[**triggerSendOut()**](CapturesApi.md#triggerSendOut) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**appendShippingInfo()**](CapturesApi.md#appendShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping info to a capture |
+| [**captureOrder()**](CapturesApi.md#captureOrder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Create capture |
+| [**extendDueDate()**](CapturesApi.md#extendDueDate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend the customer&#39;s payment due date |
+| [**getCapture()**](CapturesApi.md#getCapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture |
+| [**getCaptures()**](CapturesApi.md#getCaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | Get all captures for one order |
+| [**getOptionsForExtendDueDate()**](CapturesApi.md#getOptionsForExtendDueDate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date |
+| [**triggerSendOut()**](CapturesApi.md#triggerSendOut) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication |
 
 
 ## `appendShippingInfo()`
@@ -21,7 +21,7 @@ appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $body)
 
 Add shipping info to a capture
 
-Add shipping info to a capture
+Add shipping info to a capture. Read more on [Adding shipping info](https://docs.klarna.com/order-management/post-delivery/add-capture-shipping-details/)
 
 ### Example
 
@@ -56,12 +56,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **capture_id** | **string**| Capture id |
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
- **body** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **capture_id** | **string**| Capture id | |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **body** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | [optional] |
 
 ### Return type
 
@@ -88,7 +88,7 @@ captureOrder($order_id, $body, $klarna_idempotency_key)
 
 Create capture
 
-Create capture
+Create capture. Read more on [Capturing an order](https://docs.klarna.com/order-management/delivery/full-capture/)
 
 ### Example
 
@@ -122,11 +122,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
- **body** | [**\Klarna\OrderManagement\Model\CaptureObject**](../Model/CaptureObject.md)| Capture request data |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **body** | [**\Klarna\OrderManagement\Model\CaptureObject**](../Model/CaptureObject.md)| Capture request data | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
 
@@ -153,7 +153,7 @@ extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $body)
 
 Extend the customer's payment due date
 
-Extend the customer's payment due date
+Extend the customer's payment due date. Read more on [Extending customer due dates](https://docs.klarna.com/order-management/post-delivery/extend-customer-due-date/)
 
 ### Example
 
@@ -188,12 +188,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **capture_id** | **string**| Capture id |
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
- **body** | [**\Klarna\OrderManagement\Model\ExtendDueDateRequest**](../Model/ExtendDueDateRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **capture_id** | **string**| Capture id | |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **body** | [**\Klarna\OrderManagement\Model\ExtendDueDateRequest**](../Model/ExtendDueDateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -220,7 +220,7 @@ getCapture($capture_id, $order_id): \Klarna\OrderManagement\Model\Capture
 
 Get capture
 
-Get capture
+Get capture. Read more on [Retrieving capture details](https://docs.klarna.com/order-management/post-delivery/capture-details/)
 
 ### Example
 
@@ -254,10 +254,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **capture_id** | **string**| Capture id |
- **order_id** | **string**| Order id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **capture_id** | **string**| Capture id | |
+| **order_id** | **string**| Order id | |
 
 ### Return type
 
@@ -317,9 +317,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
 
 ### Return type
 
@@ -380,10 +380,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **capture_id** | **string**| Capture id |
- **order_id** | **string**| Order id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **capture_id** | **string**| Capture id | |
+| **order_id** | **string**| Order id | |
 
 ### Return type
 
@@ -410,7 +410,7 @@ triggerSendOut($capture_id, $order_id, $klarna_idempotency_key)
 
 Trigger resend of customer communication
 
-Trigger resend of customer communication
+Trigger resend of customer communication. Read more on [Resending customer communication](https://docs.klarna.com/order-management/post-delivery/trigger-customer-send-out/)
 
 ### Example
 
@@ -444,11 +444,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **capture_id** | **string**| Capture id |
- **order_id** | **string**| Order id |
- **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **capture_id** | **string**| Capture id | |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
 
