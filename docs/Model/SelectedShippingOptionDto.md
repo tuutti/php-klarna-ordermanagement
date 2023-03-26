@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **carrier** | **string** | The carrier for the selected shipping option | [optional]
 **carrier_product** | [**\Klarna\OrderManagement\Model\CarrierProduct**](CarrierProduct.md) |  | [optional]
-**class** | **string** | The class of the selected shipping option | [optional]
 **id** | **string** | The id of the selected shipping option as provided by the TMS | [optional]
 **location** | [**\Klarna\OrderManagement\Model\Location**](Location.md) |  | [optional]
 **method** | **string** | The method of the selected shipping option | [optional]

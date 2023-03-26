@@ -16,7 +16,7 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 ## `appendShippingInfo()`
 
 ```php
-appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $body)
+appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $update_shipping_info)
 ```
 
 Add shipping info to a capture
@@ -45,10 +45,10 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
 $capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
-$body = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo
+$update_shipping_info = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo
 
 try {
-    $apiInstance->appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $body);
+    $apiInstance->appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $update_shipping_info);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->appendShippingInfo: ', $e->getMessage(), PHP_EOL;
 }
@@ -61,7 +61,7 @@ try {
 | **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **body** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | [optional] |
+| **update_shipping_info** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | [optional] |
 
 ### Return type
 
@@ -83,7 +83,7 @@ void (empty response body)
 ## `captureOrder()`
 
 ```php
-captureOrder($order_id, $body, $klarna_idempotency_key)
+captureOrder($order_id, $capture_object, $klarna_idempotency_key)
 ```
 
 Create capture
@@ -110,11 +110,11 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     $config
 );
 $order_id = 'order_id_example'; // string | Order id
-$body = new \Klarna\OrderManagement\Model\CaptureObject(); // \Klarna\OrderManagement\Model\CaptureObject | Capture request data
+$capture_object = new \Klarna\OrderManagement\Model\CaptureObject(); // \Klarna\OrderManagement\Model\CaptureObject | Capture request data
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 
 try {
-    $apiInstance->captureOrder($order_id, $body, $klarna_idempotency_key);
+    $apiInstance->captureOrder($order_id, $capture_object, $klarna_idempotency_key);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->captureOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -125,7 +125,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
-| **body** | [**\Klarna\OrderManagement\Model\CaptureObject**](../Model/CaptureObject.md)| Capture request data | |
+| **capture_object** | [**\Klarna\OrderManagement\Model\CaptureObject**](../Model/CaptureObject.md)| Capture request data | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
@@ -148,7 +148,7 @@ void (empty response body)
 ## `extendDueDate()`
 
 ```php
-extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $body)
+extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $extend_due_date_request)
 ```
 
 Extend the customer's payment due date
@@ -177,10 +177,10 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
 $capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
-$body = new \Klarna\OrderManagement\Model\ExtendDueDateRequest(); // \Klarna\OrderManagement\Model\ExtendDueDateRequest
+$extend_due_date_request = new \Klarna\OrderManagement\Model\ExtendDueDateRequest(); // \Klarna\OrderManagement\Model\ExtendDueDateRequest
 
 try {
-    $apiInstance->extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $body);
+    $apiInstance->extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $extend_due_date_request);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->extendDueDate: ', $e->getMessage(), PHP_EOL;
 }
@@ -193,7 +193,7 @@ try {
 | **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **body** | [**\Klarna\OrderManagement\Model\ExtendDueDateRequest**](../Model/ExtendDueDateRequest.md)|  | [optional] |
+| **extend_due_date_request** | [**\Klarna\OrderManagement\Model\ExtendDueDateRequest**](../Model/ExtendDueDateRequest.md)|  | [optional] |
 
 ### Return type
 

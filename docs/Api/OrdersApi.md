@@ -333,7 +333,7 @@ void (empty response body)
 ## `updateAuthorization()`
 
 ```php
-updateAuthorization($order_id, $klarna_idempotency_key, $body)
+updateAuthorization($order_id, $klarna_idempotency_key, $update_authorization)
 ```
 
 Set new order amount and order lines
@@ -361,10 +361,10 @@ $apiInstance = new Klarna\OrderManagement\Api\OrdersApi(
 );
 $order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
-$body = new \Klarna\OrderManagement\Model\UpdateAuthorization(); // \Klarna\OrderManagement\Model\UpdateAuthorization
+$update_authorization = new \Klarna\OrderManagement\Model\UpdateAuthorization(); // \Klarna\OrderManagement\Model\UpdateAuthorization
 
 try {
-    $apiInstance->updateAuthorization($order_id, $klarna_idempotency_key, $body);
+    $apiInstance->updateAuthorization($order_id, $klarna_idempotency_key, $update_authorization);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->updateAuthorization: ', $e->getMessage(), PHP_EOL;
 }
@@ -376,7 +376,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **body** | [**\Klarna\OrderManagement\Model\UpdateAuthorization**](../Model/UpdateAuthorization.md)|  | [optional] |
+| **update_authorization** | [**\Klarna\OrderManagement\Model\UpdateAuthorization**](../Model/UpdateAuthorization.md)|  | [optional] |
 
 ### Return type
 
@@ -388,7 +388,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `*/*`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -398,7 +398,7 @@ void (empty response body)
 ## `updateConsumerDetails()`
 
 ```php
-updateConsumerDetails($order_id, $klarna_idempotency_key, $body)
+updateConsumerDetails($order_id, $klarna_idempotency_key, $update_consumer)
 ```
 
 Update customer addresses
@@ -426,10 +426,10 @@ $apiInstance = new Klarna\OrderManagement\Api\OrdersApi(
 );
 $order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
-$body = new \Klarna\OrderManagement\Model\UpdateConsumer(); // \Klarna\OrderManagement\Model\UpdateConsumer
+$update_consumer = new \Klarna\OrderManagement\Model\UpdateConsumer(); // \Klarna\OrderManagement\Model\UpdateConsumer
 
 try {
-    $apiInstance->updateConsumerDetails($order_id, $klarna_idempotency_key, $body);
+    $apiInstance->updateConsumerDetails($order_id, $klarna_idempotency_key, $update_consumer);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->updateConsumerDetails: ', $e->getMessage(), PHP_EOL;
 }
@@ -441,7 +441,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **body** | [**\Klarna\OrderManagement\Model\UpdateConsumer**](../Model/UpdateConsumer.md)|  | [optional] |
+| **update_consumer** | [**\Klarna\OrderManagement\Model\UpdateConsumer**](../Model/UpdateConsumer.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +453,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `*/*`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -463,7 +463,7 @@ void (empty response body)
 ## `updateMerchantReferences()`
 
 ```php
-updateMerchantReferences($order_id, $klarna_idempotency_key, $body)
+updateMerchantReferences($order_id, $klarna_idempotency_key, $update_merchant_references)
 ```
 
 Update merchant references
@@ -491,10 +491,10 @@ $apiInstance = new Klarna\OrderManagement\Api\OrdersApi(
 );
 $order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
-$body = new \Klarna\OrderManagement\Model\UpdateMerchantReferences(); // \Klarna\OrderManagement\Model\UpdateMerchantReferences
+$update_merchant_references = new \Klarna\OrderManagement\Model\UpdateMerchantReferences(); // \Klarna\OrderManagement\Model\UpdateMerchantReferences
 
 try {
-    $apiInstance->updateMerchantReferences($order_id, $klarna_idempotency_key, $body);
+    $apiInstance->updateMerchantReferences($order_id, $klarna_idempotency_key, $update_merchant_references);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->updateMerchantReferences: ', $e->getMessage(), PHP_EOL;
 }
@@ -506,7 +506,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **body** | [**\Klarna\OrderManagement\Model\UpdateMerchantReferences**](../Model/UpdateMerchantReferences.md)|  | [optional] |
+| **update_merchant_references** | [**\Klarna\OrderManagement\Model\UpdateMerchantReferences**](../Model/UpdateMerchantReferences.md)|  | [optional] |
 
 ### Return type
 
@@ -518,7 +518,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `*/*`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -75,7 +75,7 @@ try {
 ## `refundOrder()`
 
 ```php
-refundOrder($order_id, $klarna_idempotency_key, $body)
+refundOrder($order_id, $klarna_idempotency_key, $refund_object)
 ```
 
 Create a refund
@@ -103,10 +103,10 @@ $apiInstance = new Klarna\OrderManagement\Api\RefundsApi(
 );
 $order_id = 'order_id_example'; // string | Order id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
-$body = new \Klarna\OrderManagement\Model\RefundObject(); // \Klarna\OrderManagement\Model\RefundObject
+$refund_object = new \Klarna\OrderManagement\Model\RefundObject(); // \Klarna\OrderManagement\Model\RefundObject
 
 try {
-    $apiInstance->refundOrder($order_id, $klarna_idempotency_key, $body);
+    $apiInstance->refundOrder($order_id, $klarna_idempotency_key, $refund_object);
 } catch (Exception $e) {
     echo 'Exception when calling RefundsApi->refundOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -118,7 +118,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **body** | [**\Klarna\OrderManagement\Model\RefundObject**](../Model/RefundObject.md)|  | [optional] |
+| **refund_object** | [**\Klarna\OrderManagement\Model\RefundObject**](../Model/RefundObject.md)|  | [optional] |
 
 ### Return type
 
@@ -130,7 +130,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `*/*`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
