@@ -81,6 +81,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'remaining_authorized_amount' => 'int',
         'selected_shipping_option' => '\Klarna\OrderManagement\Model\SelectedShippingOptionDto',
         'shipping_address' => '\Klarna\OrderManagement\Model\Address',
+        'shipping_info' => '\Klarna\OrderManagement\Model\ShippingInfo[]',
         'status' => 'string'
     ];
 
@@ -116,6 +117,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'remaining_authorized_amount' => 'int64',
         'selected_shipping_option' => null,
         'shipping_address' => null,
+        'shipping_info' => null,
         'status' => null
     ];
 
@@ -149,6 +151,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 		'remaining_authorized_amount' => false,
 		'selected_shipping_option' => false,
 		'shipping_address' => false,
+		'shipping_info' => false,
 		'status' => false
     ];
 
@@ -262,6 +265,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'remaining_authorized_amount' => 'remaining_authorized_amount',
         'selected_shipping_option' => 'selected_shipping_option',
         'shipping_address' => 'shipping_address',
+        'shipping_info' => 'shipping_info',
         'status' => 'status'
     ];
 
@@ -295,6 +299,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'remaining_authorized_amount' => 'setRemainingAuthorizedAmount',
         'selected_shipping_option' => 'setSelectedShippingOption',
         'shipping_address' => 'setShippingAddress',
+        'shipping_info' => 'setShippingInfo',
         'status' => 'setStatus'
     ];
 
@@ -328,6 +333,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'remaining_authorized_amount' => 'getRemainingAuthorizedAmount',
         'selected_shipping_option' => 'getSelectedShippingOption',
         'shipping_address' => 'getShippingAddress',
+        'shipping_info' => 'getShippingInfo',
         'status' => 'getStatus'
     ];
 
@@ -435,6 +441,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('remaining_authorized_amount', $data ?? [], null);
         $this->setIfExists('selected_shipping_option', $data ?? [], null);
         $this->setIfExists('shipping_address', $data ?? [], null);
+        $this->setIfExists('shipping_info', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
     }
 
@@ -1133,6 +1140,33 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable shipping_address cannot be null');
         }
         $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_info
+     *
+     * @return \Klarna\OrderManagement\Model\ShippingInfo[]|null
+     */
+    public function getShippingInfo()
+    {
+        return $this->container['shipping_info'];
+    }
+
+    /**
+     * Sets shipping_info
+     *
+     * @param \Klarna\OrderManagement\Model\ShippingInfo[]|null $shipping_info Shipping information for this order.
+     *
+     * @return self
+     */
+    public function setShippingInfo($shipping_info)
+    {
+        if (is_null($shipping_info)) {
+            throw new \InvalidArgumentException('non-nullable shipping_info cannot be null');
+        }
+        $this->container['shipping_info'] = $shipping_info;
 
         return $this;
     }

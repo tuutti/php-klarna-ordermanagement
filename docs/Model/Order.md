@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **remaining_authorized_amount** | **int** | The remaining authorized amount for this order. To increase the &#x60;remaining_authorized_amount&#x60; the &#x60;order_amount&#x60; needs to be increased. | [optional]
 **selected_shipping_option** | [**\Klarna\OrderManagement\Model\SelectedShippingOptionDto**](SelectedShippingOptionDto.md) |  | [optional]
 **shipping_address** | [**\Klarna\OrderManagement\Model\Address**](Address.md) |  | [optional]
+**shipping_info** | [**\Klarna\OrderManagement\Model\ShippingInfo[]**](ShippingInfo.md) | Shipping information for this order. | [optional]
 **status** | **string** | The order status. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

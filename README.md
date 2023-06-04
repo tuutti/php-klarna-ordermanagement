@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *CapturesApi* | [**getOptionsForExtendDueDate**](docs/Api/CapturesApi.md#getoptionsforextendduedate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date
 *CapturesApi* | [**triggerSendOut**](docs/Api/CapturesApi.md#triggersendout) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication
 *OrdersApi* | [**acknowledgeOrder**](docs/Api/OrdersApi.md#acknowledgeorder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge order
+*OrdersApi* | [**appendOrderShippingInfo**](docs/Api/OrdersApi.md#appendordershippinginfo) | **POST** /ordermanagement/v1/orders/{order_id}/shipping-info | Add shipping info to an order
 *OrdersApi* | [**cancelOrder**](docs/Api/OrdersApi.md#cancelorder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel order
 *OrdersApi* | [**extendAuthorizationTime**](docs/Api/OrdersApi.md#extendauthorizationtime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend authorization time
 *OrdersApi* | [**getOrder**](docs/Api/OrdersApi.md#getorder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order

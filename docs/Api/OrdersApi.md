@@ -5,6 +5,7 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**acknowledgeOrder()**](OrdersApi.md#acknowledgeOrder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge order |
+| [**appendOrderShippingInfo()**](OrdersApi.md#appendOrderShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/shipping-info | Add shipping info to an order |
 | [**cancelOrder()**](OrdersApi.md#cancelOrder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel order |
 | [**extendAuthorizationTime()**](OrdersApi.md#extendAuthorizationTime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend authorization time |
 | [**getOrder()**](OrdersApi.md#getOrder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order |
@@ -71,6 +72,71 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `*/*`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `appendOrderShippingInfo()`
+
+```php
+appendOrderShippingInfo($order_id, $klarna_idempotency_key, $update_shipping_info)
+```
+
+Add shipping info to an order
+
+Add shipping info to an order. Read more on [Adding shipping info](https://docs.klarna.com/order-management/manage-orders-with-the-api/view-and-change-orders/add-shipping-information/)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Klarna\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Klarna\OrderManagement\Api\OrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$order_id = 'order_id_example'; // string | Order id
+$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
+$update_shipping_info = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo
+
+try {
+    $apiInstance->appendOrderShippingInfo($order_id, $klarna_idempotency_key, $update_shipping_info);
+} catch (Exception $e) {
+    echo 'Exception when calling OrdersApi->appendOrderShippingInfo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **order_id** | **string**| Order id | |
+| **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
+| **update_shipping_info** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `*/*`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

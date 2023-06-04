@@ -74,6 +74,9 @@ class OrdersApi
         'acknowledgeOrder' => [
             'application/json',
         ],
+        'appendOrderShippingInfo' => [
+            'application/json',
+        ],
         'cancelOrder' => [
             'application/json',
         ],
@@ -353,6 +356,270 @@ class OrdersApi
 
         // for model (json/xml)
         if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation appendOrderShippingInfo
+     *
+     * Add shipping info to an order
+     *
+     * @param  string $order_id Order id (required)
+     * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
+     * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $update_shipping_info update_shipping_info (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['appendOrderShippingInfo'] to see the possible values for this operation
+     *
+     * @throws \Klarna\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function appendOrderShippingInfo($order_id, $klarna_idempotency_key = null, $update_shipping_info = null, string $contentType = self::contentTypes['appendOrderShippingInfo'][0])
+    {
+        $this->appendOrderShippingInfoWithHttpInfo($order_id, $klarna_idempotency_key, $update_shipping_info, $contentType);
+    }
+
+    /**
+     * Operation appendOrderShippingInfoWithHttpInfo
+     *
+     * Add shipping info to an order
+     *
+     * @param  string $order_id Order id (required)
+     * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
+     * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $update_shipping_info (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['appendOrderShippingInfo'] to see the possible values for this operation
+     *
+     * @throws \Klarna\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appendOrderShippingInfoWithHttpInfo($order_id, $klarna_idempotency_key = null, $update_shipping_info = null, string $contentType = self::contentTypes['appendOrderShippingInfo'][0])
+    {
+        $request = $this->appendOrderShippingInfoRequest($order_id, $klarna_idempotency_key, $update_shipping_info, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Klarna\OrderManagement\Model\NoSuchOrderErrorMessage',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appendOrderShippingInfoAsync
+     *
+     * Add shipping info to an order
+     *
+     * @param  string $order_id Order id (required)
+     * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
+     * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $update_shipping_info (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['appendOrderShippingInfo'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appendOrderShippingInfoAsync($order_id, $klarna_idempotency_key = null, $update_shipping_info = null, string $contentType = self::contentTypes['appendOrderShippingInfo'][0])
+    {
+        return $this->appendOrderShippingInfoAsyncWithHttpInfo($order_id, $klarna_idempotency_key, $update_shipping_info, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appendOrderShippingInfoAsyncWithHttpInfo
+     *
+     * Add shipping info to an order
+     *
+     * @param  string $order_id Order id (required)
+     * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
+     * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $update_shipping_info (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['appendOrderShippingInfo'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appendOrderShippingInfoAsyncWithHttpInfo($order_id, $klarna_idempotency_key = null, $update_shipping_info = null, string $contentType = self::contentTypes['appendOrderShippingInfo'][0])
+    {
+        $returnType = '';
+        $request = $this->appendOrderShippingInfoRequest($order_id, $klarna_idempotency_key, $update_shipping_info, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appendOrderShippingInfo'
+     *
+     * @param  string $order_id Order id (required)
+     * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
+     * @param  \Klarna\OrderManagement\Model\UpdateShippingInfo $update_shipping_info (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['appendOrderShippingInfo'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function appendOrderShippingInfoRequest($order_id, $klarna_idempotency_key = null, $update_shipping_info = null, string $contentType = self::contentTypes['appendOrderShippingInfo'][0])
+    {
+
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling appendOrderShippingInfo'
+            );
+        }
+
+
+
+
+        $resourcePath = '/ordermanagement/v1/orders/{order_id}/shipping-info';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($klarna_idempotency_key !== null) {
+            $headerParams['Klarna-Idempotency-Key'] = ObjectSerializer::toHeaderValue($klarna_idempotency_key);
+        }
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_shipping_info)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_shipping_info));
+            } else {
+                $httpBody = $update_shipping_info;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
