@@ -10,7 +10,7 @@
  */
 
 /**
- * Klarna Order Managment API
+ * Klarna Order Management API
  *
  * The Order Management API is used for handling an order after the customer has completed the purchase. It is used for all actions you need to manage your orders. Examples being: updating, capturing, reading and refunding an order.  Read more on the [Order management](https://docs.klarna.com/order-management/) process.  # Authentication  <!-- ReDoc-Inject: <security-definitions> -->
  *
@@ -143,7 +143,7 @@ class CapturesApi
     /**
      * Operation appendShippingInfo
      *
-     * Add shipping info to a capture
+     * Add shipping information
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -163,7 +163,7 @@ class CapturesApi
     /**
      * Operation appendShippingInfoWithHttpInfo
      *
-     * Add shipping info to a capture
+     * Add shipping information
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -242,7 +242,7 @@ class CapturesApi
     /**
      * Operation appendShippingInfoAsync
      *
-     * Add shipping info to a capture
+     * Add shipping information
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -266,7 +266,7 @@ class CapturesApi
     /**
      * Operation appendShippingInfoAsyncWithHttpInfo
      *
-     * Add shipping info to a capture
+     * Add shipping information
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -435,7 +435,7 @@ class CapturesApi
     /**
      * Operation captureOrder
      *
-     * Create capture
+     * Capture an order
      *
      * @param  string $order_id Order id (required)
      * @param  \Klarna\OrderManagement\Model\CaptureObject $capture_object Capture request data (required)
@@ -454,7 +454,7 @@ class CapturesApi
     /**
      * Operation captureOrderWithHttpInfo
      *
-     * Create capture
+     * Capture an order
      *
      * @param  string $order_id Order id (required)
      * @param  \Klarna\OrderManagement\Model\CaptureObject $capture_object Capture request data (required)
@@ -532,7 +532,7 @@ class CapturesApi
     /**
      * Operation captureOrderAsync
      *
-     * Create capture
+     * Capture an order
      *
      * @param  string $order_id Order id (required)
      * @param  \Klarna\OrderManagement\Model\CaptureObject $capture_object Capture request data (required)
@@ -555,7 +555,7 @@ class CapturesApi
     /**
      * Operation captureOrderAsyncWithHttpInfo
      *
-     * Create capture
+     * Capture an order
      *
      * @param  string $order_id Order id (required)
      * @param  \Klarna\OrderManagement\Model\CaptureObject $capture_object Capture request data (required)
@@ -713,7 +713,7 @@ class CapturesApi
     /**
      * Operation extendDueDate
      *
-     * Extend the customer&#39;s payment due date
+     * Extend payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -733,7 +733,7 @@ class CapturesApi
     /**
      * Operation extendDueDateWithHttpInfo
      *
-     * Extend the customer&#39;s payment due date
+     * Extend payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -812,7 +812,7 @@ class CapturesApi
     /**
      * Operation extendDueDateAsync
      *
-     * Extend the customer&#39;s payment due date
+     * Extend payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -836,7 +836,7 @@ class CapturesApi
     /**
      * Operation extendDueDateAsyncWithHttpInfo
      *
-     * Extend the customer&#39;s payment due date
+     * Extend payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1005,7 +1005,7 @@ class CapturesApi
     /**
      * Operation getCapture
      *
-     * Get capture
+     * Get capture details
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1024,7 +1024,7 @@ class CapturesApi
     /**
      * Operation getCaptureWithHttpInfo
      *
-     * Get capture
+     * Get capture details
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1184,7 +1184,7 @@ class CapturesApi
     /**
      * Operation getCaptureAsync
      *
-     * Get capture
+     * Get capture details
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1206,7 +1206,7 @@ class CapturesApi
     /**
      * Operation getCaptureAsyncWithHttpInfo
      *
-     * Get capture
+     * Get capture details
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1371,7 +1371,7 @@ class CapturesApi
     /**
      * Operation getCaptures
      *
-     * Get all captures for one order
+     * List all order captures
      *
      * @param  string $order_id Order id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCaptures'] to see the possible values for this operation
@@ -1389,7 +1389,7 @@ class CapturesApi
     /**
      * Operation getCapturesWithHttpInfo
      *
-     * Get all captures for one order
+     * List all order captures
      *
      * @param  string $order_id Order id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCaptures'] to see the possible values for this operation
@@ -1548,7 +1548,7 @@ class CapturesApi
     /**
      * Operation getCapturesAsync
      *
-     * Get all captures for one order
+     * List all order captures
      *
      * @param  string $order_id Order id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCaptures'] to see the possible values for this operation
@@ -1569,7 +1569,7 @@ class CapturesApi
     /**
      * Operation getCapturesAsyncWithHttpInfo
      *
-     * Get all captures for one order
+     * List all order captures
      *
      * @param  string $order_id Order id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCaptures'] to see the possible values for this operation
@@ -1717,7 +1717,7 @@ class CapturesApi
     /**
      * Operation getOptionsForExtendDueDate
      *
-     * Get available options for extension of the customer&#39;s payment due date
+     * List options for extension of payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1736,7 +1736,7 @@ class CapturesApi
     /**
      * Operation getOptionsForExtendDueDateWithHttpInfo
      *
-     * Get available options for extension of the customer&#39;s payment due date
+     * List options for extension of payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1896,7 +1896,7 @@ class CapturesApi
     /**
      * Operation getOptionsForExtendDueDateAsync
      *
-     * Get available options for extension of the customer&#39;s payment due date
+     * List options for extension of payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -1918,7 +1918,7 @@ class CapturesApi
     /**
      * Operation getOptionsForExtendDueDateAsyncWithHttpInfo
      *
-     * Get available options for extension of the customer&#39;s payment due date
+     * List options for extension of payment due date
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -2083,7 +2083,7 @@ class CapturesApi
     /**
      * Operation triggerSendOut
      *
-     * Trigger resend of customer communication
+     * Send customer communication
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -2102,7 +2102,7 @@ class CapturesApi
     /**
      * Operation triggerSendOutWithHttpInfo
      *
-     * Trigger resend of customer communication
+     * Send customer communication
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -2180,7 +2180,7 @@ class CapturesApi
     /**
      * Operation triggerSendOutAsync
      *
-     * Trigger resend of customer communication
+     * Send customer communication
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)
@@ -2203,7 +2203,7 @@ class CapturesApi
     /**
      * Operation triggerSendOutAsyncWithHttpInfo
      *
-     * Trigger resend of customer communication
+     * Send customer communication
      *
      * @param  string $capture_id Capture id (required)
      * @param  string $order_id Order id (required)

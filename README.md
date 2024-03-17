@@ -86,24 +86,24 @@ All URIs are relative to *https://api.klarna.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CapturesApi* | [**appendShippingInfo**](docs/Api/CapturesApi.md#appendshippinginfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping info to a capture
-*CapturesApi* | [**captureOrder**](docs/Api/CapturesApi.md#captureorder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Create capture
-*CapturesApi* | [**extendDueDate**](docs/Api/CapturesApi.md#extendduedate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend the customer&#39;s payment due date
-*CapturesApi* | [**getCapture**](docs/Api/CapturesApi.md#getcapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture
-*CapturesApi* | [**getCaptures**](docs/Api/CapturesApi.md#getcaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | Get all captures for one order
-*CapturesApi* | [**getOptionsForExtendDueDate**](docs/Api/CapturesApi.md#getoptionsforextendduedate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date
-*CapturesApi* | [**triggerSendOut**](docs/Api/CapturesApi.md#triggersendout) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication
-*OrdersApi* | [**acknowledgeOrder**](docs/Api/OrdersApi.md#acknowledgeorder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge order
-*OrdersApi* | [**appendOrderShippingInfo**](docs/Api/OrdersApi.md#appendordershippinginfo) | **POST** /ordermanagement/v1/orders/{order_id}/shipping-info | Add shipping info to an order
-*OrdersApi* | [**cancelOrder**](docs/Api/OrdersApi.md#cancelorder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel order
-*OrdersApi* | [**extendAuthorizationTime**](docs/Api/OrdersApi.md#extendauthorizationtime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend authorization time
-*OrdersApi* | [**getOrder**](docs/Api/OrdersApi.md#getorder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order
-*OrdersApi* | [**releaseRemainingAuthorization**](docs/Api/OrdersApi.md#releaseremainingauthorization) | **POST** /ordermanagement/v1/orders/{order_id}/release-remaining-authorization | Release remaining authorization
-*OrdersApi* | [**updateAuthorization**](docs/Api/OrdersApi.md#updateauthorization) | **PATCH** /ordermanagement/v1/orders/{order_id}/authorization | Set new order amount and order lines
+*CapturesApi* | [**appendShippingInfo**](docs/Api/CapturesApi.md#appendshippinginfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping information
+*CapturesApi* | [**captureOrder**](docs/Api/CapturesApi.md#captureorder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Capture an order
+*CapturesApi* | [**extendDueDate**](docs/Api/CapturesApi.md#extendduedate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend payment due date
+*CapturesApi* | [**getCapture**](docs/Api/CapturesApi.md#getcapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture details
+*CapturesApi* | [**getCaptures**](docs/Api/CapturesApi.md#getcaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | List all order captures
+*CapturesApi* | [**getOptionsForExtendDueDate**](docs/Api/CapturesApi.md#getoptionsforextendduedate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | List options for extension of payment due date
+*CapturesApi* | [**triggerSendOut**](docs/Api/CapturesApi.md#triggersendout) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Send customer communication
+*OrdersApi* | [**acknowledgeOrder**](docs/Api/OrdersApi.md#acknowledgeorder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge a Klarna checkout order
+*OrdersApi* | [**appendOrderShippingInfo**](docs/Api/OrdersApi.md#appendordershippinginfo) | **POST** /ordermanagement/v1/orders/{order_id}/shipping-info | Add shipping information
+*OrdersApi* | [**cancelOrder**](docs/Api/OrdersApi.md#cancelorder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel an order
+*OrdersApi* | [**extendAuthorizationTime**](docs/Api/OrdersApi.md#extendauthorizationtime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend the authorization time
+*OrdersApi* | [**getOrder**](docs/Api/OrdersApi.md#getorder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order details
+*OrdersApi* | [**releaseRemainingAuthorization**](docs/Api/OrdersApi.md#releaseremainingauthorization) | **POST** /ordermanagement/v1/orders/{order_id}/release-remaining-authorization | Release an authorization
+*OrdersApi* | [**updateAuthorization**](docs/Api/OrdersApi.md#updateauthorization) | **PATCH** /ordermanagement/v1/orders/{order_id}/authorization | Update the order amount and order lines
 *OrdersApi* | [**updateConsumerDetails**](docs/Api/OrdersApi.md#updateconsumerdetails) | **PATCH** /ordermanagement/v1/orders/{order_id}/customer-details | Update customer addresses
 *OrdersApi* | [**updateMerchantReferences**](docs/Api/OrdersApi.md#updatemerchantreferences) | **PATCH** /ordermanagement/v1/orders/{order_id}/merchant-references | Update merchant references
-*RefundsApi* | [**get**](docs/Api/RefundsApi.md#get) | **GET** /ordermanagement/v1/orders/{order_id}/refunds/{refund_id} | Get refund
-*RefundsApi* | [**refundOrder**](docs/Api/RefundsApi.md#refundorder) | **POST** /ordermanagement/v1/orders/{order_id}/refunds | Create a refund
+*RefundsApi* | [**get**](docs/Api/RefundsApi.md#get) | **GET** /ordermanagement/v1/orders/{order_id}/refunds/{refund_id} | Get refund details
+*RefundsApi* | [**refundOrder**](docs/Api/RefundsApi.md#refundorder) | **POST** /ordermanagement/v1/orders/{order_id}/refunds | Refund an order
 
 ## Models
 

@@ -10,7 +10,7 @@
  */
 
 /**
- * Klarna Order Managment API
+ * Klarna Order Management API
  *
  * The Order Management API is used for handling an order after the customer has completed the purchase. It is used for all actions you need to manage your orders. Examples being: updating, capturing, reading and refunding an order.  Read more on the [Order management](https://docs.klarna.com/order-management/) process.  # Authentication  <!-- ReDoc-Inject: <security-definitions> -->
  *
@@ -128,7 +128,7 @@ class RefundsApi
     /**
      * Operation get
      *
-     * Get refund
+     * Get refund details
      *
      * @param  string $order_id Order id (required)
      * @param  string $refund_id Refund id (required)
@@ -147,7 +147,7 @@ class RefundsApi
     /**
      * Operation getWithHttpInfo
      *
-     * Get refund
+     * Get refund details
      *
      * @param  string $order_id Order id (required)
      * @param  string $refund_id Refund id (required)
@@ -307,7 +307,7 @@ class RefundsApi
     /**
      * Operation getAsync
      *
-     * Get refund
+     * Get refund details
      *
      * @param  string $order_id Order id (required)
      * @param  string $refund_id Refund id (required)
@@ -329,7 +329,7 @@ class RefundsApi
     /**
      * Operation getAsyncWithHttpInfo
      *
-     * Get refund
+     * Get refund details
      *
      * @param  string $order_id Order id (required)
      * @param  string $refund_id Refund id (required)
@@ -494,7 +494,7 @@ class RefundsApi
     /**
      * Operation refundOrder
      *
-     * Create a refund
+     * Refund an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -513,7 +513,7 @@ class RefundsApi
     /**
      * Operation refundOrderWithHttpInfo
      *
-     * Create a refund
+     * Refund an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -591,7 +591,7 @@ class RefundsApi
     /**
      * Operation refundOrderAsync
      *
-     * Create a refund
+     * Refund an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -614,7 +614,7 @@ class RefundsApi
     /**
      * Operation refundOrderAsyncWithHttpInfo
      *
-     * Create a refund
+     * Refund an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)

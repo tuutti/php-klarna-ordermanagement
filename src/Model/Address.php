@@ -11,7 +11,7 @@
  */
 
 /**
- * Klarna Order Managment API
+ * Klarna Order Management API
  *
  * The Order Management API is used for handling an order after the customer has completed the purchase. It is used for all actions you need to manage your orders. Examples being: updating, capturing, reading and refunding an order.  Read more on the [Order management](https://docs.klarna.com/order-management/) process.  # Authentication  <!-- ReDoc-Inject: <security-definitions> -->
  *

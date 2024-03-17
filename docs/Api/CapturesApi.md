@@ -4,13 +4,13 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**appendShippingInfo()**](CapturesApi.md#appendShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping info to a capture |
-| [**captureOrder()**](CapturesApi.md#captureOrder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Create capture |
-| [**extendDueDate()**](CapturesApi.md#extendDueDate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend the customer&#39;s payment due date |
-| [**getCapture()**](CapturesApi.md#getCapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture |
-| [**getCaptures()**](CapturesApi.md#getCaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | Get all captures for one order |
-| [**getOptionsForExtendDueDate()**](CapturesApi.md#getOptionsForExtendDueDate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | Get available options for extension of the customer&#39;s payment due date |
-| [**triggerSendOut()**](CapturesApi.md#triggerSendOut) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Trigger resend of customer communication |
+| [**appendShippingInfo()**](CapturesApi.md#appendShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/shipping-info | Add shipping information |
+| [**captureOrder()**](CapturesApi.md#captureOrder) | **POST** /ordermanagement/v1/orders/{order_id}/captures | Capture an order |
+| [**extendDueDate()**](CapturesApi.md#extendDueDate) | **PATCH** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date | Extend payment due date |
+| [**getCapture()**](CapturesApi.md#getCapture) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id} | Get capture details |
+| [**getCaptures()**](CapturesApi.md#getCaptures) | **GET** /ordermanagement/v1/orders/{order_id}/captures | List all order captures |
+| [**getOptionsForExtendDueDate()**](CapturesApi.md#getOptionsForExtendDueDate) | **GET** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/extend-due-date-options | List options for extension of payment due date |
+| [**triggerSendOut()**](CapturesApi.md#triggerSendOut) | **POST** /ordermanagement/v1/orders/{order_id}/captures/{capture_id}/trigger-send-out | Send customer communication |
 
 
 ## `appendShippingInfo()`
@@ -19,7 +19,7 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $update_shipping_info)
 ```
 
-Add shipping info to a capture
+Add shipping information
 
 Add shipping info to a capture. Read more on [Adding shipping info](https://docs.klarna.com/order-management/post-delivery/add-capture-shipping-details/)
 
@@ -86,7 +86,7 @@ void (empty response body)
 captureOrder($order_id, $capture_object, $klarna_idempotency_key)
 ```
 
-Create capture
+Capture an order
 
 Create capture. Read more on [Capturing an order](https://docs.klarna.com/order-management/delivery/full-capture/)
 
@@ -151,7 +151,7 @@ void (empty response body)
 extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $extend_due_date_request)
 ```
 
-Extend the customer's payment due date
+Extend payment due date
 
 Extend the customer's payment due date. Read more on [Extending customer due dates](https://docs.klarna.com/order-management/post-delivery/extend-customer-due-date/)
 
@@ -218,9 +218,9 @@ void (empty response body)
 getCapture($capture_id, $order_id): \Klarna\OrderManagement\Model\Capture
 ```
 
-Get capture
+Get capture details
 
-Get capture. Read more on [Retrieving capture details](https://docs.klarna.com/order-management/post-delivery/capture-details/)
+Retrieve the details of a capture. To learn more, refer to the [Retrieving capture details](https://docs.klarna.com/order-management/post-delivery/capture-details/) article.
 
 ### Example
 
@@ -282,9 +282,9 @@ try {
 getCaptures($order_id): \Klarna\OrderManagement\Model\Capture[]
 ```
 
-Get all captures for one order
+List all order captures
 
-Get all captures for one order
+List all order captures
 
 ### Example
 
@@ -344,7 +344,7 @@ try {
 getOptionsForExtendDueDate($capture_id, $order_id): \Klarna\OrderManagement\Model\ExtendDueDateOptions
 ```
 
-Get available options for extension of the customer's payment due date
+List options for extension of payment due date
 
 Get merchant fees for extension of due date due date
 
@@ -408,7 +408,7 @@ try {
 triggerSendOut($capture_id, $order_id, $klarna_idempotency_key)
 ```
 
-Trigger resend of customer communication
+Send customer communication
 
 Trigger resend of customer communication. Read more on [Resending customer communication](https://docs.klarna.com/order-management/post-delivery/trigger-customer-send-out/)
 

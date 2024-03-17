@@ -10,7 +10,7 @@
  */
 
 /**
- * Klarna Order Managment API
+ * Klarna Order Management API
  *
  * The Order Management API is used for handling an order after the customer has completed the purchase. It is used for all actions you need to manage your orders. Examples being: updating, capturing, reading and refunding an order.  Read more on the [Order management](https://docs.klarna.com/order-management/) process.  # Authentication  <!-- ReDoc-Inject: <security-definitions> -->
  *
@@ -149,7 +149,7 @@ class OrdersApi
     /**
      * Operation acknowledgeOrder
      *
-     * Acknowledge order
+     * Acknowledge a Klarna checkout order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -167,7 +167,7 @@ class OrdersApi
     /**
      * Operation acknowledgeOrderWithHttpInfo
      *
-     * Acknowledge order
+     * Acknowledge a Klarna checkout order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -244,7 +244,7 @@ class OrdersApi
     /**
      * Operation acknowledgeOrderAsync
      *
-     * Acknowledge order
+     * Acknowledge a Klarna checkout order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -266,7 +266,7 @@ class OrdersApi
     /**
      * Operation acknowledgeOrderAsyncWithHttpInfo
      *
-     * Acknowledge order
+     * Acknowledge a Klarna checkout order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -408,7 +408,7 @@ class OrdersApi
     /**
      * Operation appendOrderShippingInfo
      *
-     * Add shipping info to an order
+     * Add shipping information
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -427,7 +427,7 @@ class OrdersApi
     /**
      * Operation appendOrderShippingInfoWithHttpInfo
      *
-     * Add shipping info to an order
+     * Add shipping information
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -497,7 +497,7 @@ class OrdersApi
     /**
      * Operation appendOrderShippingInfoAsync
      *
-     * Add shipping info to an order
+     * Add shipping information
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -520,7 +520,7 @@ class OrdersApi
     /**
      * Operation appendOrderShippingInfoAsyncWithHttpInfo
      *
-     * Add shipping info to an order
+     * Add shipping information
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -672,7 +672,7 @@ class OrdersApi
     /**
      * Operation cancelOrder
      *
-     * Cancel order
+     * Cancel an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -690,7 +690,7 @@ class OrdersApi
     /**
      * Operation cancelOrderWithHttpInfo
      *
-     * Cancel order
+     * Cancel an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -759,7 +759,7 @@ class OrdersApi
     /**
      * Operation cancelOrderAsync
      *
-     * Cancel order
+     * Cancel an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -781,7 +781,7 @@ class OrdersApi
     /**
      * Operation cancelOrderAsyncWithHttpInfo
      *
-     * Cancel order
+     * Cancel an order
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -923,7 +923,7 @@ class OrdersApi
     /**
      * Operation extendAuthorizationTime
      *
-     * Extend authorization time
+     * Extend the authorization time
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -941,7 +941,7 @@ class OrdersApi
     /**
      * Operation extendAuthorizationTimeWithHttpInfo
      *
-     * Extend authorization time
+     * Extend the authorization time
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1010,7 +1010,7 @@ class OrdersApi
     /**
      * Operation extendAuthorizationTimeAsync
      *
-     * Extend authorization time
+     * Extend the authorization time
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1032,7 +1032,7 @@ class OrdersApi
     /**
      * Operation extendAuthorizationTimeAsyncWithHttpInfo
      *
-     * Extend authorization time
+     * Extend the authorization time
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1174,7 +1174,7 @@ class OrdersApi
     /**
      * Operation getOrder
      *
-     * Get order
+     * Get order details
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_integrator klarna_integrator (optional)
@@ -1193,7 +1193,7 @@ class OrdersApi
     /**
      * Operation getOrderWithHttpInfo
      *
-     * Get order
+     * Get order details
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_integrator (optional)
@@ -1353,7 +1353,7 @@ class OrdersApi
     /**
      * Operation getOrderAsync
      *
-     * Get order
+     * Get order details
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_integrator (optional)
@@ -1375,7 +1375,7 @@ class OrdersApi
     /**
      * Operation getOrderAsyncWithHttpInfo
      *
-     * Get order
+     * Get order details
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_integrator (optional)
@@ -1530,7 +1530,7 @@ class OrdersApi
     /**
      * Operation releaseRemainingAuthorization
      *
-     * Release remaining authorization
+     * Release an authorization
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1548,7 +1548,7 @@ class OrdersApi
     /**
      * Operation releaseRemainingAuthorizationWithHttpInfo
      *
-     * Release remaining authorization
+     * Release an authorization
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1617,7 +1617,7 @@ class OrdersApi
     /**
      * Operation releaseRemainingAuthorizationAsync
      *
-     * Release remaining authorization
+     * Release an authorization
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1639,7 +1639,7 @@ class OrdersApi
     /**
      * Operation releaseRemainingAuthorizationAsyncWithHttpInfo
      *
-     * Release remaining authorization
+     * Release an authorization
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1781,7 +1781,7 @@ class OrdersApi
     /**
      * Operation updateAuthorization
      *
-     * Set new order amount and order lines
+     * Update the order amount and order lines
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1800,7 +1800,7 @@ class OrdersApi
     /**
      * Operation updateAuthorizationWithHttpInfo
      *
-     * Set new order amount and order lines
+     * Update the order amount and order lines
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1870,7 +1870,7 @@ class OrdersApi
     /**
      * Operation updateAuthorizationAsync
      *
-     * Set new order amount and order lines
+     * Update the order amount and order lines
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)
@@ -1893,7 +1893,7 @@ class OrdersApi
     /**
      * Operation updateAuthorizationAsyncWithHttpInfo
      *
-     * Set new order amount and order lines
+     * Update the order amount and order lines
      *
      * @param  string $order_id Order id (required)
      * @param  string $klarna_idempotency_key This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. (optional)

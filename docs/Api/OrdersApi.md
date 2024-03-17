@@ -4,13 +4,13 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**acknowledgeOrder()**](OrdersApi.md#acknowledgeOrder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge order |
-| [**appendOrderShippingInfo()**](OrdersApi.md#appendOrderShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/shipping-info | Add shipping info to an order |
-| [**cancelOrder()**](OrdersApi.md#cancelOrder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel order |
-| [**extendAuthorizationTime()**](OrdersApi.md#extendAuthorizationTime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend authorization time |
-| [**getOrder()**](OrdersApi.md#getOrder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order |
-| [**releaseRemainingAuthorization()**](OrdersApi.md#releaseRemainingAuthorization) | **POST** /ordermanagement/v1/orders/{order_id}/release-remaining-authorization | Release remaining authorization |
-| [**updateAuthorization()**](OrdersApi.md#updateAuthorization) | **PATCH** /ordermanagement/v1/orders/{order_id}/authorization | Set new order amount and order lines |
+| [**acknowledgeOrder()**](OrdersApi.md#acknowledgeOrder) | **POST** /ordermanagement/v1/orders/{order_id}/acknowledge | Acknowledge a Klarna checkout order |
+| [**appendOrderShippingInfo()**](OrdersApi.md#appendOrderShippingInfo) | **POST** /ordermanagement/v1/orders/{order_id}/shipping-info | Add shipping information |
+| [**cancelOrder()**](OrdersApi.md#cancelOrder) | **POST** /ordermanagement/v1/orders/{order_id}/cancel | Cancel an order |
+| [**extendAuthorizationTime()**](OrdersApi.md#extendAuthorizationTime) | **POST** /ordermanagement/v1/orders/{order_id}/extend-authorization-time | Extend the authorization time |
+| [**getOrder()**](OrdersApi.md#getOrder) | **GET** /ordermanagement/v1/orders/{order_id} | Get order details |
+| [**releaseRemainingAuthorization()**](OrdersApi.md#releaseRemainingAuthorization) | **POST** /ordermanagement/v1/orders/{order_id}/release-remaining-authorization | Release an authorization |
+| [**updateAuthorization()**](OrdersApi.md#updateAuthorization) | **PATCH** /ordermanagement/v1/orders/{order_id}/authorization | Update the order amount and order lines |
 | [**updateConsumerDetails()**](OrdersApi.md#updateConsumerDetails) | **PATCH** /ordermanagement/v1/orders/{order_id}/customer-details | Update customer addresses |
 | [**updateMerchantReferences()**](OrdersApi.md#updateMerchantReferences) | **PATCH** /ordermanagement/v1/orders/{order_id}/merchant-references | Update merchant references |
 
@@ -21,7 +21,7 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 acknowledgeOrder($order_id, $klarna_idempotency_key)
 ```
 
-Acknowledge order
+Acknowledge a Klarna checkout order
 
 Acknowledge order. Read more on [Acknowledging orders](https://docs.klarna.com/order-management/pre-delivery/acknowledge-kco-order/)
 
@@ -84,7 +84,7 @@ void (empty response body)
 appendOrderShippingInfo($order_id, $klarna_idempotency_key, $update_shipping_info)
 ```
 
-Add shipping info to an order
+Add shipping information
 
 Add shipping info to an order. Read more on [Adding shipping info](https://docs.klarna.com/order-management/manage-orders-with-the-api/view-and-change-orders/add-shipping-information/)
 
@@ -149,9 +149,9 @@ void (empty response body)
 cancelOrder($order_id, $klarna_idempotency_key)
 ```
 
-Cancel order
+Cancel an order
 
-Cancel order.Read more on [Cancelling an order](https://docs.klarna.com/order-management/pre-delivery/cancel-order/)
+Cancel order. Read more on [Cancelling an order](https://docs.klarna.com/order-management/pre-delivery/cancel-order/)
 
 ### Example
 
@@ -212,7 +212,7 @@ void (empty response body)
 extendAuthorizationTime($order_id, $klarna_idempotency_key)
 ```
 
-Extend authorization time
+Extend the authorization time
 
 Extend authorization time. Read more on [Extending order authorization time](https://docs.klarna.com/order-management/pre-delivery/extend-order-authorization-time/)
 
@@ -275,7 +275,7 @@ void (empty response body)
 getOrder($order_id, $klarna_integrator): \Klarna\OrderManagement\Model\Order
 ```
 
-Get order
+Get order details
 
 An order that has the given order id. Read more on [Retrieving order details](https://docs.klarna.com/order-management/pre-delivery/order-details/)
 
@@ -339,7 +339,7 @@ try {
 releaseRemainingAuthorization($order_id, $klarna_idempotency_key)
 ```
 
-Release remaining authorization
+Release an authorization
 
 Release remaining authorization. Read more on [Releasing remaining authorization](https://docs.klarna.com/order-management/post-delivery/release-remaining-authorization/)
 
@@ -402,7 +402,7 @@ void (empty response body)
 updateAuthorization($order_id, $klarna_idempotency_key, $update_authorization)
 ```
 
-Set new order amount and order lines
+Update the order amount and order lines
 
 Set new order amount and order lines. Read more on [Updating orders](https://docs.klarna.com/order-management/pre-delivery/update-order-amount/)
 
@@ -469,7 +469,7 @@ updateConsumerDetails($order_id, $klarna_idempotency_key, $update_consumer)
 
 Update customer addresses
 
-Update customer addresses. Read more on [Updating customer addresses](https://docs.klarna.com/order-management/pre-delivery/update-customer-address/)
+Update shipping address. Read more on [Updating customer addresses](https://docs.klarna.com/order-management/pre-delivery/update-customer-address/)
 
 ### Example
 

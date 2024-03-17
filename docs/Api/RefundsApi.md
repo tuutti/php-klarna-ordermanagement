@@ -4,8 +4,8 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**get()**](RefundsApi.md#get) | **GET** /ordermanagement/v1/orders/{order_id}/refunds/{refund_id} | Get refund |
-| [**refundOrder()**](RefundsApi.md#refundOrder) | **POST** /ordermanagement/v1/orders/{order_id}/refunds | Create a refund |
+| [**get()**](RefundsApi.md#get) | **GET** /ordermanagement/v1/orders/{order_id}/refunds/{refund_id} | Get refund details |
+| [**refundOrder()**](RefundsApi.md#refundOrder) | **POST** /ordermanagement/v1/orders/{order_id}/refunds | Refund an order |
 
 
 ## `get()`
@@ -14,7 +14,7 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 get($order_id, $refund_id): \Klarna\OrderManagement\Model\Refund
 ```
 
-Get refund
+Get refund details
 
 Get refund.
 
@@ -78,7 +78,7 @@ try {
 refundOrder($order_id, $klarna_idempotency_key, $refund_object)
 ```
 
-Create a refund
+Refund an order
 
 Create a refund. Read more on [Refunds](https://docs.klarna.com/order-management/post-delivery/refund/)
 
