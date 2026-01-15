@@ -314,7 +314,7 @@ class SelectedShippingOptionDto implements ModelInterface, ArrayAccess, \JsonSer
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('carrier', $data ?? [], null);
         $this->setIfExists('carrier_product', $data ?? [], null);
