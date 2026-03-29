@@ -1,5 +1,7 @@
 # Klarna\OrderManagement\RefundsApi
 
+
+
 All URIs are relative to https://api.klarna.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -66,7 +68,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -75,12 +77,12 @@ try {
 ## `refundOrder()`
 
 ```php
-refundOrder($order_id, $klarna_idempotency_key, $refund_object)
+refundOrder($order_id, $refund_object, $klarna_idempotency_key): string
 ```
 
 Refund an order
 
-Create a refund. Read more on [Refunds](https://docs.klarna.com/order-management/post-delivery/refund/)
+Create a refund. Read more on [Refunds](https://docs.klarna.com/payments/after-payments/order-management/manage-orders-with-the-api/refund-orders-and-manage-authorizations/)
 
 ### Example
 
@@ -102,11 +104,12 @@ $apiInstance = new Klarna\OrderManagement\Api\RefundsApi(
     $config
 );
 $order_id = 'order_id_example'; // string | Order id
-$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 $refund_object = new \Klarna\OrderManagement\Model\RefundObject(); // \Klarna\OrderManagement\Model\RefundObject
+$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 
 try {
-    $apiInstance->refundOrder($order_id, $klarna_idempotency_key, $refund_object);
+    $result = $apiInstance->refundOrder($order_id, $refund_object, $klarna_idempotency_key);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RefundsApi->refundOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -117,12 +120,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
+| **refund_object** | [**\Klarna\OrderManagement\Model\RefundObject**](../Model/RefundObject.md)|  | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **refund_object** | [**\Klarna\OrderManagement\Model\RefundObject**](../Model/RefundObject.md)|  | [optional] |
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -131,7 +134,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

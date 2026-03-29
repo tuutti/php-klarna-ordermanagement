@@ -18,12 +18,12 @@ docs/Model/ExtendDueDateOptions.md
 docs/Model/ExtendDueDateRequest.md
 docs/Model/InitialPaymentMethodDto.md
 docs/Model/Location.md
+docs/Model/MerchantOrderDto.md
 docs/Model/NoSuchCaptureErrorMessage.md
 docs/Model/NoSuchOrderErrorMessage.md
 docs/Model/NotAllowedErrorMessage.md
 docs/Model/NotFoundErrorMessage.md
 docs/Model/OptionDto.md
-docs/Model/Order.md
 docs/Model/OrderLine.md
 docs/Model/ProductIdentifiers.md
 docs/Model/Refund.md
@@ -44,6 +44,7 @@ src/Api/OrdersApi.php
 src/Api/RefundsApi.php
 src/ApiException.php
 src/Configuration.php
+src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/Addon.php
 src/Model/Address.php
@@ -58,13 +59,13 @@ src/Model/ExtendDueDateOptions.php
 src/Model/ExtendDueDateRequest.php
 src/Model/InitialPaymentMethodDto.php
 src/Model/Location.php
+src/Model/MerchantOrderDto.php
 src/Model/ModelInterface.php
 src/Model/NoSuchCaptureErrorMessage.php
 src/Model/NoSuchOrderErrorMessage.php
 src/Model/NotAllowedErrorMessage.php
 src/Model/NotFoundErrorMessage.php
 src/Model/OptionDto.php
-src/Model/Order.php
 src/Model/OrderLine.php
 src/Model/ProductIdentifiers.php
 src/Model/Refund.php
