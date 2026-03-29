@@ -1,5 +1,7 @@
 # Klarna\OrderManagement\CapturesApi
 
+
+
 All URIs are relative to https://api.klarna.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -16,7 +18,7 @@ All URIs are relative to https://api.klarna.com, except if the operation defines
 ## `appendShippingInfo()`
 
 ```php
-appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $update_shipping_info)
+appendShippingInfo($order_id, $capture_id, $update_shipping_info, $klarna_idempotency_key)
 ```
 
 Add shipping information
@@ -42,13 +44,13 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
-$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
+$capture_id = 'capture_id_example'; // string | Capture id
 $update_shipping_info = new \Klarna\OrderManagement\Model\UpdateShippingInfo(); // \Klarna\OrderManagement\Model\UpdateShippingInfo
+$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 
 try {
-    $apiInstance->appendShippingInfo($capture_id, $order_id, $klarna_idempotency_key, $update_shipping_info);
+    $apiInstance->appendShippingInfo($order_id, $capture_id, $update_shipping_info, $klarna_idempotency_key);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->appendShippingInfo: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,10 +60,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
+| **capture_id** | **string**| Capture id | |
+| **update_shipping_info** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **update_shipping_info** | [**\Klarna\OrderManagement\Model\UpdateShippingInfo**](../Model/UpdateShippingInfo.md)|  | [optional] |
 
 ### Return type
 
@@ -110,7 +112,7 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     $config
 );
 $order_id = 'order_id_example'; // string | Order id
-$capture_object = new \Klarna\OrderManagement\Model\CaptureObject(); // \Klarna\OrderManagement\Model\CaptureObject | Capture request data
+$capture_object = new \Klarna\OrderManagement\Model\CaptureObject(); // \Klarna\OrderManagement\Model\CaptureObject
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 
 try {
@@ -125,7 +127,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| Order id | |
-| **capture_object** | [**\Klarna\OrderManagement\Model\CaptureObject**](../Model/CaptureObject.md)| Capture request data | |
+| **capture_object** | [**\Klarna\OrderManagement\Model\CaptureObject**](../Model/CaptureObject.md)|  | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
@@ -148,12 +150,12 @@ void (empty response body)
 ## `extendDueDate()`
 
 ```php
-extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $extend_due_date_request)
+extendDueDate($order_id, $capture_id, $extend_due_date_request, $klarna_idempotency_key)
 ```
 
 Extend payment due date
 
-Extend the customer's payment due date. Read more on [Extending customer due dates](https://docs.klarna.com/order-management/post-delivery/extend-customer-due-date/)
+Extend the customer's payment due date. Read more on [Extending customer due dates](https://docs.klarna.com/payments/after-payments/order-management/manage-orders-with-the-api/refund-orders-and-manage-authorizations/#extend-payment-date)
 
 ### Example
 
@@ -174,13 +176,13 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
-$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
+$capture_id = 'capture_id_example'; // string | Capture id
 $extend_due_date_request = new \Klarna\OrderManagement\Model\ExtendDueDateRequest(); // \Klarna\OrderManagement\Model\ExtendDueDateRequest
+$klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 
 try {
-    $apiInstance->extendDueDate($capture_id, $order_id, $klarna_idempotency_key, $extend_due_date_request);
+    $apiInstance->extendDueDate($order_id, $capture_id, $extend_due_date_request, $klarna_idempotency_key);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->extendDueDate: ', $e->getMessage(), PHP_EOL;
 }
@@ -190,10 +192,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
+| **capture_id** | **string**| Capture id | |
+| **extend_due_date_request** | [**\Klarna\OrderManagement\Model\ExtendDueDateRequest**](../Model/ExtendDueDateRequest.md)|  | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
-| **extend_due_date_request** | [**\Klarna\OrderManagement\Model\ExtendDueDateRequest**](../Model/ExtendDueDateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -215,7 +217,7 @@ void (empty response body)
 ## `getCapture()`
 
 ```php
-getCapture($capture_id, $order_id): \Klarna\OrderManagement\Model\Capture
+getCapture($order_id, $capture_id): \Klarna\OrderManagement\Model\Capture
 ```
 
 Get capture details
@@ -241,11 +243,11 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
+$capture_id = 'capture_id_example'; // string | Capture id
 
 try {
-    $result = $apiInstance->getCapture($capture_id, $order_id);
+    $result = $apiInstance->getCapture($order_id, $capture_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->getCapture: ', $e->getMessage(), PHP_EOL;
@@ -256,8 +258,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
+| **capture_id** | **string**| Capture id | |
 
 ### Return type
 
@@ -341,7 +343,7 @@ try {
 ## `getOptionsForExtendDueDate()`
 
 ```php
-getOptionsForExtendDueDate($capture_id, $order_id): \Klarna\OrderManagement\Model\ExtendDueDateOptions
+getOptionsForExtendDueDate($order_id, $capture_id): \Klarna\OrderManagement\Model\ExtendDueDateOptions
 ```
 
 List options for extension of payment due date
@@ -367,11 +369,11 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
+$capture_id = 'capture_id_example'; // string | Capture id
 
 try {
-    $result = $apiInstance->getOptionsForExtendDueDate($capture_id, $order_id);
+    $result = $apiInstance->getOptionsForExtendDueDate($order_id, $capture_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->getOptionsForExtendDueDate: ', $e->getMessage(), PHP_EOL;
@@ -382,8 +384,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
+| **capture_id** | **string**| Capture id | |
 
 ### Return type
 
@@ -405,7 +407,7 @@ try {
 ## `triggerSendOut()`
 
 ```php
-triggerSendOut($capture_id, $order_id, $klarna_idempotency_key)
+triggerSendOut($order_id, $capture_id, $klarna_idempotency_key)
 ```
 
 Send customer communication
@@ -431,12 +433,12 @@ $apiInstance = new Klarna\OrderManagement\Api\CapturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$capture_id = 'capture_id_example'; // string | Capture id
 $order_id = 'order_id_example'; // string | Order id
+$capture_id = 'capture_id_example'; // string | Capture id
 $klarna_idempotency_key = 'klarna_idempotency_key_example'; // string | This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters.
 
 try {
-    $apiInstance->triggerSendOut($capture_id, $order_id, $klarna_idempotency_key);
+    $apiInstance->triggerSendOut($order_id, $capture_id, $klarna_idempotency_key);
 } catch (Exception $e) {
     echo 'Exception when calling CapturesApi->triggerSendOut: ', $e->getMessage(), PHP_EOL;
 }
@@ -446,8 +448,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **capture_id** | **string**| Capture id | |
 | **order_id** | **string**| Order id | |
+| **capture_id** | **string**| Capture id | |
 | **klarna_idempotency_key** | **string**| This header will guarantee the idempotency of the operation. The key should be unique and is recommended to be a UUID version 4. Retries of requests are safe to be applied in case of errors such as network errors, socket errors and timeouts. Input values of the operation are disregarded when evaluating the idempotency of the operation, only the key matters. | [optional] |
 
 ### Return type
